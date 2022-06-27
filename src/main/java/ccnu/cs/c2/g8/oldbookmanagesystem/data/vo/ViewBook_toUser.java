@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "ViewBook_toUser")
+@Table(name = "BOOK")
 public class ViewBook_toUser {
     @Id
     @Column(name = "Bno")

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table (name = "VIewUser_toUser")
+@Table (name = "USER")
 public class VIewUser_toUser {
     @Id
     @Column(name = "Uno")
