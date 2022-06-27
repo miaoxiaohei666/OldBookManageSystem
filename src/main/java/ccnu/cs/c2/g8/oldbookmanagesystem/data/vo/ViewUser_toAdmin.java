@@ -70,6 +70,22 @@ public class ViewUser_toAdmin {
         setUnlike(user.getUnlike());
     }
 
+    public List<Book> getPulishList() {
+        return pulishList;
+    }
+
+    public void setPulishList(List<Book> pulishList) {
+        this.pulishList = pulishList;
+    }
+
+    public List<Book> getWantList() {
+        return wantList;
+    }
+
+    public void setWantList(List<Book> wantList) {
+        this.wantList = wantList;
+    }
+
     public Integer getUno() {
         return uno;
     }

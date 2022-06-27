@@ -39,7 +39,7 @@ public class ViewBook_toAdmin {
 
     @OneToMany(targetEntity = Publish.class)
     @JoinColumn(name = "Bno")
-    private List<User> userList;
+    private List<User> publishList;
 
     @ManyToOne(targetEntity = Sort.class)
     @JoinColumn(name = "Sno")
@@ -61,6 +61,30 @@ public class ViewBook_toAdmin {
         setBprice(book.getBprice());
         setBdescibe(book.getBdescibe());
         setBstate(book.isBstate());
+    }
+
+    public List<User> getPublishList() {
+        return publishList;
+    }
+
+    public void setPublishList(List<User> userList) {
+        this.publishList = userList;
+    }
+
+    public Sort getSort() {
+        return sort;
+    }
+
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    public List<User> getWantList() {
+        return wantList;
+    }
+
+    public void setWantList(List<User> wantList) {
+        this.wantList = wantList;
     }
 
     public String getBno() {

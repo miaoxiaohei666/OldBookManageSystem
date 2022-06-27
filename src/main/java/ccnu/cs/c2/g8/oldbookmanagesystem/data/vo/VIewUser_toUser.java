@@ -44,7 +44,7 @@ public class VIewUser_toUser {
 
     @OneToMany(targetEntity = Publish.class)
     @JoinColumn(name = "Uno")
-    private List<Book> bookList;
+    private List<Book> publishList;
 
     @OneToMany(targetEntity = Want.class)
     @JoinColumn(name = "Uno")
@@ -64,6 +64,26 @@ public class VIewUser_toUser {
         setUpassword(user.getUpassword());
         setLike(user.getLike());
         setUnlike(user.getUnlike());
+    }
+
+    public void setUno(int uno) {
+        this.uno = uno;
+    }
+
+    public List<Book> getPublishList() {
+        return publishList;
+    }
+
+    public void setPublishList(List<Book> bookList) {
+        this.publishList = bookList;
+    }
+
+    public List<Book> getWantList() {
+        return wantList;
+    }
+
+    public void setWantList(List<Book> wantList) {
+        this.wantList = wantList;
     }
 
     public Integer getUno() {
