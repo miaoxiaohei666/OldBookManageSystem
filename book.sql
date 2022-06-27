@@ -8,7 +8,7 @@ create table BOOK
 	 Bpicture varchar(255) not null,
 	 Bprice int not null,
 	 Bdescribe varchar(255) not null,
-	 Bstate bit default null,
+	 Bstate bit default null
 	 );
 	 
  alter table book
