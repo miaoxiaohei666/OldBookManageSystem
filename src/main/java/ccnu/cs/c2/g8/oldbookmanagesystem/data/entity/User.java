@@ -35,7 +35,7 @@ public class User {
     @Column(name = "Ustate")
     private boolean ustate;
 
-    @Column(name = "Like")
+    @Column(name = "Ulike")
     private Integer like;
 
     @Column(name = "Unlike")

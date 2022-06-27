@@ -1,12 +1,18 @@
-package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
+package ccnu.cs.c2.g8.oldbookmanagesystem.data.vo;
+
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "BOOK")
-public class Book {
+@Table(name = "ViewBook_toAdmin")
+public class ViewBook_toAdmin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Bno")
     private String bno;
 
@@ -31,7 +37,30 @@ public class Book {
     @Column(name = "Bstate")
     private boolean bstate;
 
-    public Book() {
+    @OneToMany(targetEntity = Publish.class)
+    @JoinColumn(name = "Bno")
+    private List<User> userList;
+
+    @ManyToOne(targetEntity = Sort.class)
+    @JoinColumn(name = "Sno")
+    private Sort sort;
+
+    @OneToMany(targetEntity = Want.class)
+    @JoinColumn(name = "Bno")
+    private List<User> wantList;
+
+
+    public ViewBook_toAdmin() {
+    }
+    public ViewBook_toAdmin(Book book) {
+        setBno(book.getBno());
+        setSno(book.getSno());
+        setBname(book.getBname());
+        setCreate_time(book.getCreate_time());
+        setBpicture(book.getBpicture());
+        setBprice(book.getBprice());
+        setBdescibe(book.getBdescibe());
+        setBstate(book.isBstate());
     }
 
     public String getBno() {

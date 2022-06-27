@@ -1,11 +1,12 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.vo;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ViewUser_toAdmin")
@@ -38,11 +39,19 @@ public class ViewUser_toAdmin {
     @Column(name = "Ustate")
     private boolean ustate;
 
-    @Column(name = "Like")
+    @Column(name = "Ulike")
     private Integer like;
 
     @Column(name = "Unlike")
     private Integer unlike;
+
+    @OneToMany(targetEntity = Publish.class)
+    @JoinColumn(name = "Uno")
+    private List<Book> pulishList;
+
+    @OneToMany(targetEntity = Want.class)
+    @JoinColumn(name = "Uno")
+    private List<Book> wantList;
 
     public ViewUser_toAdmin() {
     }

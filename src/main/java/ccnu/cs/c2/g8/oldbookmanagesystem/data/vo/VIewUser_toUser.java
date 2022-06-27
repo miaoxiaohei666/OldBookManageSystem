@@ -1,18 +1,19 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.vo;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name = "VIewUser_toUser")
 public class VIewUser_toUser {
     @Id
     @Column(name = "Uno")
-    private Integer uno;
+    private int uno;
 
     @Column(name = "Ugrade")
     private Integer ugrade;
@@ -35,11 +36,19 @@ public class VIewUser_toUser {
     @Column(name = "Upassword")
     private String upassword;
 
-    @Column(name = "Like")
+    @Column(name = "Ulike")
     private Integer like;
 
     @Column(name = "Unlike")
     private Integer unlike;
+
+    @OneToMany(targetEntity = Publish.class)
+    @JoinColumn(name = "Uno")
+    private List<Book> bookList;
+
+    @OneToMany(targetEntity = Want.class)
+    @JoinColumn(name = "Uno")
+    private List<Book> wantList;
 
     public VIewUser_toUser() {
     }
