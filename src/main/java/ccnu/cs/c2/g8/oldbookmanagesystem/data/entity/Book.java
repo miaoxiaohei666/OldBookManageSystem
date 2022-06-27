@@ -1,4 +1,4 @@
-package ccnu.cs.c2.g8.oldbookmanagesystem.entity;
+package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 
 import javax.persistence.*;
 
@@ -29,6 +29,9 @@ public class Book {
 
     @Column(name = "Bstate")
     private boolean bstate;
+
+    public Book() {
+    }
 
     public String getBno() {
         return bno;

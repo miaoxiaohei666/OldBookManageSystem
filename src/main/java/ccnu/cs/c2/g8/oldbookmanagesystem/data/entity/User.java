@@ -1,4 +1,4 @@
-package ccnu.cs.c2.g8.oldbookmanagesystem.entity;
+package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 
 import javax.persistence.*;
 
@@ -40,6 +40,9 @@ public class User {
 
     @Column(name = "Unlike")
     private Integer unlike;
+
+    public User() {
+    }
 
     public Integer getUno() {
         return uno;
