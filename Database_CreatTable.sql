@@ -1,7 +1,15 @@
 -- ----------------------------
+-- drop table
+-- ----------------------------
+drop table if exists WANT;
+drop table if exists PUBLISH;
+drop table if exists BOOK;
+drop table if exists SORT;
+drop table if exists USER;
+
+-- ----------------------------
 -- USER
 -- ----------------------------
-drop table if exists USER;
 create table USER
 (Uno numeric(10,0) not null primary key,
  Ugrade numeric(4,0) not null,
@@ -16,13 +24,11 @@ create table USER
  Unlike int default null
 );
 
-
 INSERT INTO USER VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
 
 -- ----------------------------
 -- SORT
 -- ----------------------------
-drop table if exists SORT;
 create table SORT
 (Sno numeric(10,0) not null primary key,
  Sname varchar(255) not null
@@ -31,7 +37,6 @@ create table SORT
 -- ----------------------------
 -- BOOK
 -- ----------------------------
-drop table if exists BOOK;
 create table BOOK
 (Bno varchar(255) not null primary key,
  Sno numeric(3,0) not null,
@@ -47,7 +52,6 @@ create table BOOK
 -- ----------------------------
 -- PUBLISH
 -- ----------------------------
-drop table if exists PUBLISH;
 create table PUBLISH
 (Uno numeric(10,0) not null,
  Bno varchar(255) not null,
@@ -58,7 +62,6 @@ create table PUBLISH
 -- ----------------------------
 -- WANT
 -- ----------------------------
-drop table if exists WANT;
 create table WANT
 (Bno varchar(255) not null,
  Uno numeric(10,0) not null,
