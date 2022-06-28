@@ -1,4 +1,4 @@
-package ccnu.cs.c2.g8.oldbookmanagesystem.biz;
+package ccnu.cs.c2.g8.oldbookmanagesystem.service;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-public class BookBiz {
+public class BookService {
     @Autowired
     private BookDao bookDao;
 
