@@ -38,7 +38,7 @@ create table SORT
 -- BOOK
 -- ----------------------------
 create table BOOK
-(Bno varchar(255) not null primary key,
+(Bno numeric(6,0) not null primary key,
  Sno numeric(3,0) not null,
  Bname varchar(255) not null,
  Create_time varchar(255) not null,
@@ -54,7 +54,7 @@ create table BOOK
 -- ----------------------------
 create table PUBLISH
 (Uno numeric(10,0) not null,
- Bno varchar(255) not null,
+ Bno numeric(6,0) not null,
  foreign key (Uno) references USER(Uno),
  foreign key (Bno) references BOOK(Bno)
 );
@@ -63,7 +63,7 @@ create table PUBLISH
 -- WANT
 -- ----------------------------
 create table WANT
-(Bno varchar(255) not null,
+(Bno numeric(6,0) not null,
  Uno numeric(10,0) not null,
  foreign key (Bno) references BOOK(Bno),
  foreign key (Uno) references USER(Uno)

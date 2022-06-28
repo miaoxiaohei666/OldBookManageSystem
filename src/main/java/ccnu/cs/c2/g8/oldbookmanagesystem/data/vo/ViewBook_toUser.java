@@ -14,7 +14,7 @@ import java.util.List;
 public class ViewBook_toUser {
     @Id
     @Column(name = "Bno")
-    private String bno;
+    private Integer bno;
 
     @Column(name = "Sno")
     private Integer sno;
@@ -88,11 +88,11 @@ public class ViewBook_toUser {
         this.wantList = wantList;
     }
 
-    public String getBno() {
+    public Integer getBno() {
         return bno;
     }
 
-    public void setBno(String bno) {
+    public void setBno(Integer bno) {
         this.bno = bno;
     }
 

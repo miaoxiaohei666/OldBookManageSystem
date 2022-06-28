@@ -8,7 +8,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Bno")
-    private String bno;
+    private Integer bno;
 
     @Column(name = "Sno")
     private Integer sno;
@@ -34,11 +34,11 @@ public class Book {
     public Book() {
     }
 
-    public String getBno() {
+    public Integer getBno() {
         return bno;
     }
 
-    public void setBno(String bno) {
+    public void setBno(Integer bno) {
         this.bno = bno;
     }
 
