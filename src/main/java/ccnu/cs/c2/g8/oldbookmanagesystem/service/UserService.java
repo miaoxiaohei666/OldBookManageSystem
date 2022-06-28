@@ -55,4 +55,17 @@ public class UserService {
         }
         return null;
     }
+
+    public boolean updateUstate(Integer uno){
+        boolean flag = false;
+        try{
+            User user = userDao.getUserByUno(uno);
+            user.setUstate(!user.isUstate());
+            flag = true;
+        }catch (Exception e){
+            System.out.println("updateUstate wrong!");
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }
