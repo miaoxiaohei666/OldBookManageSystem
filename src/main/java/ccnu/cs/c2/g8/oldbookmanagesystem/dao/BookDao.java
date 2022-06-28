@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface BookDao extends JpaRepository<Book,Integer>{
 
+    Book getBookByBno(Integer Bno);
+
 }

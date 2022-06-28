@@ -12,61 +12,38 @@ public class BookService {
     @Autowired
     private BookDao bookDao;
 
-    public boolean addbook(Book book){
+    public boolean addBook(Book book){
         boolean flag = false;
         try{
             bookDao.save(book);
             flag=true;
         }catch(Exception e){
-            System.out.println("新增失败!");
+            System.out.println("addBook wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
-    public boolean deletebook(String Bno){
+    public boolean deleteBook(Integer bno){
         boolean flag = false;
         try{
-            bookDao.deleteById(Integer.valueOf(Bno));
+            bookDao.deleteById(bno);
             flag=true;
         }catch(Exception e){
-            System.out.println("删除失败!");
+            System.out.println("deleteBook wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
-    public boolean updateBprice(String bno, Double price){
+    public boolean updateBstate(Integer bno){
         boolean flag = false;
         try{
-            bookDao.updateBookBpriceByUno(bno, price);
+            Book book = bookDao.getBookByBno(bno);
+            book.setBstate(!book.isBstate());
             flag=true;
         }catch(Exception e){
-            System.out.println("修改失败!");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean updateBdescribe(String bno, String describe){
-        boolean flag = false;
-        try{
-            bookDao.updateBookBdescribeByUno(bno, describe);
-            flag=true;
-        }catch(Exception e){
-            System.out.println("修改失败!");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean updateBstate(String bno, boolean state){
-        boolean flag = false;
-        try{
-            bookDao.updateBookBstateByUno(bno, state);
-            flag=true;
-        }catch(Exception e){
-            System.out.println("修改失败!");
+            System.out.println("updateBstate wrong!");
             e.printStackTrace();
         }
         return flag;

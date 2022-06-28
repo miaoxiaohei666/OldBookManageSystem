@@ -18,93 +18,41 @@ public class UserService {
             userDao.save(user);
             flag = true;
         } catch (Exception e) {
-            System.out.println("新增失败!");
+            System.out.println("addUser wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
     public User userLogin(Integer uno, String password) {
-        boolean flag = false;
         try {
             return userDao.getByUnoAndUpassword(uno, password);
+        } catch (Exception e) {
+            System.out.println("userLogin wrong!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean isUser(Integer uno) {
+        boolean flag = false;
+        try {
+            userDao.getUserByUno(uno);
             flag = true;
         } catch (Exception e) {
-            System.out.println("新增失败!");
+            System.out.println("isUser wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
-    public boolean deleteUser(Integer uno) {
-        boolean flag = false;
+    public User findUserByUno(Integer uno) {
         try {
-            userDao.deleteById(uno);
-            flag = true;
+            return userDao.getUserByUno(uno);
         } catch (Exception e) {
-            System.out.println("删除失败!");
+            System.out.println("findUserByUno wrong!");
             e.printStackTrace();
         }
-        return flag;
-    }
-
-    public boolean findall(Integer uno) {
-        boolean flag = false;
-        try {
-            userDao.findUserByUno(uno);
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("查找失败");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean findPublish(Integer uno) {
-        boolean flag = false;
-        try {
-            userDao.findPublishByUno(uno);
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("查找失败");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean findWant(Integer uno) {
-        boolean flag = false;
-        try {
-            userDao.findWantByUno(uno);
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("查找失败");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean updateUnickname(Integer uno, String unickname) {
-        boolean flag = false;
-        try {
-            userDao.updateUserUnicknameByUno(uno, unickname);
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("修改失败");
-            e.printStackTrace();
-        }
-        return flag;
-    }
-
-    public boolean updateUpassword(Integer uno, String password) {
-        boolean flag = false;
-        try {
-            userDao.updateUserUpasswordByUno(uno, password);
-            flag = true;
-        } catch (Exception e) {
-            System.out.println("修改失败");
-            e.printStackTrace();
-        }
-        return flag;
+        return null;
     }
 }
