@@ -10,16 +10,16 @@ import javax.persistence.Table;
 public class Sort {
     @Id
     @Column(name = "Sno")
-    private String sno;
+    private Integer sno;
 
     @Column(name = "Sname")
     private String sname;
 
-    public String getSno() {
+    public Integer getSno() {
         return sno;
     }
 
-    public void setSno(String sno) {
+    public void setSno(Integer sno) {
         this.sno = sno;
     }
 

@@ -10,25 +10,25 @@ import javax.persistence.Table;
 public class Want {
     @Id
     @Column(name = "Bno")
-    private String bno;
+    private Integer bno;
 
     @Id
     @Column(name = "Uno")
-    private String uno;
+    private Integer uno;
 
-    public String getBno() {
+    public Integer getBno() {
         return bno;
     }
 
-    public void setBno(String bno) {
+    public void setBno(Integer bno) {
         this.bno = bno;
     }
 
-    public String getUno() {
+    public Integer getUno() {
         return uno;
     }
 
-    public void setUno(String uno) {
+    public void setUno(Integer uno) {
         this.uno = uno;
     }
 }

@@ -10,25 +10,25 @@ import javax.persistence.Table;
 public class Publish {
     @Id
     @Column(name = "Uno")
-    private String uno;
+    private Integer uno;
 
     @Id
     @Column(name = "Bno")
-    private String bno;
+    private Integer bno;
 
-    public String getUno() {
+    public Integer getUno() {
         return uno;
     }
 
-    public void setUno(String uno) {
+    public void setUno(Integer uno) {
         this.uno = uno;
     }
 
-    public String getBno() {
+    public Integer getBno() {
         return bno;
     }
 
-    public void setBno(String bno) {
+    public void setBno(Integer bno) {
         this.bno = bno;
     }
 }

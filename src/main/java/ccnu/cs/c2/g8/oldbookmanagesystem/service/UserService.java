@@ -1,16 +1,25 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.service;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
+import ccnu.cs.c2.g8.oldbookmanagesystem.dao.PublishDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.UserDao;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 public class UserService {
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private PublishDao publishDao;
+    @Autowired
+    private BookDao bookDao;
 
     public boolean addUser(User user) {
         boolean flag = false;
@@ -67,5 +76,20 @@ public class UserService {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    public List<Book> getPublish(User user){
+        List<Integer> bnoList = null;
+        List<Book> bookList = null;
+        try {
+            bnoList = publishDao.getAllByUno(user.getUno());
+            while (!bnoList.isEmpty()){
+                bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
+            }
+        }catch (Exception e){
+            System.out.println("getPublish wrong!");
+            e.printStackTrace();
+        }
+        return bookList;
     }
 }
