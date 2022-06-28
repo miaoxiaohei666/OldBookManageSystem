@@ -15,7 +15,7 @@ public class UserBiz {
     public boolean addUser(User user) {
         boolean flag=false;
         try{
-            userDao.save(user);
+            UserDao.save(user);
             flag=true;
         }catch(Exception e){
             System.out.println("新增失败!");
@@ -96,7 +96,7 @@ public class UserBiz {
         return flag;
     }
 
-    public user userLogin(Integer uno, String password){
-        return userDao.findByUnoAndPassword(uno,password);
+    public User userLogin(Integer uno, String password){
+        return UserDao.findByUnoAndPassword(uno,password);
     }
 }
