@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -35,10 +36,10 @@ public class UserService {
     }
 
     public boolean userLogin(Integer uno, String password) {
-        boolean flag=false;
+        boolean flag = false;
         try {
             userDao.getByUnoAndUpassword(uno, password);
-            flag=true;
+            flag = true;
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();
@@ -49,13 +50,13 @@ public class UserService {
     public boolean isUser(Integer uno) {
         boolean flag = false;
         try {
-            userDao.getUserByUno(uno);
-            flag = true;
+            flag = userDao.findByUno(uno);
+            return flag;
         } catch (Exception e) {
             System.out.println("isUser wrong!");
             e.printStackTrace();
         }
-        return flag;
+        return false;
     }
 
     public User getUserByUno(Integer uno) {
@@ -68,46 +69,46 @@ public class UserService {
         return null;
     }
 
-    public boolean updateUstate(Integer uno){
+    public boolean updateUstate(Integer uno) {
         boolean flag = false;
-        try{
+        try {
             User user = userDao.getUserByUno(uno);
             user.setUstate(!user.isUstate());
             flag = true;
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("updateUstate wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
-    public List<Book> getPublish(User user){
+    public List<Book> getPublish(User user) {
         List<Integer> bnoList = null;
         List<Book> bookList = null;
         try {
             bnoList = publishDao.getAllByUno(user.getUno());
-            while (!bnoList.iterator().hasNext()){
+            while (!bnoList.iterator().hasNext()) {
                 bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("getPublish wrong!");
             e.printStackTrace();
         }
         return bookList;
     }
 
-    public List<Book> getWant(User user){
-        List<Integer> bnoList=null;
-        List<Book> bookList=null;
+    public List<Book> getWant(User user) {
+        List<Integer> bnoList = null;
+        List<Book> bookList = null;
         try {
             bnoList = wantDao.getAllByUno(user.getUno());
             while (!bnoList.iterator().hasNext()) {
                 bookList.add(bookDao.getBookByBno((bnoList.iterator().next())));
             }
-        }catch (Exception e){
-                System.out.println("getPublish wrong!");
-                e.printStackTrace();
-            }
-        return bookList;
+        } catch (Exception e) {
+            System.out.println("getPublish wrong!");
+            e.printStackTrace();
         }
+        return bookList;
+    }
 }
