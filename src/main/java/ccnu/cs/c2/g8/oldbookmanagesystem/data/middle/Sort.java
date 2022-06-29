@@ -1,18 +1,27 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.mapping.PrimaryKey;
 
+import javax.persistence.*;
+@Data
 @Entity
 @Table (name = "SORT")
+@IdClass(PrimaryKey.class)
+@DynamicUpdate
 public class Sort {
+    /**
+     * &#064;description  主键
+     */
     @Id
-    @Column(name = "Sno")
+    @Column(name = "Sno",nullable = false)
     private Integer sno;
 
-    @Column(name = "Sname")
+    /**
+     * &#064;description  主键
+     */
+    @Column(name = "Sname",nullable = false)
     private String sname;
 
     public Integer getSno() {
