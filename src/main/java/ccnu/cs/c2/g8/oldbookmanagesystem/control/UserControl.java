@@ -5,6 +5,7 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,9 +13,9 @@ public class UserControl {
     @Autowired
     UserService userService;
     @RequestMapping(value = "/account/login",method = RequestMethod.GET)
-    public String userLogin(User user) {
+    public String userLogin(@RequestParam(name = "sno") Integer sno,@RequestParam(name = "upassword") String upassword) {
         System.out.println("userLogin");
-        boolean result = userService.userLogin(user.getUno(), user.getUpassword());
+        boolean result = userService.userLogin(sno, upassword);
         if (result){
             return "redirect:/index";
         }
