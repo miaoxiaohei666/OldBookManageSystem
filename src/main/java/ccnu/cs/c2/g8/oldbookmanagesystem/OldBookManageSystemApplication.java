@@ -12,7 +12,7 @@ public class OldBookManageSystemApplication {
     public static void main(String[] args) {
         //SpringApplication.run(OldBookManageSystemApplication.class, args);
         UserService userService = new UserService();
-        if (userService.isUser(`2020213673`)){
+        if (userService.isUser(2020213673)){
             System.out.println("ok!");
         }
         else System.out.println("no");
