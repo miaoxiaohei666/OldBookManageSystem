@@ -1,19 +1,28 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.mapping.PrimaryKey;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PUBLISH")
+@IdClass(PrimaryKey.class)
+@DynamicUpdate
 public class Publish {
+    /**
+     * &#064;description  主键
+     */
     @Id
-    @Column(name = "Uno")
+    @Column(name = "Uno",nullable = false)
     private Integer uno;
-
+    /**
+     * &#064;description  主键
+     */
     @Id
-    @Column(name = "Bno")
+    @Column(name = "Bno",nullable = false)
     private Integer bno;
 
     public Integer getUno() {

@@ -3,16 +3,17 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.service;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.PublishDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.UserDao;
+import ccnu.cs.c2.g8.oldbookmanagesystem.dao.WantDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-@RestController
-@RequestMapping("/user")
+@Service
 public class UserService {
     @Autowired
     private UserDao userDao;
@@ -20,6 +21,8 @@ public class UserService {
     private PublishDao publishDao;
     @Autowired
     private BookDao bookDao;
+    @Autowired(required = false)
+    private WantDao wantDao;
 
     public boolean addUser(User user) {
         boolean flag = false;
@@ -83,7 +86,7 @@ public class UserService {
         List<Book> bookList = null;
         try {
             bnoList = publishDao.getAllByUno(user.getUno());
-            while (!bnoList.isEmpty()){
+            while (!bnoList.iterator().hasNext()){
                 bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
             }
         }catch (Exception e){
@@ -92,4 +95,19 @@ public class UserService {
         }
         return bookList;
     }
+
+    public List<Book> getWant(User user){
+        List<Integer> bnoList=null;
+        List<Book> bookList=null;
+        try {
+            bnoList = wantDao.getAllByUno(user.getUno());
+            while (!bnoList.iterator().hasNext()) {
+                bookList.add(bookDao.getBookByBno((bnoList.iterator().next())));
+            }
+        }catch (Exception e){
+                System.out.println("getPublish wrong!");
+                e.printStackTrace();
+            }
+        return bookList;
+        }
 }
