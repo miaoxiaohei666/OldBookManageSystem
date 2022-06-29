@@ -14,43 +14,47 @@ public class SortService {
     @Autowired
     private BookDao bookDao;
 
-    public boolean getAllSort(){
-        boolean flag=false;
-        try{
-            sortDao.getAll();
-            flag=true;
-        }catch (Exception e){
+    public List<Sort> getAllSort() {
+        try {
+            return sortDao.getAll();
+        } catch (Exception e) {
             System.out.println("getAllSort wrong!");
             e.printStackTrace();
         }
-        return flag;
+        return null;
     }
 
-    public List<Book> getAllBook(Integer sno){
+    public List<Book> getAllBookBysno(Integer sno) {
+        try {
             return bookDao.getBookBySno(sno);
+        }catch (Exception e){
+            System.out.println("getAllBookBysno wrong!");
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public boolean addSort(Sort sort){
-        boolean flag=false;
-        try{
+    public boolean addSort(Sort sort) {
+        boolean flag = false;
+        try {
             sortDao.save(sort);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             System.out.println("addSort wrong!");
             e.printStackTrace();
         }
         return flag;
     }
 
-    public boolean deleteSortbySname(String sname){
-        boolean flag=false;
-        try{
-            Sort sort=new Sort();
+    public boolean deleteSortbySname(String sname) {
+        boolean flag = false;
+        try {
+            Sort sort = new Sort();
             sort.setSname(sname);
             sort.setSno(sortDao.getSortBySname(sname));
             sortDao.delete(sort);
-            flag=true;
-        }catch (Exception e){
+            flag = true;
+        } catch (Exception e) {
             System.out.println("deleteSort wrong!");
             e.printStackTrace();
         }
