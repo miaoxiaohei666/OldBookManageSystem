@@ -1,4 +1,4 @@
-package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.PrimaryKey;
+package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.primarykey;
 
 import java.io.Serializable;
 

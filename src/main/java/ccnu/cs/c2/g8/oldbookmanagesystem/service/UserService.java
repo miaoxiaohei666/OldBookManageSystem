@@ -19,7 +19,7 @@ public class UserService {
     private PublishDao publishDao;
     @Autowired
     private BookDao bookDao;
-    @Autowired(required = false)
+    @Autowired
     private WantDao wantDao;
 
     public boolean addUser(User user) {
@@ -58,7 +58,7 @@ public class UserService {
         return flag;
     }
 
-    public User findUserByUno(Integer uno) {
+    public User getUserByUno(Integer uno) {
         try {
             return userDao.getUserByUno(uno);
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.PrimaryKey.WantKey;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.primarykey.WantKey;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;

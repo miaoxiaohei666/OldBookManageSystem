@@ -1,6 +1,6 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.PrimaryKey.PublishKey;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.primarykey.PublishKey;
 import javax.persistence.*;
 
 @Entity

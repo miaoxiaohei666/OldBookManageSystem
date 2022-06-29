@@ -11,7 +11,7 @@ public class UserControl {
     @Autowired
     UserService userService;
     @RequestMapping(value = "/login")
-    public String login(User user) {
+    public String userLogin(User user) {
         boolean result = userService.userLogin(user.getUno(), user.getUpassword());
         if (result){
             return "redirect:/index";
