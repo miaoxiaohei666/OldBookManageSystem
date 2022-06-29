@@ -31,6 +31,7 @@ INSERT INTO USER VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'158926
 -- ----------------------------
 create table SORT
 (Sno numeric(10,0) not null primary key,
+Sgrade varchar(255) not null ,
  Sname varchar(255) not null
 );
 

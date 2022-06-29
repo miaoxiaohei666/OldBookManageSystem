@@ -1,26 +1,20 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import lombok.Data;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.PrimaryKey.WantKey;
 import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.mapping.PrimaryKey;
 
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "WANT")
-@IdClass(PrimaryKey.class)
+@IdClass(WantKey.class)
 @DynamicUpdate
 public class Want {
-    /**
-     * &#064;description  主键
-     */
     @Id
     @Column(name = "Bno",nullable = false)
     private Integer bno;
-    /**
-     * &#064;description  主键
-     */
+
     @Id
     @Column(name = "Uno",nullable = false)
     private Integer uno;

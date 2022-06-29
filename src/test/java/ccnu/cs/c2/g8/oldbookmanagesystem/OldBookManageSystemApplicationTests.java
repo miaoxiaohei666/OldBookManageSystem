@@ -10,6 +10,7 @@ class OldBookManageSystemApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("sdsf");
     }
 
 }

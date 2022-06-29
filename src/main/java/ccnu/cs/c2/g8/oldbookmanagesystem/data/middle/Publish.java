@@ -1,26 +1,17 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.mapping.PrimaryKey;
-
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.PrimaryKey.PublishKey;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PUBLISH")
-@IdClass(PrimaryKey.class)
-@DynamicUpdate
+@IdClass(PublishKey.class)
 public class Publish {
-    /**
-     * &#064;description  主键
-     */
+
     @Id
     @Column(name = "Uno",nullable = false)
     private Integer uno;
-    /**
-     * &#064;description  主键
-     */
+
     @Id
     @Column(name = "Bno",nullable = false)
     private Integer bno;
