@@ -12,11 +12,12 @@ public class UserControl {
     UserService userService;
     @RequestMapping(value = "/account/login")
     public String userLogin(User user) {
+        System.out.println("userLogin");
         boolean result = userService.userLogin(user.getUno(), user.getUpassword());
         if (result){
             return "redirect:/index";
         }
-        else return "user/login";
+        else return "/user";
 
     }
 

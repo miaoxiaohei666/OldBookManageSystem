@@ -10,10 +10,6 @@ public class OldBookManageSystemApplication {
 
     public static void main(String[] args) {
         //SpringApplication.run(OldBookManageSystemApplication.class, args);
-        Book book = new Book();
-        User user = new User();
-        System.out.println(user.toString());
-
     }
 
 }
