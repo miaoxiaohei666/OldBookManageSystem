@@ -19,4 +19,10 @@ public class UserControl {
         else return "user/login";
 
     }
+
+    @RequestMapping(value = "/useradd")
+    public String userAdd(User user){
+        userService.addUser(user);
+        return "redirect:/" ;
+    }
 }
