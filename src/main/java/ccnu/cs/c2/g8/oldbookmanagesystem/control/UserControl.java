@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserControl {
     @Autowired
     UserService userService;
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/account/login")
     public String userLogin(User user) {
         boolean result = userService.userLogin(user.getUno(), user.getUpassword());
         if (result){
@@ -20,7 +20,7 @@ public class UserControl {
 
     }
 
-    @RequestMapping(value = "/useradd")
+    @RequestMapping(value = "/account/useradd")
     public String userAdd(User user){
         userService.addUser(user);
         return "redirect:/" ;
