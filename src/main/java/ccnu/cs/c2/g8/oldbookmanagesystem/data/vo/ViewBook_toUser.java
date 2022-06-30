@@ -60,7 +60,7 @@ public class ViewBook_toUser {
         setCreate_time(book.getCreate_time());
         setBpicture(book.getBpicture());
         setBprice(book.getBprice());
-        setBdescibe(book.getBdescibe());
+        setBdescibe(book.getBdescribe());
         setBstate(book.isBstate());
     }
 

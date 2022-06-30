@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SortDao extends JpaRepository<Sort,Integer> {
 
-    List<Sort> getAll();
+    List<Sort> findAll();
 
     Integer getSortBySname(String sname);
 }

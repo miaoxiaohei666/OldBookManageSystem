@@ -1,6 +1,11 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -10,13 +15,23 @@ public class Book {
     @Column(name = "bno",nullable = false)
     private Integer bno;
 
+    @OneToMany(targetEntity = Want.class)
+    @JoinColumn(name = "bno")
+    private List<User> userList_toWant;
+
+    @OneToMany(targetEntity = Publish.class)
+    @JoinColumn(name = "bno")
+    private List<User> userList_toPublish;
     @Column(name = "sno")
     private Integer sno;
 
+    @ManyToOne(targetEntity = Sort.class)
+    @JoinColumn(name = "sno",insertable = false,updatable = false)
+    private Sort sort;
     @Column(name = "bname")
     private String bname;
 
-    @Column(name = "ceate_time")
+    @Column(name = "create_time")
     private String create_time;
 
     @Column(name = "bpicture")
@@ -25,8 +40,8 @@ public class Book {
     @Column(name = "bprice")
     private Double bprice;
 
-    @Column(name = "bdescibe")
-    private String bdescibe;
+    @Column(name = "bdescribe")
+    private String bdescribe;
 
     @Column(name = "bstate")
     private boolean bstate;
@@ -82,12 +97,12 @@ public class Book {
         this.bprice = bprice;
     }
 
-    public String getBdescibe() {
-        return bdescibe;
+    public String getBdescribe() {
+        return bdescribe;
     }
 
-    public void setBdescibe(String bdescibe) {
-        this.bdescibe = bdescibe;
+    public void setBdescribe(String bdescibe) {
+        this.bdescribe = bdescibe;
     }
 
     public boolean isBstate() {
