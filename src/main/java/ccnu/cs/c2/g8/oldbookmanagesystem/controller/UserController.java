@@ -11,13 +11,11 @@ public class UserController {
     UserService userService;
     @RequestMapping(value = "/account/login",method = RequestMethod.GET)
     public String userLogin(@RequestParam(name = "uno") Integer uno,@RequestParam(name = "upassword") String upassword) {
-        System.out.println("userLogin");
         boolean result = userService.userLogin(uno, upassword);
         if (result){
             return "redirect:/index";
         }
-        else return "/user";
-
+        else return "/account/login";
     }
 
     @RequestMapping(value = "/account/register",method = RequestMethod.POST)

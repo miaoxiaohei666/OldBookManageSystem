@@ -36,15 +36,15 @@ public class UserService {
     }
 
     public boolean userLogin(Integer uno, String password) {
-        boolean flag = false;
         try {
-            userDao.getByUnoAndUpassword(uno, password);
-            flag = true;
+            if(userDao.getByUnoAndUpassword(uno, password)!=null){
+                return true;
+            }
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();
         }
-        return flag;
+        return false;
     }
 
     public boolean isUser(Integer uno) {
