@@ -1,6 +1,10 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -10,6 +14,13 @@ public class User {
     @Column(name = "uno",nullable = false)
     private Integer uno;
 
+    @OneToMany(targetEntity = Want.class)
+    @JoinColumn(name = "uno")
+    private List<Book> bookList_toWant;
+
+    @OneToMany(targetEntity = Publish.class)
+    @JoinColumn(name = "uno")
+    private List<Book> bookList_toPublish;
     @Column(name = "ugrade")
     private Integer ugrade;
 

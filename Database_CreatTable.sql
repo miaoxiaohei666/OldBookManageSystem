@@ -6,6 +6,7 @@ drop table if exists publish;
 drop table if exists book;
 drop table if exists sort;
 drop table if exists users;
+drop table if exists user;
 
 -- ----------------------------
 -- USER
@@ -47,7 +48,7 @@ create table book
  bprice int not null,
  bdescribe text not null,
  bstate bit default null,
- foreign key (Sno) references sort(Sno)
+ foreign key (sno) references sort(sno)
 );
 
 -- ----------------------------
@@ -57,15 +58,15 @@ create table publish
 (uno numeric(10,0) not null,
  bno numeric(6,0) not null,
  foreign key (uno) references users(uno),
- foreign key (uno) references book(bno)
+ foreign key (bno) references book(bno)
 );
 
 -- ----------------------------
 -- WANT
 -- ----------------------------
 create table want
-(sno numeric(6,0) not null,
+(bno numeric(6,0) not null,
  uno numeric(10,0) not null,
- foreign key (sno) references book(bno),
+ foreign key (bno) references book(bno),
  foreign key (uno) references users(uno)
 );

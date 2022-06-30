@@ -16,7 +16,7 @@ public class SortService {
 
     public List<Sort> getAllSort() {
         try {
-            return sortDao.getAll();
+            return sortDao.findAll();
         } catch (Exception e) {
             System.out.println("getAllSort wrong!");
             e.printStackTrace();
