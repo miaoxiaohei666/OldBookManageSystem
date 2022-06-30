@@ -5,9 +5,11 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.dao.SortDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class SortService {
     @Autowired
     private SortDao sortDao;
@@ -27,6 +29,30 @@ public class SortService {
     public List<Book> getAllBookBysno(Integer sno) {
         try {
             return bookDao.getBookBySno(sno);
+        }catch (Exception e){
+            System.out.println("getAllBookBysno wrong!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Integer> getAllSnoBysgrade(String sgrade){
+        try{
+            return sortDao.getSortBySgrade(sgrade);
+        }catch(Exception e){
+            System.out.println("getAllsortBysgrade wrong!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Book> getAllBookBysgrade(String sgrade) {
+        try {
+            List<Integer> sortList=getAllSnoBysgrade(sgrade);
+            List<Book> bookList=new ArrayList<>();
+            while (sortList.iterator().hasNext()) {
+                bookList.addAll(bookDao.getBookBySno(sortList.iterator().next()));
+            }
         }catch (Exception e){
             System.out.println("getAllBookBysno wrong!");
             e.printStackTrace();
