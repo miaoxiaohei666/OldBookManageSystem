@@ -3,42 +3,42 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class User {
 
     @Id
-    @Column(name = "Uno",nullable = false)
+    @Column(name = "uno",nullable = false)
     private Integer uno;
 
-    @Column(name = "Ugrade")
+    @Column(name = "ugrade")
     private Integer ugrade;
 
-    @Column(name = "Uname")
+    @Column(name = "uname")
     private String uname;
 
 
-    @Column(name = "Unickname")
+    @Column(name = "unickname")
     private String unickname;
 
-    @Column(name = "Utel")
+    @Column(name = "utel")
     private String utel;
 
-    @Column(name = "Uwechat")
+    @Column(name = "uwechat")
     private String uwechat;
 
-    @Column(name = "Uqq")
+    @Column(name = "uqq")
     private String uqq;
 
-    @Column(name = "Upassword")
+    @Column(name = "upassword")
     private String upassword;
 
-    @Column(name = "Ustate")
+    @Column(name = "ustate")
     private boolean ustate;
 
-    @Column(name = "Ulike")
+    @Column(name = "ulike")
     private Integer like;
 
-    @Column(name = "Unlike")
+    @Column(name = "unlike")
     private Integer unlike;
 
     public User() {

@@ -9,48 +9,48 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class ViewUser_toAdmin {
     @Id
-    @Column(name = "Uno")
+    @Column(name = "uno")
     private Integer uno;
 
-    @Column(name = "Ugrade")
+    @Column(name = "ugrade")
     private Integer ugrade;
 
-    @Column(name = "Uname")
+    @Column(name = "uname")
     private String uname;
 
-    @Column(name = "Unickname")
+    @Column(name = "unickname")
     private String unickname;
 
-    @Column(name = "Utel")
+    @Column(name = "utel")
     private String utel;
 
-    @Column(name = "Uwechat")
+    @Column(name = "uwechat")
     private String uwechat;
 
-    @Column(name = "Uqq")
+    @Column(name = "uqq")
     private String uqq;
 
-    @Column(name = "Upassword")
+    @Column(name = "upassword")
     private String upassword;
 
-    @Column(name = "Ustate")
+    @Column(name = "ustate")
     private boolean ustate;
 
-    @Column(name = "Ulike")
+    @Column(name = "ulike")
     private Integer like;
 
-    @Column(name = "Unlike")
+    @Column(name = "unlike")
     private Integer unlike;
 
     @OneToMany(targetEntity = Publish.class)
-    @JoinColumn(name = "Uno")
+    @JoinColumn(name = "uno")
     private List<Book> pulishList;
 
     @OneToMany(targetEntity = Want.class)
-    @JoinColumn(name = "Uno")
+    @JoinColumn(name = "uno")
     private List<Book> wantList;
 
     public ViewUser_toAdmin() {

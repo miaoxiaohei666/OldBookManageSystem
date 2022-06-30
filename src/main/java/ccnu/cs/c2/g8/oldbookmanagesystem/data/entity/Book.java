@@ -3,32 +3,32 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "BOOK")
+@Table(name = "book")
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Bno",nullable = false)
+    @Column(name = "bno",nullable = false)
     private Integer bno;
 
-    @Column(name = "Sno")
+    @Column(name = "bno")
     private Integer sno;
 
-    @Column(name = "Bname")
+    @Column(name = "bname")
     private String bname;
 
-    @Column(name = "Create_time")
+    @Column(name = "ceate_time")
     private String create_time;
 
-    @Column(name = "Bpicture")
+    @Column(name = "bpicture")
     private String bpicture;
 
-    @Column(name = "Bprice")
+    @Column(name = "bprice")
     private Double bprice;
 
-    @Column(name = "Bdescibe")
+    @Column(name = "bdescibe")
     private String bdescibe;
 
-    @Column(name = "Bstate")
+    @Column(name = "bstate")
     private boolean bstate;
 
     public Book() {

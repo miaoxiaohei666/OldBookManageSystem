@@ -1,71 +1,71 @@
 -- ----------------------------
 -- drop table
 -- ----------------------------
-drop table if exists WANT;
-drop table if exists PUBLISH;
-drop table if exists BOOK;
-drop table if exists SORT;
-drop table if exists USER;
+drop table if exists want;
+drop table if exists publish;
+drop table if exists book;
+drop table if exists sort;
+drop table if exists user;
 
 -- ----------------------------
 -- USER
 -- ----------------------------
-create table USER
-(Uno numeric(10,0) not null primary key,
- Ugrade numeric(4,0) not null,
- Uname varchar(255) not null,
- Unickname varchar(255) not null,
- Utel numeric(11,0) not null,
- Uwechat varchar(255) default null,
- Uqq varchar(255) default null,
- Upassword varchar(255) not null,
- Ustate bit default null,
- Ulike int default null,
- Unlike int default null
+create table user
+(uno numeric(10,0) not null primary key,
+ ugrade numeric(4,0) not null,
+ uname varchar(255) not null,
+ unickname varchar(255) not null,
+ utel numeric(11,0) not null,
+ uwechat varchar(255) default null,
+ uqq varchar(255) default null,
+ upassword varchar(255) not null,
+ ustate bit default null,
+ ulike int default null,
+ unlike int default null
 );
 
-INSERT INTO USER VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
+INSERT INTO user VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
 
 -- ----------------------------
 -- SORT
 -- ----------------------------
-create table SORT
-(Sno numeric(10,0) not null primary key,
-Sgrade varchar(255) not null ,
- Sname varchar(255) not null
+create table sort
+(sno numeric(10,0) not null primary key,
+sgrade varchar(255) not null ,
+ sname varchar(255) not null
 );
 
 -- ----------------------------
 -- BOOK
 -- ----------------------------
-create table BOOK
-(Bno numeric(6,0) not null primary key,
- Sno numeric(3,0) not null,
- Bname varchar(255) not null,
- Create_time varchar(255) not null,
- Bpicture varchar(255) not null,
- Bprice int not null,
- Bdescribe text not null,
- Bstate bit default null,
- foreign key (Sno) references SORT(Sno)
+create table book
+(bno numeric(6,0) not null primary key,
+ sno numeric(3,0) not null,
+ bname varchar(255) not null,
+ create_time varchar(255) not null,
+ bpicture varchar(255) not null,
+ bprice int not null,
+ bdescribe text not null,
+ bstate bit default null,
+ foreign key (Sno) references sort(Sno)
 );
 
 -- ----------------------------
 -- PUBLISH
 -- ----------------------------
-create table PUBLISH
-(Uno numeric(10,0) not null,
- Bno numeric(6,0) not null,
- foreign key (Uno) references USER(Uno),
- foreign key (Bno) references BOOK(Bno)
+create table publish
+(uno numeric(10,0) not null,
+ bno numeric(6,0) not null,
+ foreign key (uno) references user(uno),
+ foreign key (uno) references book(bno)
 );
 
 -- ----------------------------
 -- WANT
 -- ----------------------------
-create table WANT
-(Bno numeric(6,0) not null,
- Uno numeric(10,0) not null,
- foreign key (Bno) references BOOK(Bno),
- foreign key (Uno) references USER(Uno)
+create table want
+(sno numeric(6,0) not null,
+ uno numeric(10,0) not null,
+ foreign key (sno) references book(bno),
+ foreign key (uno) references user(uno)
 );

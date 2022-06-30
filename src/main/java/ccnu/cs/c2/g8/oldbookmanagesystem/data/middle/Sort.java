@@ -5,17 +5,17 @@ import lombok.Data;
 import javax.persistence.*;
 @Data
 @Entity
-@Table (name = "SORT")
+@Table (name = "sort")
 public class Sort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Sno",nullable = false)
+    @Column(name = "sno",nullable = false)
     private Integer sno;
 
-    @Column(name = "Sgrade")
+    @Column(name = "sgrade")
     private String sgrade;
 
-    @Column(name = "Sname")
+    @Column(name = "sname")
     private String sname;
 
     public Integer getSno() {

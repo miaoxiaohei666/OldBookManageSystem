@@ -7,16 +7,16 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "WANT")
+@Table(name = "want")
 @IdClass(WantKey.class)
 @DynamicUpdate
 public class Want {
     @Id
-    @Column(name = "Bno",nullable = false)
+    @Column(name = "bno",nullable = false)
     private Integer bno;
 
     @Id
-    @Column(name = "Uno",nullable = false)
+    @Column(name = "bno",nullable = false)
     private Integer uno;
 
     public Integer getBno() {

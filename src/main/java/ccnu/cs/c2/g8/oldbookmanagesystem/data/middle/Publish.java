@@ -4,16 +4,16 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.primarykey.PublishKey;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PUBLISH")
+@Table(name = "publish")
 @IdClass(PublishKey.class)
 public class Publish {
 
     @Id
-    @Column(name = "Uno",nullable = false)
+    @Column(name = "uno",nullable = false)
     private Integer uno;
 
     @Id
-    @Column(name = "Bno",nullable = false)
+    @Column(name = "bno",nullable = false)
     private Integer bno;
 
     public Integer getUno() {

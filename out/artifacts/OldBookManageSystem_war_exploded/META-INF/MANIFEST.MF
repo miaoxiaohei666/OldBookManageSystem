@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Created-By: IntelliJ IDEA
-Built-By: 15212
-Build-Jdk: 1.8.0_152
-Implementation-Title: OldBookManageSystem
-Implementation-Version: 0.0.1-SNAPSHOT
-Implementation-Vendor-Id: ccnu.cs.c2.g8
-Main-Class: ${start-class}
-

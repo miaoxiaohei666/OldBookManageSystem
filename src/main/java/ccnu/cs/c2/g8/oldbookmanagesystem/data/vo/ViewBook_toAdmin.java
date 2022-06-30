@@ -10,43 +10,43 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "BOOK")
+@Table(name = "book")
 public class ViewBook_toAdmin {
     @Id
-    @Column(name = "Bno")
+    @Column(name = "bno")
     private Integer bno;
 
-    @Column(name = "Sno")
+    @Column(name = "sno")
     private Integer sno;
 
-    @Column(name = "Bname")
+    @Column(name = "bname")
     private String bname;
 
-    @Column(name = "Create_time")
+    @Column(name = "create_time")
     private String create_time;
 
-    @Column(name = "Bpicture")
+    @Column(name = "bpicture")
     private String bpicture;
 
-    @Column(name = "Bprice")
+    @Column(name = "bprice")
     private Double bprice;
 
-    @Column(name = "Bdescibe")
+    @Column(name = "bdescibe")
     private String bdescibe;
 
-    @Column(name = "Bstate")
+    @Column(name = "bstate")
     private boolean bstate;
 
     @OneToMany(targetEntity = Publish.class)
-    @JoinColumn(name = "Bno")
+    @JoinColumn(name = "bno")
     private List<User> publishList;
 
     @ManyToOne(targetEntity = Sort.class)
-    @JoinColumn(name = "Sno")
+    @JoinColumn(name = "sno")
     private Sort sort;
 
     @OneToMany(targetEntity = Want.class)
-    @JoinColumn(name = "Bno")
+    @JoinColumn(name = "bno")
     private List<User> wantList;
 
 
