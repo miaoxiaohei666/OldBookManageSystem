@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SortDao extends JpaRepository<Sort,Integer> {
-    @Query(value = "select sort .sno,sort .sname from sort ")
+
     List<Sort> getAll();
 
     Integer getSortBySname(String sname);

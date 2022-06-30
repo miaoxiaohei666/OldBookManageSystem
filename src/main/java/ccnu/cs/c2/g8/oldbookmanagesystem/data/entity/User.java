@@ -3,7 +3,7 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
 
     @Id

@@ -42,7 +42,7 @@ public class ViewBook_toUser {
     private List<User> publishList;
 
     @ManyToOne(targetEntity = Sort.class)
-    @JoinColumn(name = "sno")
+    @JoinColumn(name = "sno",insertable = false,updatable = false)
     private Sort sort;
 
     @OneToMany(targetEntity = Want.class)

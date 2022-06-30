@@ -1,8 +1,11 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.data.middle;
 
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Data
 @Entity
 @Table (name = "sort")
@@ -17,6 +20,10 @@ public class Sort {
 
     @Column(name = "sname")
     private String sname;
+
+    @OneToMany(targetEntity = Book.class)
+    @JoinColumn(name = "sno")
+    private List<Book> bookList;
 
     public Integer getSno() {
         return sno;

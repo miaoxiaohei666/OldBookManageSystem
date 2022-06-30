@@ -5,12 +5,12 @@ drop table if exists want;
 drop table if exists publish;
 drop table if exists book;
 drop table if exists sort;
-drop table if exists user;
+drop table if exists users;
 
 -- ----------------------------
 -- USER
 -- ----------------------------
-create table user
+create table users
 (uno numeric(10,0) not null primary key,
  ugrade numeric(4,0) not null,
  uname varchar(255) not null,
@@ -24,7 +24,7 @@ create table user
  unlike int default null
 );
 
-INSERT INTO user VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
+INSERT INTO users VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
 
 -- ----------------------------
 -- SORT
@@ -56,7 +56,7 @@ create table book
 create table publish
 (uno numeric(10,0) not null,
  bno numeric(6,0) not null,
- foreign key (uno) references user(uno),
+ foreign key (uno) references users(uno),
  foreign key (uno) references book(bno)
 );
 
@@ -67,5 +67,5 @@ create table want
 (sno numeric(6,0) not null,
  uno numeric(10,0) not null,
  foreign key (sno) references book(bno),
- foreign key (uno) references user(uno)
+ foreign key (uno) references users(uno)
 );

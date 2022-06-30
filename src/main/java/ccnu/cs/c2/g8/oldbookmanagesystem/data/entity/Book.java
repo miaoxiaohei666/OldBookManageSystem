@@ -10,7 +10,7 @@ public class Book {
     @Column(name = "bno",nullable = false)
     private Integer bno;
 
-    @Column(name = "bno")
+    @Column(name = "sno")
     private Integer sno;
 
     @Column(name = "bname")

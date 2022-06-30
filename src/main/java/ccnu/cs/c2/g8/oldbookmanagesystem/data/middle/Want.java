@@ -16,7 +16,7 @@ public class Want {
     private Integer bno;
 
     @Id
-    @Column(name = "bno",nullable = false)
+    @Column(name = "uno",nullable = false)
     private Integer uno;
 
     public Integer getBno() {
