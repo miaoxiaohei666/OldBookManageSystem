@@ -36,15 +36,15 @@ public class UserService {
     }
 
     public boolean userLogin(Integer uno, String password) {
-        boolean flag = false;
         try {
-            userDao.getByUnoAndUpassword(uno, password);
-            flag = true;
+            if(userDao.getByUnoAndUpassword(uno, password)!=null){
+                return true;
+            }
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();
         }
-        return flag;
+        return false;
     }
 
     public boolean isUser(Integer uno) {
@@ -87,7 +87,7 @@ public class UserService {
         List<Book> bookList = null;
         try {
             bnoList = publishDao.getAllByUno(user.getUno());
-            while (!bnoList.iterator().hasNext()) {
+            while (bnoList.iterator().hasNext()) {
                 bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
             }
         } catch (Exception e) {
@@ -102,13 +102,24 @@ public class UserService {
         List<Book> bookList = null;
         try {
             bnoList = wantDao.getAllByUno(user.getUno());
-            while (!bnoList.iterator().hasNext()) {
+            while (bnoList.iterator().hasNext()) {
                 bookList.add(bookDao.getBookByBno((bnoList.iterator().next())));
             }
         } catch (Exception e) {
-            System.out.println("getPublish wrong!");
+            System.out.println("getWant wrong!");
             e.printStackTrace();
         }
         return bookList;
+    }
+
+    public List<User> getUserUnlike() {
+        try {
+            return userDao.getAllOrderByUnlike();
+        } catch (
+                Exception e) {
+            System.out.println("getUserUnlike wrong!");
+            e.printStackTrace();
+        }
+        return null;
     }
 }
