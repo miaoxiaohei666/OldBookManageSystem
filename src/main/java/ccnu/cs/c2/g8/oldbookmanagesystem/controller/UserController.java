@@ -39,7 +39,7 @@ public class UserController {
 
     //登录
     @PostMapping("/user/account/login")
-    public Object login( User user){
+    public Object userlogin( User user){
         com.alibaba.fastjson.JSONObject jsonObject=new com.alibaba.fastjson.JSONObject();
         User userForBase=userService.getUserByUno(user.getUno());
         if(userForBase==null){
