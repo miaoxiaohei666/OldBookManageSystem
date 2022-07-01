@@ -49,10 +49,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/admin/account/ban")
-    public boolean userBan(@RequestParam(name = "uno") Integer uno) {
+    public String userBan(@RequestParam(name = "uno") Integer uno) {
         if (userService.updateUstate(uno)) {
-            return true;
-        } else return false;
+            return uno.toString();
+        } else return "/index";
     }
 
     @RequestMapping(value = "/admin/account")

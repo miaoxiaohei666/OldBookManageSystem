@@ -9,6 +9,7 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class BookService {
     private WantDao wantDao;
 
 
-    public boolean addBook_Publish(Book book, Integer uno) {
+    public boolean addBook_Publish(Book book,@RequestParam(name = "uno") Integer uno) {
         boolean flag = false;
         try {
             Publish publish = new Publish();
@@ -99,8 +100,7 @@ public class BookService {
 
     public List<Book> getAllBySno(Integer sno) {
         try {
-            List<Book> bookList = bookDao.getBookBySno(sno);
-            return bookList;
+            return bookDao.getBookBySno(sno);
         } catch (
                 Exception e) {
             System.out.println("getBookPublish wrong!");

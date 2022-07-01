@@ -4,6 +4,7 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,8 +42,10 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/book_sort")
-    public List<Book> getBookSort(@RequestParam(name = "sno") Integer sno) {
-        return bookService.getAllBySno(sno);
+    public String getBookBySort(Model model, @RequestParam(name = "sno") Integer sno) {
+         List<Book> bookList = bookService.getAllBySno(sno);
+         model.addAttribute("getBookBySort",bookList);
+         return "/book/sort";
     }
 
     @RequestMapping(value = "/admin/book")
