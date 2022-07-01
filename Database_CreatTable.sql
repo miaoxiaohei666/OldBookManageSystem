@@ -6,8 +6,6 @@ drop table if exists publish;
 drop table if exists book;
 drop table if exists sort;
 drop table if exists users;
-drop table if exists user;
-
 -- ----------------------------
 -- USER
 -- ----------------------------

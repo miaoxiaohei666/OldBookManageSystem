@@ -14,4 +14,5 @@ public interface BookDao extends JpaRepository<Book,Integer>{
 
     List<Book> getBookBySno(Integer sno);
 
+
 }
