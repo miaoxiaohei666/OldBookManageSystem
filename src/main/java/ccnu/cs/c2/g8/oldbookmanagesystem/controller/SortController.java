@@ -5,8 +5,6 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 public class SortController {
     SortService sortService;
