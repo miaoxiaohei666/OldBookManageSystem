@@ -16,40 +16,70 @@ public class BookController {
 
     @RequestMapping(value = "/user/add_publish")
     public String bookAddPublish(Book book, @RequestParam(name = "uno") Integer uno) {
-        if (bookService.addBook_Publish(book, uno)) {
-            return "/book/mine";
-        } else return "/book/add_publish";
+        try {
+            if(bookService.addBook_Publish(book, uno)) return "/index";
+        } catch (Exception e) {
+            System.out.println("bookAddPublish wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "/user/add_want")
-    public boolean bookAddWant(@RequestParam(name = "bno") Integer bno, @RequestParam(name = "uno") Integer uno) {
-        return bookService.addBook_Want(bno, uno);
+    public String bookAddWant(@RequestParam(name = "bno") Integer bno, @RequestParam(name = "uno") Integer uno) {
+        try {
+            if(bookService.addBook_Want(bno, uno)) return "/index";
+        } catch (Exception e) {
+            System.out.println("bookAddWant wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "/user/mine/ban")
-    public boolean bookBan(@RequestParam(name = "bno") Integer bno) {
-        return bookService.updateBstate(bno);
+    public String bookBan(@RequestParam(name = "bno") Integer bno) {
+        try {
+            if(bookService.updateBstate(bno)) return "/index";
+        } catch (Exception e) {
+            System.out.println("bookAddWant wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "/user/mine/publish")
-    public List<Book> getBookPublish(@RequestParam(name = "uno") Integer uno) {
-        return bookService.getBookPublish(uno);
+    public String getBookPublish(Model model, @RequestParam(name = "uno") Integer uno) {
+        try{
+            model.addAttribute("getBookPublish", bookService.getBookPublish(uno));
+            return "/index";
+        }catch (Exception e){
+            System.out.println("getBookPublish wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "/user/mine/want")
-    public List<Book> getBookWant(@RequestParam(name = "uno") Integer uno) {
-        return bookService.getBookWant(uno);
+    public String getBookWant(Model model, @RequestParam(name = "uno") Integer uno) {
+        try{
+            model.addAttribute("getBookWant", bookService.getBookWant(uno));
+            return "/index";
+        }catch (Exception e){
+            System.out.println("getBookWant wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "/user/book_sort")
     public String getBookBySort(Model model, @RequestParam(name = "sno") Integer sno) {
-         List<Book> bookList = bookService.getAllBySno(sno);
-         model.addAttribute("getBookBySort",bookList);
-         return "/book/sort";
-    }
-
-    @RequestMapping(value = "/admin/book")
-    public List<Book> getBookUnlike(@RequestParam(name = "sno") Integer sno) {
-        return bookService.getAllBySno(sno);
+        try{
+            model.addAttribute("getBookBySort", bookService.getAllBySno(sno));
+            return "/index";
+        }catch (Exception e){
+            System.out.println("getBookBySort wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 }

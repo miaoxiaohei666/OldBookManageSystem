@@ -1,8 +1,8 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,53 +12,48 @@ public class SortController {
     SortService sortService;
 
     @RequestMapping(value = "admin/sort/add")
-    public String addnewsort(Sort sort) {
-        System.out.println("add new sort");
-        boolean flag = sortService.addSort(sort);
-        if (flag)
-            return "admin/sort";
-        else
-            return "admin/sort/add";
+    public String sortAdd(Sort sort) {
+        try {
+            if (sortService.addSort(sort)) return "/index";
+        } catch (Exception e) {
+            System.out.println("sortAdd wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "admin/sort/delete")
-    public String deleteoldsort(@RequestParam(name = "sname") String sname) {
-        System.out.println("delete sort");
-        boolean flag = sortService.deleteSortbySname(sname);
-        if (flag)
-            return "admin/sort";
-        else
-            return "adminsort/delete";
+    public String sortDelete(@RequestParam(name = "sname") String sname) {
+        try {
+            if (sortService.deleteSortbySname(sname)) return "/index";
+        } catch (Exception e) {
+            System.out.println("sortDelete wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 
     @RequestMapping(value = "admin/sort/all")
-    public String getAllsorts() {
-        System.out.println("get all sorts");
-        List<Sort> sortlist = sortService.getAllSort();
-        if (!sortlist.isEmpty())
-            return "admin/sort";
-        else
-            return "admin/sort/all";
+    public String getAllSorts(Model model) {
+        try {
+            model.addAttribute("getBookPublish", sortService.getAllSort());
+            return "/index";
+        } catch (Exception e) {
+            System.out.println("getAllSorts wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
-
-    @RequestMapping(value = "user/sort/allbysno")
-    public String getAllbySno(@RequestParam(name = "sno") Integer sno) {
-        System.out.println("get all by sno");
-        List<Book> booklist = sortService.getAllBookBysno(sno);
-        if (!booklist.isEmpty())
-            return "user/sort";
-        else
-            return "user/sort/allbysno";
-    }
-
 
     @RequestMapping(value = "user/sort/allsortsbygrade")
-    public String geAllSortbySgrade(@RequestParam(name = "sgrade") String sgrade) {
-        System.out.println("get all sorts by sgrade");
-        List<Sort> sortList = sortService.getAllSortBysgrade(sgrade);
-        if (!sortList.isEmpty())
-            return "user/sort";
-        else
-            return "user/sort/allsortsbygrade";
+    public String geAllSortbySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
+        try {
+            model.addAttribute("getBookPublish", sortService.getAllSortBySgrade(sgrade));
+            return "/index";
+        } catch (Exception e) {
+            System.out.println("geAllSortbySgrade wrong!");
+            e.printStackTrace();
+        }
+        return "error";
     }
 }

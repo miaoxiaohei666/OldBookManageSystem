@@ -31,8 +31,8 @@ public class ViewBook_toUser {
     @Column(name = "bprice")
     private Double bprice;
 
-    @Column(name = "bdescibe")
-    private String bdescibe;
+    @Column(name = "bdescribe")
+    private String bdescribe;
 
     @Column(name = "bstate")
     private boolean bstate;
@@ -60,7 +60,7 @@ public class ViewBook_toUser {
         setCreate_time(book.getCreate_time());
         setBpicture(book.getBpicture());
         setBprice(book.getBprice());
-        setBdescibe(book.getBdescribe());
+        setBdescribe(book.getBdescribe());
         setBstate(book.isBstate());
     }
 
@@ -136,12 +136,12 @@ public class ViewBook_toUser {
         this.bprice = bprice;
     }
 
-    public String getBdescibe() {
-        return bdescibe;
+    public String getBdescribe() {
+        return bdescribe;
     }
 
-    public void setBdescibe(String bdescibe) {
-        this.bdescibe = bdescibe;
+    public void setBdescribe(String bdescribe) {
+        bdescribe = bdescribe;
     }
 
     public boolean isBstate() {

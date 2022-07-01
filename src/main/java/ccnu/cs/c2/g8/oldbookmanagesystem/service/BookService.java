@@ -23,7 +23,7 @@ public class BookService {
     private WantDao wantDao;
 
 
-    public boolean addBook_Publish(Book book,@RequestParam(name = "uno") Integer uno) {
+    public boolean addBook_Publish(Book book, @RequestParam(name = "uno") Integer uno) {
         boolean flag = false;
         try {
             Publish publish = new Publish();
@@ -92,7 +92,7 @@ public class BookService {
             }
             return bookList;
         } catch (Exception e) {
-            System.out.println("getBookPublish wrong!");
+            System.out.println("getBookWant wrong!");
             e.printStackTrace();
         }
         return null;
@@ -100,10 +100,9 @@ public class BookService {
 
     public List<Book> getAllBySno(Integer sno) {
         try {
-            return bookDao.getBookBySno(sno);
-        } catch (
-                Exception e) {
-            System.out.println("getBookPublish wrong!");
+            return bookDao.getBookBySnoAndBstateIsFalse(sno);
+        } catch (Exception e) {
+            System.out.println("getAllBySno wrong!");
             e.printStackTrace();
         }
         return null;

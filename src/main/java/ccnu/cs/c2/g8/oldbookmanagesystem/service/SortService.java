@@ -26,18 +26,7 @@ public class SortService {
         return null;
     }
 
-    public List<Book> getAllBookBysno(Integer sno) {
-        try {
-            return bookDao.getBookBySno(sno);
-        }catch (Exception e){
-            System.out.println("getAllBookBysno wrong!");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public List<Sort> getAllSortBysgrade(String sgrade){
+    public List<Sort> getAllSortBySgrade(String sgrade){
         try{
             List<Sort> sortList=sortDao.getSortsBySgrade(sgrade);
             if(!sortList.isEmpty())
