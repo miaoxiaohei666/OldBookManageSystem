@@ -16,7 +16,21 @@ public class UserController {
 
     @RequestMapping("/")
     public String index() {
+        return "/index";
+    }
+
+    @RequestMapping("/index")
+    public String toIndex(){
+        return "/index";
+    }
+    @RequestMapping("/toLogin")
+    public String toLogin(){
         return "/denglu";
+    }
+
+    @RequestMapping("toRegister")
+    public String toRegister(){
+        return "/zhuce";
     }
 
     @RequestMapping(value = "/user/account/login",method = RequestMethod.GET)
