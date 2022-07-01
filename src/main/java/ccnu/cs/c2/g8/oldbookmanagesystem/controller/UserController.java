@@ -4,19 +4,27 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
     @Autowired
-    UserService userService;
+    public UserService userService;
+
+    @RequestMapping("/")
+    public String index() {
+        return "/denglu";
+    }
+
     @RequestMapping(value = "/user/account/login",method = RequestMethod.GET)
     public String userLogin(@RequestParam(name = "uno") Integer uno,@RequestParam(name = "upassword") String upassword) {
         boolean result = userService.userLogin(uno, upassword);
         if (result){
-            return "/user/index";
+            return "/index";
+//            return "/user/index";
         }
         else return "/user/account/login";
     }
@@ -35,7 +43,6 @@ public class UserController {
             return true;
         }
         else return false;
-
     }
 
     @RequestMapping(value = "/admin/account",method = RequestMethod.GET)

@@ -3,18 +3,17 @@
 <head>
     <meta charset="utf-8">
     <title>登录</title>
-    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-    <link href="../static/css/topBar.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
+    <link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}">
     <!--<link href="css/denglu.css"type="text/css"rel="stylesheet"/>-->
-    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
+    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <!-- 顶部栏 -->
 <div class="topBar">
-    <a th:href="@{/index}"><i>&#xe61b;</i>OBMS</a>
+    <a href="index.html" th:href="@{/index}"><i>&#xe61b;</i>OBMS</a>
 </div>
-<main class="main" role="main">
     <div class="container" >
         <div class="row">
             <div class="offset-md-3 col-md-6">
@@ -24,25 +23,25 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">用户名</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="username">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入用户名" name="uno">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">密码</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="upassword">
                             </div>
                         </div>
+                        <div>
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">记住信息</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">登录</button>
                     </form>
-                    <div>
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">记住信息</label>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block">登录</button>
+
                 </div>
             </div>
         </div>
     </div>
-</main>
 </body>
 </html>
