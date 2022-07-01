@@ -4,7 +4,6 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.PublishDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.WantDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;

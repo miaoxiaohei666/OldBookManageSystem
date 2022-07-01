@@ -2,12 +2,11 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
+@Controller
 public class SortController {
     SortService sortService;
 
@@ -19,7 +18,7 @@ public class SortController {
             System.out.println("sortAdd wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "admin/sort/delete")
@@ -30,7 +29,7 @@ public class SortController {
             System.out.println("sortDelete wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "admin/sort/all")
@@ -42,11 +41,11 @@ public class SortController {
             System.out.println("getAllSorts wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "user/sort/allsortsbygrade")
-    public String geAllSortbySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
+    public String geAllSortBySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
         try {
             model.addAttribute("getBookPublish", sortService.getAllSortBySgrade(sgrade));
             return "/index";
@@ -54,6 +53,6 @@ public class SortController {
             System.out.println("geAllSortbySgrade wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 }

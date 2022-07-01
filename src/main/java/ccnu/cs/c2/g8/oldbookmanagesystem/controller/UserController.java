@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class UserController {
     @Autowired
@@ -65,7 +63,7 @@ public class UserController {
             System.out.println("userBan wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/admin/account")
@@ -77,6 +75,6 @@ public class UserController {
             System.out.println("getAllByUnlike wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 }
