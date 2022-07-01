@@ -81,4 +81,16 @@ public class BookController {
         }
         return "/error";
     }
+
+    @RequestMapping(value = "/user/book_sort/grade1")
+    public String getBookByGrade1(Model model) {
+        try{
+            model.addAttribute("getBookByGrade1", bookService.getAllBySno(1));
+            return "/index";
+        }catch (Exception e){
+            System.out.println("getBookByGrade1 wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
 }

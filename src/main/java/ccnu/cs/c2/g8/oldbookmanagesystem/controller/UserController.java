@@ -14,7 +14,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String index() {
-        return "/index";
+        return "redirect:/user/book_sort/grade1";
     }
 
     @RequestMapping("/index")
