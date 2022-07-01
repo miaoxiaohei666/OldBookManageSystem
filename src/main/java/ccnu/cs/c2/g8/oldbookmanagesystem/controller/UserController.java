@@ -23,6 +23,7 @@ public class UserController {
     public String toIndex(){
         return "/index";
     }
+
     @RequestMapping("/toLogin")
     public String toLogin(){
         return "/denglu";
@@ -33,22 +34,21 @@ public class UserController {
         return "/zhuce";
     }
 
-    @RequestMapping(value = "/user/account/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/user/account/login",method = RequestMethod.POST)
     public String userLogin(@RequestParam(name = "uno") Integer uno,@RequestParam(name = "upassword") String upassword) {
         boolean result = userService.userLogin(uno, upassword);
         if (result){
             return "/index";
-//            return "/user/index";
         }
-        else return "/user/account/login";
+        else return "/denglu";
     }
 
     @RequestMapping(value = "/user/account/register",method = RequestMethod.POST)
-    public String userAdd(@RequestBody User user){
+    public String userAdd(User user){
         if(userService.addUser(user)){
-            return "/user/index" ;
+            return "/index" ;
         }
-        else return "/user/account/register";
+        else return "/zhuce";
     }
 
     @RequestMapping(value = "/admin/account/ban",method = RequestMethod.GET)
