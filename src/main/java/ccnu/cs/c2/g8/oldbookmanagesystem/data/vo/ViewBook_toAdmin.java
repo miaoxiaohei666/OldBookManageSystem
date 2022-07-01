@@ -139,8 +139,8 @@ public class ViewBook_toAdmin {
         return bdescribe;
     }
 
-    public void setBdescribe(String bdescibe) {
-        this.bdescribe = bdescibe;
+    public void setBdescribe(String bdescribe) {
+        this.bdescribe = bdescribe;
     }
 
     public boolean isBstate() {
