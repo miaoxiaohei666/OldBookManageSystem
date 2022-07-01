@@ -63,7 +63,7 @@ public class UserController {
             System.out.println("userBan wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/admin/account")
@@ -75,6 +75,6 @@ public class UserController {
             System.out.println("getAllByUnlike wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 }

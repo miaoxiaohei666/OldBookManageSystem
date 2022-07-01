@@ -21,7 +21,7 @@ public class BookController {
             System.out.println("bookAddPublish wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/user/add_want")
@@ -32,7 +32,7 @@ public class BookController {
             System.out.println("bookAddWant wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/user/mine/ban")
@@ -43,7 +43,7 @@ public class BookController {
             System.out.println("bookAddWant wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/user/mine/publish")
@@ -55,7 +55,7 @@ public class BookController {
             System.out.println("getBookPublish wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/user/mine/want")
@@ -67,7 +67,7 @@ public class BookController {
             System.out.println("getBookWant wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "/user/book_sort")
@@ -79,6 +79,6 @@ public class BookController {
             System.out.println("getBookBySort wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 }

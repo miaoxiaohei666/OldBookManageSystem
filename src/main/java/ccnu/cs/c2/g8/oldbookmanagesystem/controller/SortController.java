@@ -18,7 +18,7 @@ public class SortController {
             System.out.println("sortAdd wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "admin/sort/delete")
@@ -29,7 +29,7 @@ public class SortController {
             System.out.println("sortDelete wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "admin/sort/all")
@@ -41,7 +41,7 @@ public class SortController {
             System.out.println("getAllSorts wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 
     @RequestMapping(value = "user/sort/allsortsbygrade")
@@ -53,6 +53,6 @@ public class SortController {
             System.out.println("geAllSortbySgrade wrong!");
             e.printStackTrace();
         }
-        return "error";
+        return "/error";
     }
 }
