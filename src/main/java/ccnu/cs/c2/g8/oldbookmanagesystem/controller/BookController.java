@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
 
 @Controller
 public class BookController {
@@ -14,8 +16,9 @@ public class BookController {
     BookService bookService;
 
     @RequestMapping(value = "/user/add_publish")
-    public String bookAddPublish(Book book, @RequestParam(name = "uno") Integer uno) {
+    public String bookAddPublish(Book book, @RequestParam(name = "uno") Integer uno,MultipartFile file) {
         try {
+            submit(file, book);
             if(bookService.addBook_Publish(book, uno)) return "/index";
         } catch (Exception e) {
             System.out.println("bookAddPublish wrong!");
@@ -92,5 +95,27 @@ public class BookController {
             e.printStackTrace();
         }
         return "/error";
+    }
+
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public Book submit(MultipartFile file, Book book)
+            throws Exception {
+        //这里就可以获取里面的上传过来的数据了
+        //做一些存库操作，以及返回的数据
+        String filename = file.getOriginalFilename();
+        System.out.println(filename);
+        String filePath = System.getProperty("user.dir")+"\\src\\main\\resources\\static\\img";
+        if (!new File(filePath).exists()){
+            new File(filePath).mkdirs();
+        }
+        File dest = new File(filePath + File.separator + book.getBno()+"_"+filename);
+        try {
+            file.transferTo(dest);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        System.out.println(book);
+        book.setBpicture(book.getBno()+"_"+filename);
+        return book;
     }
 }

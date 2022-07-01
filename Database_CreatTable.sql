@@ -23,13 +23,12 @@ create table users
  unlike int default null
 );
 
-INSERT INTO users VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892603115','1521260640',12345678,0,0,0);
 
 -- ----------------------------
 -- SORT
 -- ----------------------------
 create table sort
-(sno numeric(10,0) not null primary key,
+(sno int not null primary key AUTO_INCREMENT,
 sgrade varchar(255) not null ,
  sname varchar(255) not null
 );
@@ -38,11 +37,11 @@ sgrade varchar(255) not null ,
 -- BOOK
 -- ----------------------------
 create table book
-(bno numeric(6,0) not null primary key,
- sno numeric(3,0) not null,
+(bno int not null primary key AUTO_INCREMENT,
+ sno int not null,
  bname varchar(255) not null,
  create_time varchar(255) not null,
- bpicture varchar(255) not null,
+ bpicture varchar(255) default null,
  bprice int not null,
  bdescribe text not null,
  bstate bit default null,
@@ -54,7 +53,7 @@ create table book
 -- ----------------------------
 create table publish
 (uno numeric(10,0) not null,
- bno numeric(6,0) not null,
+ bno int not null,
  foreign key (uno) references users(uno),
  foreign key (bno) references book(bno)
 );
@@ -63,7 +62,7 @@ create table publish
 -- WANT
 -- ----------------------------
 create table want
-(bno numeric(6,0) not null,
+(bno int not null,
  uno numeric(10,0) not null,
  foreign key (bno) references book(bno),
  foreign key (uno) references users(uno)
