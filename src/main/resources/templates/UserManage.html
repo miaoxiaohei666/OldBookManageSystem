@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<title>计科书斋</title>
-	<link rel="stylesheet" href="plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-	<link href="css/topBar.css"type="text/css"rel="stylesheet"/>
-	<link href="css/list.css"type="text/css"rel="stylesheet"/>
-  <link href="css/table.css"type="text/css"rel="stylesheet"/>
-	<script type="text/javascript" src="plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
+	<link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}"/>
+	<link href="../static/css/list.css" type="text/css" rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link href="../static/css/table.css" type="text/css" rel="stylesheet" th:href="@{/css/table.css}"/>
+	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
+	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js}"></script>
 </head>
 <body>
 	<!-- 顶部栏 -->
-	<div class="topBar"><a href="#"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
+	<div class="topBar"><a href="UserManage.html" th:href="@{/UserManage}"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
      <div class="jiaocai">
         <a href="#" data-toggle="dropdown">教材 <span class="caret"></span></a>
           <ul class="dropdown-menu">

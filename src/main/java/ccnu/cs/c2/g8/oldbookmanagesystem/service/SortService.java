@@ -36,25 +36,14 @@ public class SortService {
         return null;
     }
 
-    public List<Integer> getAllSnoBysgrade(String sgrade){
-        try{
-            return sortDao.getSortBySgrade(sgrade);
-        }catch(Exception e){
-            System.out.println("getAllsortBysgrade wrong!");
-            e.printStackTrace();
-        }
-        return null;
-    }
 
-    public List<Book> getAllBookBysgrade(String sgrade) {
-        try {
-            List<Integer> sortList=getAllSnoBysgrade(sgrade);
-            List<Book> bookList=new ArrayList<>();
-            while (sortList.iterator().hasNext()) {
-                bookList.addAll(bookDao.getBookBySno(sortList.iterator().next()));
-            }
+    public List<Sort> getAllSortBysgrade(String sgrade){
+        try{
+            List<Sort> sortList=sortDao.getSortsBySgrade(sgrade);
+            if(!sortList.isEmpty())
+                return sortList;
         }catch (Exception e){
-            System.out.println("getAllBookBysno wrong!");
+            System.out.println("getAllSortBysgrade wrong!");
             e.printStackTrace();
         }
         return null;

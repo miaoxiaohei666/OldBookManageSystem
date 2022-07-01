@@ -16,9 +16,9 @@ public class SortController {
         System.out.println("add new sort");
         boolean flag=sortService.addSort(sort);
         if(flag)
-            return "/sort";
+            return "admin/sort";
         else
-            return "sort/add";
+            return "admin/sort/add";
     }
 
     @RequestMapping(value = "admin/sort/delete", method = RequestMethod.POST)
@@ -26,9 +26,9 @@ public class SortController {
         System.out.println("delete sort");
         boolean flag=sortService.deleteSortbySname(sname);
         if(flag)
-            return "/sort";
+            return "admin/sort";
         else
-            return "sort/delete";
+            return "adminsort/delete";
     }
 
     @RequestMapping(value = "admin/sort/all", method = RequestMethod.GET)
@@ -41,13 +41,24 @@ public class SortController {
             return "admin/sort/all";
     }
 
-    @RequestMapping(value = "admin/sort/allbysno", method = RequestMethod.GET)
+    @RequestMapping(value = "user/sort/allbysno", method = RequestMethod.GET)
     public String getAllbySno(@RequestParam(name = "sno") Integer sno){
         System.out.println("get all by sno");
         List<Book> booklist=sortService.getAllBookBysno(sno);
         if(!booklist.isEmpty())
-            return "admin/sort";
+            return "user/sort";
         else
-            return "admin/sort/allbysno";
+            return "user/sort/allbysno";
+    }
+
+
+    @RequestMapping(value = "user/sort/allsortsbygrade", method = RequestMethod.GET)
+    public String geAllSortbySgrade(@RequestParam(name = "sgrade") String sgrade){
+        System.out.println("get all sorts by sgrade");
+        List<Sort> sortList=sortService.getAllSortBysgrade(sgrade);
+        if(!sortList.isEmpty())
+            return "user/sort";
+        else
+            return "user/sort/allsortsbygrade";
     }
 }

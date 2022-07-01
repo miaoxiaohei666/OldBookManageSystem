@@ -14,7 +14,7 @@ public class BookController {
     BookService bookService;
 
     @RequestMapping(value = "/user/add_publish",method = RequestMethod.POST)
-    public String bookAddPublish(@RequestBody Book book,Integer uno) {
+    public String bookAddPublish(@RequestBody Book book,@RequestParam(name = "uno") Integer uno) {
         if (bookService.addBook_Publish(book,uno)){
             return "/book/mine";
         }
@@ -22,32 +22,32 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/add_want",method = RequestMethod.POST)
-    public boolean bookAddWant(Integer bno,Integer uno) {
+    public boolean bookAddWant(@RequestParam(name = "bno") Integer bno,@RequestParam(name = "uno") Integer uno) {
         return bookService.addBook_Want(bno, uno);
     }
 
     @RequestMapping(value = "/user/mine/ban",method = RequestMethod.GET)
-    public boolean bookBan(Integer bno) {
+    public boolean bookBan(@RequestParam(name = "bno") Integer bno) {
         return bookService.updateBstate(bno);
     }
 
     @RequestMapping(value = "/user/mine/publish",method = RequestMethod.GET)
-    public List<Book> getBookPublish(Integer uno) {
+    public List<Book> getBookPublish(@RequestParam(name = "uno")Integer uno) {
         return bookService.getBookPublish(uno);
     }
 
     @RequestMapping(value = "/user/mine/want",method = RequestMethod.GET)
-    public List<Book> getBookWant(Integer uno) {
+    public List<Book> getBookWant(@RequestParam(name = "uno")Integer uno) {
         return bookService.getBookWant(uno);
     }
 
     @RequestMapping(value = "/user/book_sort",method = RequestMethod.GET)
-    public List<Book> getBookSort(Integer sno) {
+    public List<Book> getBookSort(@RequestParam(name = "sno")Integer sno) {
         return bookService.getAllBySno(sno);
     }
 
     @RequestMapping(value = "/admin/book",method = RequestMethod.GET)
-    public List<Book> getBookUnlike(Integer sno) {
+    public List<Book> getBookUnlike(@RequestParam(name = "sno")Integer sno) {
         return bookService.getAllBySno(sno);
     }
 }
