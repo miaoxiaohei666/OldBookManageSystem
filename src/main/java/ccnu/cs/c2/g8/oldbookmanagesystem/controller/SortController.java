@@ -2,10 +2,11 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class SortController {
     SortService sortService;
 
