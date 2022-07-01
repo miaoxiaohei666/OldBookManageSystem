@@ -1,9 +1,7 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
-import ccnu.cs.c2.g8.oldbookmanagesystem.annotation.UserLoginToken;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
-import ccnu.cs.c2.g8.oldbookmanagesystem.service.TokenService;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     public UserService userService;
-    @Autowired
-    public TokenService tokenService;
 
     @RequestMapping("/")
     public String index() {
@@ -27,6 +23,7 @@ public class UserController {
     public String toIndex(){
         return "/index";
     }
+
     @RequestMapping("/toLogin")
     public String toLogin(){
         return "/denglu";
@@ -37,39 +34,21 @@ public class UserController {
         return "/zhuce";
     }
 
-    //登录
-    @PostMapping("/user/account/login")
-    public Object userlogin( User user){
-        com.alibaba.fastjson.JSONObject jsonObject=new com.alibaba.fastjson.JSONObject();
-        User userForBase=userService.getUserByUno(user.getUno());
-        if(userForBase==null){
-            jsonObject.put("message","登录失败,用户不存在");
-            return jsonObject;
-        }else {
-            if (!userForBase.getUpassword().equals(user.getUpassword())){
-                jsonObject.put("message","登录失败,密码错误");
-                return jsonObject;
-            }else {
-                String token = tokenService.getToken(userForBase);
-                jsonObject.put("token", token);
-                jsonObject.put("user", userForBase);
-                return jsonObject;
-            }
+    @RequestMapping(value = "/user/account/login",method = RequestMethod.POST)
+    public String userLogin(@RequestParam(name = "uno") Integer uno,@RequestParam(name = "upassword") String upassword) {
+        boolean result = userService.userLogin(uno, upassword);
+        if (result){
+            return "/index";
         }
-    }
-
-    @UserLoginToken
-    @GetMapping("/user/account/getMessage")
-    public String getMessage(){
-        return "你已通过验证";
+        else return "/denglu";
     }
 
     @RequestMapping(value = "/user/account/register",method = RequestMethod.POST)
-    public String userAdd(@RequestBody User user){
+    public String userAdd(User user){
         if(userService.addUser(user)){
-            return "/user/index" ;
+            return "/index" ;
         }
-        else return "/user/account/register";
+        else return "/zhuce";
     }
 
     @RequestMapping(value = "/admin/account/ban",method = RequestMethod.GET)
