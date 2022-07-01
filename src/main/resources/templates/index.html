@@ -40,7 +40,7 @@
 	</div>
 	<div class="content-desc">
 		<div class="book_list">
-			<ul>
+			<ul th:each="book : ${books}">
 				<li>
 					<div class="figure">
 						<a href="#">
@@ -48,109 +48,11 @@
 						</a>
 					</div>
 					<h2 class="title">
-						<a href="#">小米9</a>
+						<a href="#" th:href="@{#}" th:text="${book.bname}">小米9</a>
 					</h2>
 					<p class="desc">XXXXX</p>
 					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
-					</p>
-				</li>
-				<li>
-					<div class="figure">
-						<a href="#">
-							<img src="../static/images/figure1.jpg" th:src="@{/images/figure1.jpg}" alt="wrong">
-						</a>
-					</div>
-					<h2 class="title">
-						<a href="#" th:href="@{#}">小米9</a>
-					</h2>
-					<p class="desc">XXXXX</p>
-					<p class="price">
-						<span class="num">2999</span>元
+						<span class="num" th:text="${book.bprice}">2999</span>元
 					</p>
 				</li>
 			</ul>

@@ -2,12 +2,10 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.service;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.SortDao;
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 @Service
 public class SortService {
@@ -26,18 +24,7 @@ public class SortService {
         return null;
     }
 
-    public List<Book> getAllBookBysno(Integer sno) {
-        try {
-            return bookDao.getBookBySno(sno);
-        }catch (Exception e){
-            System.out.println("getAllBookBysno wrong!");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    public List<Sort> getAllSortBysgrade(String sgrade){
+    public List<Sort> getAllSortBySgrade(String sgrade){
         try{
             List<Sort> sortList=sortDao.getSortsBySgrade(sgrade);
             if(!sortList.isEmpty())

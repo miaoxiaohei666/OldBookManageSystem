@@ -4,11 +4,11 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.dao.BookDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.PublishDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.WantDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class BookService {
     private WantDao wantDao;
 
 
-    public boolean addBook_Publish(Book book, Integer uno) {
+    public boolean addBook_Publish(Book book, @RequestParam(name = "uno") Integer uno) {
         boolean flag = false;
         try {
             Publish publish = new Publish();
@@ -91,7 +91,7 @@ public class BookService {
             }
             return bookList;
         } catch (Exception e) {
-            System.out.println("getBookPublish wrong!");
+            System.out.println("getBookWant wrong!");
             e.printStackTrace();
         }
         return null;
@@ -99,11 +99,9 @@ public class BookService {
 
     public List<Book> getAllBySno(Integer sno) {
         try {
-            List<Book> bookList = bookDao.getBookBySno(sno);
-            return bookList;
-        } catch (
-                Exception e) {
-            System.out.println("getBookPublish wrong!");
+            return bookDao.getBookBySnoAndBstateIsFalse(sno);
+        } catch (Exception e) {
+            System.out.println("getAllBySno wrong!");
             e.printStackTrace();
         }
         return null;

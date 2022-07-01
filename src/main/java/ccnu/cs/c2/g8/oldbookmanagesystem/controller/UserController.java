@@ -1,13 +1,11 @@
 package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
-import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -16,51 +14,67 @@ public class UserController {
 
     @RequestMapping("/")
     public String index() {
-        return "/index";
+        return "redirect:/user/book_sort/grade1";
     }
 
     @RequestMapping("/index")
-    public String toIndex(){
+    public String toIndex() {
         return "/index";
     }
 
     @RequestMapping("/toLogin")
-    public String toLogin(){
+    public String toLogin() {
         return "/denglu";
     }
 
     @RequestMapping("toRegister")
-    public String toRegister(){
+    public String toRegister() {
         return "/zhuce";
     }
 
-    @RequestMapping(value = "/user/account/login",method = RequestMethod.POST)
-    public String userLogin(@RequestParam(name = "uno") Integer uno,@RequestParam(name = "upassword") String upassword) {
-        boolean result = userService.userLogin(uno, upassword);
-        if (result){
+    @RequestMapping(value = "/user/account/login")
+    public String userLogin(@RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
+        try {
+            if (userService.userLogin(uno, upassword)) return "/index";
+        } catch (Exception e) {
+            System.out.println("userLogin wrong!");
+            e.printStackTrace();
+        }
+        return "/denglu";
+    }
+
+    @RequestMapping(value = "/user/account/register")
+    public String userAdd(User user) {
+        try {
+            if (userService.addUser(user)) return "/index";
+        } catch (Exception e) {
+            System.out.println("userAdd wrong!");
+            e.printStackTrace();
+        }
+        return "/zhuce";
+    }
+
+    @RequestMapping(value = "/admin/account/ban")
+    public String userBan(@RequestParam(name = "uno") Integer uno) {
+
+        try {
+            if (userService.updateUstate(uno)) return uno.toString();
+        } catch (Exception e) {
+            System.out.println("userBan wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
+    @RequestMapping(value = "/admin/account")
+    public String getAllByUnlike(Model model) {
+        try {
+            model.addAttribute("getBookPublish", userService.getUserUnlike());
             return "/index";
+        } catch (Exception e) {
+            System.out.println("getAllByUnlike wrong!");
+            e.printStackTrace();
         }
-        else return "/denglu";
-    }
-
-    @RequestMapping(value = "/user/account/register",method = RequestMethod.POST)
-    public String userAdd(User user){
-        if(userService.addUser(user)){
-            return "/index" ;
-        }
-        else return "/zhuce";
-    }
-
-    @RequestMapping(value = "/admin/account/ban",method = RequestMethod.GET)
-    public boolean userBan(@RequestParam(name = "uno") Integer uno){
-        if(userService.updateUstate(uno)){
-            return true;
-        }
-        else return false;
-    }
-
-    @RequestMapping(value = "/admin/account",method = RequestMethod.GET)
-    public List<User> getAllByUnlike(){
-        return userService.getUserUnlike();
+        return "/error";
     }
 }
