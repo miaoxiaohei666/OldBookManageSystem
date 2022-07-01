@@ -46,7 +46,7 @@ public class SortController {
     }
 
     @RequestMapping(value = "user/sort/allsortsbygrade")
-    public String geAllSortbySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
+    public String geAllSortBySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
         try {
             model.addAttribute("getBookPublish", sortService.getAllSortBySgrade(sgrade));
             return "/index";
