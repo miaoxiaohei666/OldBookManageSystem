@@ -54,17 +54,17 @@ public class UserController {
 
     @RequestMapping("/toMyPublishBook")
     public String toMyPublishBook() {
-        return "redirect:/user/add_publish/cookie";
+        return "redirect:/user/mine/publish";
     }
 
     @RequestMapping("/toMyWantBook")
     public String toMyWantBook(){
-        return "/want";
+        return "redirect:/user/mine/want";
     }
 
     @RequestMapping("/toCustomHonesty")
     public String toCustomHonesty(){
-        return "/customHonesty";
+        return "redirect:/customHonesty";
     }
 
     @RequestMapping("toRegister")
