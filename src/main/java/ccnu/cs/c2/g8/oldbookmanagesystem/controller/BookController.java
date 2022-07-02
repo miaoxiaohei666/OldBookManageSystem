@@ -16,8 +16,8 @@ public class BookController {
     @RequestMapping(value = "/user/add_publish")
     public String bookAddPublish(Book book, @CookieValue(value = "uno") Integer uno) {
         try {
-            book.getCreate_time();
-            if(bookService.addBook_Publish(book, uno)) return "/index";
+            book.getCreatetime();
+            if(bookService.addBook_Publish(book, uno)) return "/publishBook";
         } catch (Exception e) {
             System.out.println("bookAddPublish wrong!");
             e.printStackTrace();

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class UserController {
     @Autowired
@@ -18,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping("/toLoginOut")
-    public String toLoginOut(){
+    public String toLoginOut() {
         return "/denglu";
     }
 
@@ -58,12 +62,12 @@ public class UserController {
     }
 
     @RequestMapping("/toMyWantBook")
-    public String toMyWantBook(){
+    public String toMyWantBook() {
         return "redirect:/user/mine/want";
     }
 
     @RequestMapping("/toCustomHonesty")
-    public String toCustomHonesty(){
+    public String toCustomHonesty() {
         return "redirect:/customHonesty";
     }
 
@@ -73,11 +77,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/account/login")
-    public String userLogin(@RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
+    public String userLogin(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
         try {
             if (uno == 1234567890 && upassword.equals("root"))
                 return "/administer";
             else if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
+            else if (userService.userLogin(uno, upassword)) {
+                Cookie cookie = new Cookie("uno", uno.toString());
+                cookie.setPath(request.getContextPath());
+                response.addCookie(cookie);
+                return "redirect:/user/book_sort/grade1";
+            }
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();

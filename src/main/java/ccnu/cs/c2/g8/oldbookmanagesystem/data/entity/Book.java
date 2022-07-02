@@ -33,7 +33,7 @@ public class Book {
     private String bname;
 
     @Column(name = "create_time")
-    private String create_time;
+    private String createtime;
 
     @Column(name = "bpicture")
     private String bpicture;
@@ -74,14 +74,14 @@ public class Book {
         this.bname = bname;
     }
 
-    public String getCreate_time(){
+    public String getCreatetime(){
         setCreate_time();
-        return create_time;
+        return createtime;
     }
     public void setCreate_time(){
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.create_time = formatter.format(date);
+        this.createtime = formatter.format(date);
     }
 
     public String getBpicture() {

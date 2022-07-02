@@ -22,13 +22,13 @@ public class BookService {
     private WantDao wantDao;
 
 
-    public boolean addBook_Publish(Book book, @RequestParam(name = "uno") Integer uno) {
+    public boolean addBook_Publish(Book book, Integer uno) {
         boolean flag = false;
         try {
             Publish publish = new Publish();
+            bookDao.save(book);
             publish.setUno(uno);
             publish.setBno(book.getBno());
-            bookDao.save(book);
             publishDao.save(publish);
             flag = true;
         } catch (Exception e) {

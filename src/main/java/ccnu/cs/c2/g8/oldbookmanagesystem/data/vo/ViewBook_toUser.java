@@ -57,7 +57,7 @@ public class ViewBook_toUser {
         setBno(book.getBno());
         setSno(book.getSno());
         setBname(book.getBname());
-        setCreate_time(book.getCreate_time());
+        setCreate_time(book.getCreatetime());
         setBpicture(book.getBpicture());
         setBprice(book.getBprice());
         setBdescribe(book.getBdescribe());
