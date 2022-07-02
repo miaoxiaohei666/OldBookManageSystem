@@ -20,13 +20,13 @@ public class ImgController {
         if (!new File(filePath).exists()){
             new File(filePath).mkdirs();
         }
-        File dest = new File(filePath + File.separator + book.getBname() +"_"+filename);
+        File dest = new File(filePath + File.separator + book.getBno() +"_"+filename);
         try {
             file.transferTo(dest);
         }catch (Exception e){
             e.printStackTrace();
         }
-        book.setBpicture( (book.getBname()+"_"+filename));
+        book.setBpicture( (book.getBno()+"_"+filename));
         return book;
     }
 }

@@ -24,6 +24,17 @@ public class BookController {
         return "/error";
     }
 
+    @RequestMapping(value = "/user/add_publish/cookie")
+    public String bookAddPublishByCookie(Book book,@CookieValue(value = "uno", defaultValue = "2020213673") Integer uno) {
+        try {
+            if(bookService.addBook_Publish(book, uno)) return "/index";
+        } catch (Exception e) {
+            System.out.println("bookAddPublish wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
     @RequestMapping(value = "/user/add_want")
     public String bookAddWant(@RequestParam(name = "bno") Integer bno, @RequestParam(name = "uno") Integer uno) {
         try {
