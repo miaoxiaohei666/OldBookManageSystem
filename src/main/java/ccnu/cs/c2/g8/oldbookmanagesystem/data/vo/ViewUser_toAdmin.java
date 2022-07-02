@@ -6,6 +6,7 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class ViewUser_toAdmin {
     private String unickname;
 
     @Column(name = "utel")
-    private Integer utel;
+    private BigInteger utel;
 
     @Column(name = "uwechat")
     private String uwechat;
@@ -118,11 +119,11 @@ public class ViewUser_toAdmin {
         this.unickname = unickname;
     }
 
-    public Integer getUtel() {
+    public BigInteger getUtel() {
         return utel;
     }
 
-    public void setUtel(Integer utel) {
+    public void setUtel(BigInteger utel) {
         this.utel = utel;
     }
 

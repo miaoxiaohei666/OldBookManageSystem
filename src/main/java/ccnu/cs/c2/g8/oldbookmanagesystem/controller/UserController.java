@@ -24,14 +24,13 @@ public class UserController {
 
     @RequestMapping("/index")
     public String toIndex() {
-        return "redirect:/indexGetBook";
-//        return "/index";
+        return "redirect:/user/book_sort/grade1";
     }
 
-    @RequestMapping("/toLogin")
-    public String toLogin() {
-        return "/denglu";
-    }
+//    @RequestMapping("/toLogin")
+//    public String toLogin() {
+//        return "/denglu";
+//    }
 
     @RequestMapping("toRegister")
     public String toRegister() {
@@ -41,7 +40,9 @@ public class UserController {
     @RequestMapping(value = "/user/account/login")
     public String userLogin(@RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
         try {
-            if (userService.userLogin(uno, upassword)) return "/index";
+            if (uno == 1234567890 && upassword.equals("root"))
+                return "/administer";
+            else if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();
@@ -52,7 +53,7 @@ public class UserController {
     @RequestMapping(value = "/user/account/register")
     public String userAdd(User user) {
         try {
-            if (userService.addUser(user)) return "/index";
+            if (userService.addUser(user)) return "redirect:/user/book_sort/grade1";
         } catch (Exception e) {
             System.out.println("userAdd wrong!");
             e.printStackTrace();
@@ -62,7 +63,6 @@ public class UserController {
 
     @RequestMapping(value = "/admin/account/ban")
     public String userBan(@RequestParam(name = "uno") Integer uno) {
-
         try {
             if (userService.updateUstate(uno)) return uno.toString();
         } catch (Exception e) {
