@@ -16,11 +16,6 @@ public class UserController {
     @Autowired
     public UserService userService;
 
-//    @RequestMapping("/")
-//    public String index() {
-//        return "redirect:/user/book_sort/grade1";
-//    }
-
     @RequestMapping("/")
     public String indexToLogin() {
         return "/denglu";
@@ -30,11 +25,6 @@ public class UserController {
     public String toIndex() {
         return "redirect:/user/book_sort/grade1";
     }
-
-//    @RequestMapping("/toLogin")
-//    public String toLogin() {
-//        return "/denglu";
-//    }
 
     @RequestMapping("toRegister")
     public String toRegister() {
