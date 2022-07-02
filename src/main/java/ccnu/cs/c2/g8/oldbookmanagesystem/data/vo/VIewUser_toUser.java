@@ -25,7 +25,7 @@ public class VIewUser_toUser {
     private String unickname;
 
     @Column(name = "utel")
-    private String utel;
+    private Integer utel;
 
     @Column(name = "uwechat")
     private String uwechat;
@@ -118,11 +118,11 @@ public class VIewUser_toUser {
         this.unickname = unickname;
     }
 
-    public String getUtel() {
+    public Integer getUtel() {
         return utel;
     }
 
-    public void setUtel(String utel) {
+    public void setUtel(Integer utel) {
         this.utel = utel;
     }
 

@@ -30,7 +30,7 @@ INSERT INTO users VALUES (2020213673,2020,'xxy','miaoxiaohei',15892603115,'15892
 -- ----------------------------
 create table sort
 (sno numeric(10,0) not null primary key,
-sgrade varchar(255) not null ,
+sgrade numeric(1,0) not null ,
  sname varchar(255) not null
 );
 
