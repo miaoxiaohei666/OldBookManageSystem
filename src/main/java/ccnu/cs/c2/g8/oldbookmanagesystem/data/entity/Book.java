@@ -3,7 +3,6 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.data.entity;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
-
 import javax.persistence.*;
 import java.util.List;
 
