@@ -81,7 +81,6 @@ public class UserController {
         try {
             if (uno == 1234567890 && upassword.equals("root"))
                 return "/administer";
-            else if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
             else if (userService.userLogin(uno, upassword)) {
                 Cookie cookie = new Cookie("uno", uno.toString());
                 cookie.setPath(request.getContextPath());
