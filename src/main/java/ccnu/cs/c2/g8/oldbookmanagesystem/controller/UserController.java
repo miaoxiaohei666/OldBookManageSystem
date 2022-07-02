@@ -12,13 +12,13 @@ public class UserController {
     @Autowired
     public UserService userService;
 
-//    @RequestMapping("/")
-//    public String index() {
-//        return "redirect:/user/book_sort/grade1";
-//    }
-
     @RequestMapping("/")
     public String indexToLogin() {
+        return "/denglu";
+    }
+
+    @RequestMapping("/toLoginOut")
+    public String toLoginOut(){
         return "/denglu";
     }
 
@@ -27,10 +27,25 @@ public class UserController {
         return "redirect:/user/book_sort/grade1";
     }
 
-//    @RequestMapping("/toLogin")
-//    public String toLogin() {
-//        return "/denglu";
-//    }
+    @RequestMapping("/sort")
+    public String toSort() {
+        return "redirect:/user/book_sort";
+    }
+
+    @RequestMapping("/UserManage")
+    public String administerToUserManage() {
+        return "/UserManage";
+    }
+
+    @RequestMapping("/BookManage")
+    public String administerToBookManage() {
+        return "/BookManage";
+    }
+
+    @RequestMapping("/BookSort")
+    public String administerToBookSort() {
+        return "/BookSort";
+    }
 
     @RequestMapping("toRegister")
     public String toRegister() {
