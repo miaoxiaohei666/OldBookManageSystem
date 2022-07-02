@@ -2,41 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>计科书斋</title>
 	<link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
-	<link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}"/>
-	<link href="../static/css/list.css" type="text/css" rel="stylesheet" th:href="@{/css/list.css}"/>
-	<link href="../static/css/table.css" type="text/css" rel="stylesheet" th:href="@{/css/list.css}"/>
+	<link href="../static/css/topBar.css" th:href="@{/css/topBar.css}" type="text/css" rel="stylesheet"/>
+	<link href="../static/css/list.css" th:href="@{/css/list.css}" type="text/css" rel="stylesheet"/>
+	<link href="../static/css/table.css" th:href="@{/css/table.css}" type="text/css" rel="stylesheet"/>
 	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
-	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
+	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js}"></script>
 </head>
 <body>
 <!-- 顶部栏 -->
 <div class="topBar"><a href="index.html" th:href="@{/index}"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
 <div class="jiaocai">
-	<d href="#" th:href="@{#}" data-toggle="dropdown">教材</d>
-	<div class="dropdown-menu">
-		<div class="dropdownfont">
-			<div><a href="#" th:href="@{#}">大一上</a></div>
-			<div><a href="#" th:href="@{#}">大一下</a></div>
-			<div><a href="#" th:href="@{#}">大二上</a></div>
-			<div><a href="#" th:href="@{#}">大二下</a></div>
-			<div><a href="#" th:href="@{#}">大三上</a></div>
-			<div><a href="#" th:href="@{#}">大三下</a></div>
-			<div><a href="#" th:href="@{#}">大四上</a></div>
-			<div><a href="#" th:href="@{#}">大四下</a></div>
-		</div>
+	<div class="dropdown">
+		<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			教材分类
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<div class="dropdownfont">
+				<div><a href="index.html?sno=1" th:href="@{/user/book_sort?sno=1}">大一上</a></div>
+				<div><a href="index.html?sno=2" th:href="@{/user/book_sort?sno=2}">大一下</a></div>
+				<div><a href="index.html?sno=3" th:href="@{/user/book_sort?sno=3}">大二上</a></div>
+				<div><a href="index.html?sno=4" th:href="@{/user/book_sort?sno=4}">大二下</a></div>
+				<div><a href="index.html?sno=5" th:href="@{/user/book_sort?sno=5}">大三上</a></div>
+				<div><a href="index.html?sno=6" th:href="@{/user/book_sort?sno=6}">大三下</a></div>
+				<div><a href="index.html?sno=7" th:href="@{/user/book_sort?sno=7}">大四上</a></div>
+				<div><a href="index.html?sno=8" th:href="@{/user/book_sort?sno=8}">大四下</a></div>
+				<div><a href="index.html?sno=9" th:href="@{/user/book_sort?sno=9}">其他书籍</a></div>
+			</div>
+		</ul>
 	</div>
-	<span>|</span>
-	<a href="#" th:href="@{#}">其他书籍</a>
 </div>
-<!--	<div class="login">
-		<a href="denglu.html" th:href="@{/toLogin}" id="denglu">登录</a>
-		<span>|</span>
-		<a href="zhuce.html" th:href="@{/toRegister}" id="zhuce">注册</a>
-	</div>-->
 <div class="login">
 	<div class="dropdown">
 		<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -45,9 +42,9 @@
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 			<div class="dropdownfont">
-				<div><a href="#" th:href="@{#}">账户信息</a></div>
-				<div><a href="#" th:href="@{#}">商品信息</a></div>
-				<div><a href="#" th:href="@{#}">书籍分类</a></div>
+				<div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
+				<div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
+				<div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
 			</div>
 		</ul>
 	</div>
@@ -61,11 +58,18 @@
 
 <div id="main">
 	<table class="table">
+		<thead>
+		<tr>
+			<th>书籍名称</th>
+			<th>书籍价格</th>
+			<th>书籍信息</th>
+		</tr>
+		</thead>
 		<tbody>
 		<tr th:each="books : ${getBookByGrade1}" style="background-color: #a13e26;color: aliceblue;">
 			<th th:text="${books.bname}">书籍名称</th>
 			<th th:text="${books.bprice}">书籍价格</th>
-			<th th:text="${books.bpicture}">书籍图片</th>
+			<th th:text="${books.bdescribe}">书籍信息</th>
 		</tr>
 		</tbody>
 	</table>
@@ -81,244 +85,178 @@
 </div>
 </body>
 
-<script>
+<!--<script>-->
+<!--	var table = document.querySelector("table")-->
 
-	var table = document.querySelector("table")
-	//模拟后台响应的数据
-	// var json = [
-	//     {
-	//         "product_id": "1001",
-	//         "bname": "java核心技术1",
-	//         "bprice": "120",
-	//         "imgurl": "res/productimg/1.jpeg"
-	//     }, {
-	//         "product_id": "1002",
-	//         "bname": "java核心技术2",
-	//         "bprice": "130",
-	//         "imgurl": "res/productimg/2.jpeg"
-	//     }, {
-	//         "product_id": "1003",
-	//         "bname": "web技术",
-	//         "bprice": "100",
-	//         "imgurl": "res/productimg/3.jpeg"
-	//     }, {
-	//         "product_id": "1004",
-	//         "bname": "Mysql必知必会",
-	//         "bprice": "39",
-	//         "imgurl": "res/productimg/4.jpeg"
-	//     }, {
-	//         "product_id": "1005",
-	//         "bname": "中国近代史",
-	//         "bprice": "105",
-	//         "imgurl": "res/productimg/4.jpeg"
-	//     }, {
-	//         "product_id": "1006",
-	//         "bname": "世界史",
-	//         "bprice": "110",
-	//         "imgurl": "res/productimg/1.jpeg"
-	//     }, {
-	//         "product_id": "1007",
-	//         "bname": "高等数学",
-	//         "bprice": "50",
-	//         "imgurl": "res/productimg/1.jpeg"
-	//     }, {
-	//         "product_id": "1008",
-	//         "bname": "离散数学",
-	//         "bprice": "60",
-	//         "imgurl": "res/productimg/1.jpeg"
-	//     }, {
-	//         "product_id": "1010",
-	//         "bname": "线性代数",
-	//         "bprice": "50",
-	//         "imgurl": "res\\productimg/3e83c2a6-b529-4bee-8ca9-ecc868b4d6f7.jpeg"
-	//     }, {
-	//         "product_id": "1011",
-	//         "bname": "数据结构",
-	//         "bprice": "100",
-	//         "imgurl": "res\\productimg/53dccb9f-b918-4a81-acc9-f99594992db1.jpeg"
-	//     }, {
-	//         "product_id": "1013",
-	//         "bname": "人工智能",
-	//         "bprice": "120",
-	//         "imgurl": "res\\productimg/94736781-046b-4c7c-8499-bebad2542b6f.jpg"
-	//     }, {
-	//         "product_id": "1014",
-	//         "bname": "大数据",
-	//         "bprice": "120",
-	//         "imgurl": "res\\productimg/f891569d-45e3-4b7f-a37e-980273f84508.jpg"
-	//     }
-	// ];
+<!--	var ul = document.querySelector(".pagination");-->
+<!--	var page_number = 5; //单页浏览的条数-->
+<!--	var Total_pages; //页数-->
+<!--	var liAll; //页码按钮下标为 1到length-2是页数 0和length-1为上一页和下一页-->
+<!--	var pre; //上一页-->
+<!--	var next; //下一页-->
 
-	var ul = document.querySelector(".pagination");
-	var page_number = 5; //单页浏览的条数
-	var Total_pages; //页数
-	var liAll; //页码按钮下标为 1到length-2是页数 0和length-1为上一页和下一页
-	var pre; //上一页
-	var next; //下一页
+<!--	function clearTable() {-->
+<!--		table.innerHTML = `-->
+<!--        <tbody>-->
+<!--             <tr style="background-color: #a13e26;color: aliceblue;">-->
+<!--                <th>书籍名称</th>-->
+<!--				<th>书籍价格</th>-->
+<!--				<th>书籍图片</th>-->
+<!--            </tr>-->
+<!--        </tbody>-->
+<!--        `-->
+<!--	}-->
+<!--	window.onload = function() {-->
+<!--		json.forEach(function(item, i) {-->
+<!--			var tbody = document.querySelector("tbody");-->
+<!--			if (i < page_number) {-->
+<!--				var tr = document.createElement("tr");-->
+<!--				tr.innerHTML = `-->
+<!--                            <td>${item.bname}</td>-->
+<!--                            <td>${item.bprice}</td>-->
+<!--                            <td>${item.imgurl}</td>-->
+<!--                            `-->
+<!--				tbody.appendChild(tr);-->
+<!--			}-->
+<!--		});-->
 
-	function clearTable() {
-		table.innerHTML = `
-        <tbody>
-             <tr style="background-color: #a13e26;color: aliceblue;">
-                <th>书籍名称</th>
-				<th>书籍价格</th>
-				<th>书籍图片</th>
-            </tr>
-        </tbody>
-        `
-	}
-	window.onload = function() {
-		json.forEach(function(item, i) {
-			var tbody = document.querySelector("tbody");
-			if (i < page_number) {
-				var tr = document.createElement("tr");
-				tr.innerHTML = `
-                            <td>${item.bname}</td>
-                            <td>${item.bprice}</td>
-                            <td>${item.imgurl}</td>
-                            `
-				tbody.appendChild(tr);
-			}
-		});
+<!--		var len = json.length; //总记录条数-->
 
-		var len = json.length; //总记录条数
+<!--		Total_pages = len % page_number == 0 ? len / page_number : len / page_number + 1; //页数-->
 
-		Total_pages = len % page_number == 0 ? len / page_number : len / page_number + 1; //页数
+<!--		for (var i = 1; i <= Total_pages; i++) {-->
+<!--			ul.innerHTML += `-->
+<!--            <li  id="${i}"><a href="#">${i}</a></li>-->
+<!--            `-->
+<!--		}-->
 
-		for (var i = 1; i <= Total_pages; i++) {
-			ul.innerHTML += `
-            <li  id="${i}"><a href="#">${i}</a></li>
-            `
-		}
+<!--		ul.innerHTML += `-->
+<!--                <li class="next_li">-->
+<!--                    <a href="#" aria-label="Next">-->
+<!--                        <span aria-hidden="true">&raquo;</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--        `;-->
 
-		ul.innerHTML += `
-                <li class="next_li">
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-        `;
+<!--		liAll = document.querySelectorAll("li");-->
+<!--		liAll[1].childNodes[0].style.color = "red"; //初始第一页页码是红的-->
+<!--		// console.log([liAll])-->
+<!--		var pagethis = 1; //当前是第几页-->
+<!--		for (var i = 1; i < liAll.length - 1; i++) {-->
+<!--			liAll[i].onclick = function() {-->
+<!--				for (var j = 1; j < liAll.length - 1; j++) {-->
+<!--					liAll[j].childNodes[0].style.color = "blue"-->
+<!--				}-->
+<!--				pagethis = this.id; //获取当前是第几页-->
+<!--				liAll[pagethis].childNodes[0].style.color = "red";-->
+<!--				// console.log(liAll[i])-->
+<!--				let start; //当页数据的起始下标-->
+<!--				let end; //当页数据的结束下标-->
+<!--				if (pagethis != 1) {-->
+<!--					start = (pagethis - 1) * page_number;-->
+<!--					end = start + page_number;-->
+<!--					if (end > json.length - 1) { //如果当页数据结束值大于总数据条数下标的值则赋值为总数据条数最大下标值-->
+<!--						end = json.length - 1;-->
+<!--					}-->
+<!--				} else {-->
+<!--					start = 0;-->
+<!--					end = page_number - 1;-->
+<!--				}-->
+<!--				// console.log("start=" + start)-->
+<!--				// console.log("end=" + end)-->
+<!--				clearTable();-->
+<!--				var tbody = document.querySelector("tbody");-->
+<!--				json.forEach(function(item, i) {-->
 
-		liAll = document.querySelectorAll("li");
-		liAll[1].childNodes[0].style.color = "red"; //初始第一页页码是红的
-		// console.log([liAll])
-		var pagethis = 1; //当前是第几页
-		for (var i = 1; i < liAll.length - 1; i++) {
-			liAll[i].onclick = function() {
-				for (var j = 1; j < liAll.length - 1; j++) {
-					liAll[j].childNodes[0].style.color = "blue"
-				}
-				pagethis = this.id; //获取当前是第几页
-				liAll[pagethis].childNodes[0].style.color = "red";
-				// console.log(liAll[i])
-				let start; //当页数据的起始下标
-				let end; //当页数据的结束下标
-				if (pagethis != 1) {
-					start = (pagethis - 1) * page_number;
-					end = start + page_number;
-					if (end > json.length - 1) { //如果当页数据结束值大于总数据条数下标的值则赋值为总数据条数最大下标值
-						end = json.length - 1;
-					}
-				} else {
-					start = 0;
-					end = page_number - 1;
-				}
-				// console.log("start=" + start)
-				// console.log("end=" + end)
-				clearTable();
-				var tbody = document.querySelector("tbody");
-				json.forEach(function(item, i) {
+<!--					if (i >= start && i <= end) {-->
+<!--						var tr = document.createElement("tr");-->
+<!--						tr.innerHTML = `-->
+<!--                            <td>${item.bname}</td>-->
+<!--                            <td>${item.bprice}</td>-->
+<!--                            <td>${item.imgurl}</td>-->
+<!--                            `-->
+<!--						tbody.appendChild(tr);-->
+<!--					}-->
+<!--				})-->
 
-					if (i >= start && i <= end) {
-						var tr = document.createElement("tr");
-						tr.innerHTML = `
-                            <td>${item.bname}</td>
-                            <td>${item.bprice}</td>
-                            <td>${item.imgurl}</td>
-                            `
-						tbody.appendChild(tr);
-					}
-				})
+<!--			}-->
+<!--		}-->
+<!--		pre = document.querySelector("#pre") //上一页-->
+<!--		next = document.querySelector("#next") //下一页-->
+<!--		pre.onclick = function() {-->
+<!--			// alert(pagethis)-->
+<!--			if (pagethis != 1) { //当前页数不等于1时执行上一页-->
+<!--				pagethis&#45;&#45;;-->
+<!--				for (var j = 1; j < liAll.length - 1; j++) {-->
+<!--					liAll[j].childNodes[0].style.color = "blue"-->
+<!--				}-->
+<!--				liAll[pagethis].childNodes[0].style.color = "red";-->
+<!--				let start;-->
+<!--				let end;-->
+<!--				if (pagethis != 1) {-->
+<!--					start = (pagethis - 1) * page_number;-->
+<!--					end = start + page_number;-->
+<!--					if (end > json.length - 1) {-->
+<!--						end = json.length - 1;-->
+<!--					}-->
+<!--				} else {-->
+<!--					start = 0;-->
+<!--					end = page_number - 1;-->
+<!--				}-->
 
-			}
-		}
-		pre = document.querySelector("#pre") //上一页
-		next = document.querySelector("#next") //下一页
-		pre.onclick = function() {
-			// alert(pagethis)
-			if (pagethis != 1) { //当前页数不等于1时执行上一页
-				pagethis--;
-				for (var j = 1; j < liAll.length - 1; j++) {
-					liAll[j].childNodes[0].style.color = "blue"
-				}
-				liAll[pagethis].childNodes[0].style.color = "red";
-				let start;
-				let end;
-				if (pagethis != 1) {
-					start = (pagethis - 1) * page_number;
-					end = start + page_number;
-					if (end > json.length - 1) {
-						end = json.length - 1;
-					}
-				} else {
-					start = 0;
-					end = page_number - 1;
-				}
+<!--				clearTable();-->
+<!--				var tbody = document.querySelector("tbody");-->
+<!--				json.forEach(function(item, i) {-->
+<!--					if (i >= start && i <= end) {-->
+<!--						var tr = document.createElement("tr");-->
+<!--						tr.innerHTML = `-->
+<!--                            <td>${item.bname}</td>-->
+<!--                            <td>${item.bprice}</td>-->
+<!--                            <td>${item.imgurl}</td>-->
+<!--                            `-->
+<!--						console.log(tr)-->
+<!--						tbody.appendChild(tr);-->
+<!--					}-->
+<!--				})-->
+<!--			}-->
+<!--		}-->
+<!--		next.onclick = function() {-->
+<!--			// alert(pagethis)-->
+<!--			if (pagethis < liAll.length - 2) { //当前页数小于最后一页则执行下一页-->
+<!--				pagethis++;-->
+<!--				for (var j = 1; j < liAll.length - 1; j++) {-->
+<!--					liAll[j].childNodes[0].style.color = "blue"-->
+<!--				}-->
+<!--				liAll[pagethis].childNodes[0].style.color = "red";-->
+<!--				let start;-->
+<!--				let end;-->
+<!--				if (pagethis != 1) {-->
+<!--					start = (pagethis - 1) * page_number;-->
+<!--					end = start + page_number;-->
+<!--					if (end > json.length - 1) {-->
+<!--						end = json.length - 1;-->
+<!--					}-->
+<!--				} else {-->
+<!--					start = 0;-->
+<!--					end = page_number - 1;-->
+<!--				}-->
 
-				clearTable();
-				var tbody = document.querySelector("tbody");
-				json.forEach(function(item, i) {
-					if (i >= start && i <= end) {
-						var tr = document.createElement("tr");
-						tr.innerHTML = `
-                            <td>${item.bname}</td>
-                            <td>${item.bprice}</td>
-                            <td>${item.imgurl}</td>
-                            `
-						console.log(tr)
-						tbody.appendChild(tr);
-					}
-				})
-			}
-		}
-		next.onclick = function() {
-			// alert(pagethis)
-			if (pagethis < liAll.length - 2) { //当前页数小于最后一页则执行下一页
-				pagethis++;
-				for (var j = 1; j < liAll.length - 1; j++) {
-					liAll[j].childNodes[0].style.color = "blue"
-				}
-				liAll[pagethis].childNodes[0].style.color = "red";
-				let start;
-				let end;
-				if (pagethis != 1) {
-					start = (pagethis - 1) * page_number;
-					end = start + page_number;
-					if (end > json.length - 1) {
-						end = json.length - 1;
-					}
-				} else {
-					start = 0;
-					end = page_number - 1;
-				}
-
-				clearTable();
-				var tbody = document.querySelector("tbody");
-				json.forEach(function(item, i) {
-					if (i >= start && i <= end) {
-						var tr = document.createElement("tr");
-						tr.innerHTML = `
-                            <td>${item.banme}</td>
-                            <td>${item.bprice}</td>
-                            <td>${item.imgurl}</td>
-                            `
-						console.log(tr)
-						tbody.appendChild(tr);
-					}
-				})
-			}
-		}
-
-	}
-</script>
+<!--				clearTable();-->
+<!--				var tbody = document.querySelector("tbody");-->
+<!--				json.forEach(function(item, i) {-->
+<!--					if (i >= start && i <= end) {-->
+<!--						var tr = document.createElement("tr");-->
+<!--						tr.innerHTML = `-->
+<!--                            <td>${item.banme}</td>-->
+<!--                            <td>${item.bprice}</td>-->
+<!--                            <td>${item.imgurl}</td>-->
+<!--                            `-->
+<!--						console.log(tr)-->
+<!--						tbody.appendChild(tr);-->
+<!--					}-->
+<!--				})-->
+<!--			}-->
+<!--		}-->
+<!--	}-->
+<!--</script>-->
 </html>

@@ -73,7 +73,7 @@ public class BookController {
     @RequestMapping(value = "/user/book_sort")
     public String getBookBySort(Model model, @RequestParam(name = "sno") Integer sno) {
         try{
-            model.addAttribute("getBookBySort", bookService.getAllBySno(sno));
+            model.addAttribute("getBookByGrade1", bookService.getAllBySno(sno));
             return "/index";
         }catch (Exception e){
             System.out.println("getBookBySort wrong!");
