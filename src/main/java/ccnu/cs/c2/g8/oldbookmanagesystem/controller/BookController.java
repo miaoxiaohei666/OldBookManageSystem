@@ -97,7 +97,7 @@ public class BookController {
     public String getBookByGrade1(Model model) {
         try{
             model.addAttribute("getBookByGrade1", bookService.getAllBySno(1));
-            return "/test";
+            return "/index";
         }catch (Exception e){
             System.out.println("getBookByGrade1 wrong!");
             e.printStackTrace();
