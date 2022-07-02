@@ -4,7 +4,10 @@ body{
     position: relative;
     background-position: right top; 
 }
-
+.dropdownfont{
+    color: #b9def0;
+    background-color: #a15a5a;
+}
 .box-hd{
     color: rgb(230, 130, 130);
     font-size: 26px;
@@ -23,11 +26,23 @@ body{
     color: rgb(255, 255, 255);
     font-family:"黑体" ;
 }
+.topBar:link{
+    color:rgb(248, 237, 239);
+    text-decoration:none;
+}
 .topBar_list{
     position: relative;
     top: 0%;
     font-size: 24px;
     font-family:"宋体" ;
+}
+.topBar:visited {
+    color:rgb(248, 237, 239);
+    text-decoration:none;
+}
+.topBar:hover {
+    color:rgb(248, 237, 239);
+    text-decoration:none;
 }
 .jiaocai{
     position: absolute;
@@ -60,6 +75,18 @@ a:hover {
     text-decoration:none;
 }
 a:active {
+    color:rgb(139, 224, 199);
+    text-decoration:none;
+}
+d:visited {
+    color:rgb(248, 237, 239);
+    text-decoration:none;
+}
+d:hover {
+    color:rgb(247, 156, 156);
+    text-decoration:none;
+}
+d:active {
     color:rgb(139, 224, 199);
     text-decoration:none;
 }
