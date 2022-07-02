@@ -1,38 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="utf-8">
 	<title>计科书斋</title>
 	<link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
-	<link href="../static/css/topBar.css" th:href="@{/css/topBar.css}" type="text/css" rel="stylesheet"/>
-	<link href="../static/css/list.css" type="text/css" rel="stylesheet"/>
-	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+	<link href="../static/css/userTopBar.css" th:href="@{/css/userTopBar.css}" type="text/css" rel="stylesheet"/>
+	<link href="../static/css/list.css" th:href="@{/css/list.css}" type="text/css" rel="stylesheet"/>
+	<link href="../static/css/table.css" th:href="@{/css/table.css}" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
+	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js}"></script>
 </head>
 <body>
-	<!-- 顶部栏 -->
-	<div class="topBar"><a href="#"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
-     <div class="jiaocai">
-        <a href="#" data-toggle="dropdown">教材 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">大一上</a></li>
-            <li><a href="#">大一下</a></li>
-            <li><a href="#">大二上</a></li>
-            <li><a href="#">大二下</a></li>
-            <li><a href="#">大三上</a></li>
-            <li><a href="#">大三下</a></li>
-            <li><a href="#">大四上</a></li>
-            <li><a href="#">大四下</a></li>
-          </ul>
-		<span>|</span>
-		<a href="#">其他书籍</a>
+<!-- 顶部栏 -->
+<div class="topBar"><a href="index.html" th:href="@{/index}"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
+<div class="jiaocai">
+	<div class="dropdown">
+		<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			教材分类
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<div class="dropdownfont">
+				<div><a href="index.html?sno=1" th:href="@{/user/book_sort?sno=1}">大一上</a></div>
+				<div><a href="index.html?sno=2" th:href="@{/user/book_sort?sno=2}">大一下</a></div>
+				<div><a href="index.html?sno=3" th:href="@{/user/book_sort?sno=3}">大二上</a></div>
+				<div><a href="index.html?sno=4" th:href="@{/user/book_sort?sno=4}">大二下</a></div>
+				<div><a href="index.html?sno=5" th:href="@{/user/book_sort?sno=5}">大三上</a></div>
+				<div><a href="index.html?sno=6" th:href="@{/user/book_sort?sno=6}">大三下</a></div>
+				<div><a href="index.html?sno=7" th:href="@{/user/book_sort?sno=7}">大四上</a></div>
+				<div><a href="index.html?sno=8" th:href="@{/user/book_sort?sno=8}">大四下</a></div>
+				<div><a href="index.html?sno=9" th:href="@{/user/book_sort?sno=9}">其他书籍</a></div>
+			</div>
+		</ul>
 	</div>
-	<div class="login">
-		<a href="#">登录</a>
-		<span>|</span>
-		<a href="#">注册</a>
+</div>
+<div class="account">
+	<div class="dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			我的账户
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="#">发布商品</a></li>
+			<li><a href="#">我发布的商品</a></li>
+			<li><a href="#">我想要的商品</a></li>
+			<li><a href="#">用户信誉</a></li>
+		</ul>
 	</div>
-
+</div>
 	<!-- 内容详情 -->
 	<!-- 标题 -->
 	<div class="box-hd">
@@ -40,37 +55,43 @@
 	</div>
 	<div class="content-desc">
 		<div class="book_list">
-			<form action="">
-	        <div class="textfont">书籍类型：</div>
+			<form class="publishBook"   th:action="@{/user/add_publish}"  method="post">
+				<div class="form-group">
+					<div class="textfont">书籍分类</div>
 					<div class="textfont">
-						<select class="btn">
-							<option>大一上</option>
-							<option>大一下</option>
-							<option>大二上</option>
-							<option>大二下</option>
-							<option>大三上</option>
-							<option>大三下</option>
-							<option>大四上</option>
-							<option>大四下</option>
+						<select name="sno" class="btn">
+							<option value="1">大一上</option>
+							<option value="2">大一下</option>
+							<option value="3">大二上</option>
+							<option value="4">大二下</option>
+							<option value="5">大三上</option>
+							<option value="6">大三下</option>
+							<option value="7">大四上</option>
+							<option value="8">大四下</option>
+							<option value="9">其他书籍</option>
 						</select>
 					</div>
-	        <br>
-					<div class="textfont">商品信息：</div>
-					<div class="bookMessage_content" style="font-size: 20px;font-family: 黑体;">
-						 书   名  : <input type="text" placeholder="请输入书名">
-						<br>
-						出版社: <input type="text" placeholder="请输入出版社">
-						<br>
-						 作   者  : <input type="text" placeholder="请输入作者">
-						<br>
-						X X X : <input type="text" placeholder="请输入XXX">
-						<br>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">书籍名称</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入用户名" name="bname">
 					</div>
-					<div class="input_buttom">
-						<input type="submit" value="提交" class="btn">
-						<button type="reset"class="btn">重置</button>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">价格</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入用户名" name="bprice">
 					</div>
-	    </form>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">书籍描述</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入用户名" name="bdescribe">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-success btn-block">发布</button>
+			</form>
 		</div>
 	</div>
 </body>

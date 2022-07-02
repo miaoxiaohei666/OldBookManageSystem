@@ -7,10 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Controller
 public class UserController {
     @Autowired
@@ -21,9 +17,54 @@ public class UserController {
         return "/denglu";
     }
 
+    @RequestMapping("/toLoginOut")
+    public String toLoginOut(){
+        return "/denglu";
+    }
+
     @RequestMapping("/index")
     public String toIndex() {
         return "redirect:/user/book_sort/grade1";
+    }
+
+    @RequestMapping("/sort")
+    public String toSort() {
+        return "redirect:/user/book_sort";
+    }
+
+    @RequestMapping("/UserManage")
+    public String administerToUserManage() {
+        return "/UserManage";
+    }
+
+    @RequestMapping("/BookManage")
+    public String administerToBookManage() {
+        return "/BookManage";
+    }
+
+    @RequestMapping("/BookSort")
+    public String administerToBookSort() {
+        return "/BookSort";
+    }
+
+    @RequestMapping("/toPublishBook")
+    public String toPublishBook() {
+        return "/publishBook";
+    }
+
+    @RequestMapping("/toMyPublishBook")
+    public String toMyPublishBook() {
+        return "redirect:/user/add_publish/cookie";
+    }
+
+    @RequestMapping("/toMyWantBook")
+    public String toMyWantBook(){
+        return "/want";
+    }
+
+    @RequestMapping("/toCustomHonesty")
+    public String toCustomHonesty(){
+        return "/customHonesty";
     }
 
     @RequestMapping("toRegister")
@@ -32,16 +73,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/account/login")
-    public String userLogin(HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
+    public String userLogin(@RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
         try {
             if (uno == 1234567890 && upassword.equals("root"))
                 return "/administer";
-            else if (userService.userLogin(uno, upassword)) {
-                Cookie cookie = new Cookie("uno", uno.toString());
-                cookie.setPath(request.getContextPath());
-                response.addCookie(cookie);
-                return "redirect:/user/book_sort/grade1";
-            }
+            else if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();

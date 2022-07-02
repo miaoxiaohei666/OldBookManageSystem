@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>计科书斋</title>
 	<link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
-	<link href="../static/css/topBar.css" th:href="@{/css/topBar.css}" type="text/css" rel="stylesheet"/>
+	<link href="../static/css/userTopBar.css" th:href="@{/css/userTopBar.css}" type="text/css" rel="stylesheet"/>
 	<link href="../static/css/list.css" th:href="@{/css/list.css}" type="text/css" rel="stylesheet"/>
 	<link href="../static/css/table.css" th:href="@{/css/table.css}" type="text/css" rel="stylesheet"/>
 	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
@@ -34,18 +34,17 @@
 		</ul>
 	</div>
 </div>
-<div class="login">
+<div class="account">
 	<div class="dropdown">
-		<button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 			我的账户
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			<div class="dropdownfont">
-				<div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
-				<div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
-				<div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
-			</div>
+			<li><a href="publishBook.html" th:href="@{/toPublishBook}">发布商品</a></li>
+			<li><a href="mypublishbook.html" th:href="@{/toMyPublishBook}">我发布的商品</a></li>
+			<li><a href="want.html" th:href="@{/toMyWantBook}">我想要的商品</a></li>
+			<li><a href="customHonesty.html" th:href="@{/toCustomHonesty}">用户信誉</a></li>
 		</ul>
 	</div>
 </div>
