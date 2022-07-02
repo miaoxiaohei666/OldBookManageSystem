@@ -12,14 +12,20 @@ public class UserController {
     @Autowired
     public UserService userService;
 
+//    @RequestMapping("/")
+//    public String index() {
+//        return "redirect:/user/book_sort/grade1";
+//    }
+
     @RequestMapping("/")
-    public String index() {
-        return "redirect:/user/book_sort/grade1";
+    public String indexToLogin() {
+        return "/denglu";
     }
 
     @RequestMapping("/index")
     public String toIndex() {
-        return "/index";
+        return "redirect:/indexGetBook";
+//        return "/index";
     }
 
     @RequestMapping("/toLogin")
