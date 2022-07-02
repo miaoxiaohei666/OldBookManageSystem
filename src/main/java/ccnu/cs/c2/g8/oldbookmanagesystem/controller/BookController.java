@@ -14,7 +14,7 @@ public class BookController {
     BookService bookService;
 
     @RequestMapping(value = "/user/add_publish")
-    public String bookAddPublish(Book book, @RequestParam(name = "uno") Integer uno) {
+    public String bookAddPublish(Book book, @CookieValue(value = "uno") Integer uno) {
         try {
             if(bookService.addBook_Publish(book, uno)) return "/index";
         } catch (Exception e) {
@@ -24,19 +24,8 @@ public class BookController {
         return "/error";
     }
 
-    @RequestMapping(value = "/user/add_publish/cookie")
-    public String bookAddPublishByCookie(Book book,@CookieValue(value = "uno", defaultValue = "2020213673") Integer uno) {
-        try {
-            if(bookService.addBook_Publish(book, uno)) return "/index";
-        } catch (Exception e) {
-            System.out.println("bookAddPublishByCookie wrong!");
-            e.printStackTrace();
-        }
-        return "/error";
-    }
-
     @RequestMapping(value = "/user/add_want")
-    public String bookAddWant(@RequestParam(name = "bno") Integer bno, @RequestParam(name = "uno") Integer uno) {
+    public String bookAddWant(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
             if(bookService.addBook_Want(bno, uno)) return "/index";
         } catch (Exception e) {
@@ -58,7 +47,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/mine/publish")
-    public String getBookPublish(Model model, @RequestParam(name = "uno") Integer uno) {
+    public String getBookPublish(Model model, @CookieValue(value = "uno") Integer uno) {
         try{
             model.addAttribute("getBookPublish", bookService.getBookPublish(uno));
             return "/index";
@@ -70,7 +59,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/mine/want")
-    public String getBookWant(Model model, @RequestParam(name = "uno") Integer uno) {
+    public String getBookWant(Model model, @CookieValue(value = "uno") Integer uno) {
         try{
             model.addAttribute("getBookWant", bookService.getBookWant(uno));
             return "/index";
