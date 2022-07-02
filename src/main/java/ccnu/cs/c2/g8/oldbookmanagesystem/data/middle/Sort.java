@@ -16,7 +16,7 @@ public class Sort {
     private Integer sno;
 
     @Column(name = "sgrade")
-    private Integer sgrade;
+    private String sgrade;
 
     @Column(name = "sname")
     private String sname;
