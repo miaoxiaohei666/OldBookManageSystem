@@ -40,8 +40,9 @@ public class UserController {
     @RequestMapping(value = "/user/account/login")
     public String userLogin(@RequestParam(name = "uno") Integer uno, @RequestParam(name = "upassword") String upassword) {
         try {
-            //如果是管理员            return "administer";
-            if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
+            if (uno == 1234567890 && upassword.equals("root"))
+                return "/administer";
+            else if (userService.userLogin(uno, upassword)) return "redirect:/user/book_sort/grade1";
         } catch (Exception e) {
             System.out.println("userLogin wrong!");
             e.printStackTrace();
