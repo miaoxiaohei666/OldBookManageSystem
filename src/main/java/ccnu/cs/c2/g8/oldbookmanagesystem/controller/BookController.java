@@ -29,7 +29,7 @@ public class BookController {
         try {
             if(bookService.addBook_Publish(book, uno)) return "/index";
         } catch (Exception e) {
-            System.out.println("bookAddPublish wrong!");
+            System.out.println("bookAddPublishByCookie wrong!");
             e.printStackTrace();
         }
         return "/error";
