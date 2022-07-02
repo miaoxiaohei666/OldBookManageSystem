@@ -4,6 +4,8 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -72,12 +74,14 @@ public class Book {
         this.bname = bname;
     }
 
-    public String getCreate_time() {
+    public String getCreate_time(){
+        setCreate_time();
         return create_time;
     }
-
-    public void setCreate_time(String create_time) {
-        this.create_time = create_time;
+    public void setCreate_time(){
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.create_time = formatter.format(date);
     }
 
     public String getBpicture() {
