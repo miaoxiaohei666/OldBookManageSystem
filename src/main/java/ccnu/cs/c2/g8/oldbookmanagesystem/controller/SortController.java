@@ -2,12 +2,14 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SortController {
+    @Autowired
     SortService sortService;
 
     @RequestMapping(value = "/admin/sort/add")

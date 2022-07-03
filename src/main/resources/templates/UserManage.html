@@ -63,10 +63,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${getUserByUnoToManage}" style="background-color: #a13e26;color: aliceblue;">
-            <th th:text="${user.uno}">用户名</th>
+        <tr th:each="user : ${getAllByUnlike}" style="background-color: #a13e26;color: aliceblue;">
+            <th th:text="${user.uname}">用户名</th>
             <td th:text="${user.like}">点赞数</td>
-            <td th:text="${user.ulike}">点踩数</td>
+            <td th:text="${user.unlike}">点踩数</td>
 <!--            <td><a th:href="@{/user/ban(bno=${user.bno})}">封禁账户</a></td>-->
         </tr>
         </tbody>

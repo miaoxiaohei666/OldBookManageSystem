@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping("/UserManage")
     public String administerToUserManage() {
-        return "redirect:/administer/userManage";
+        return "redirect:/admin/account";
     }
 
     @RequestMapping("/BookManage")
@@ -106,10 +106,12 @@ public class UserController {
         return "/zhuce";
     }
 
+    //
+    //用户封禁
     @RequestMapping(value = "/admin/account/ban")
     public String userBan(@RequestParam(name = "uno") Integer uno) {
         try {
-            if (userService.updateUstate(uno)) return uno.toString();
+            if (userService.updateUstate(uno)) return "/UserManage";
         } catch (Exception e) {
             System.out.println("userBan wrong!");
             e.printStackTrace();
@@ -120,8 +122,8 @@ public class UserController {
     @RequestMapping(value = "/admin/account")
     public String getAllByUnlike(Model model) {
         try {
-            model.addAttribute("getBookPublish", userService.getUserUnlike());
-            return "/index";
+            model.addAttribute("getAllByUnlike", userService.getUserUnlike());
+            return "/UserManage";
         } catch (Exception e) {
             System.out.println("getAllByUnlike wrong!");
             e.printStackTrace();
@@ -141,15 +143,4 @@ public class UserController {
         return "/error";
     }
 
-    @RequestMapping(value = "/administer/userManage")
-    public String getUserByUnoToUserManage(Model model,@CookieValue(name = "uno") Integer uno){
-        try{
-            model.addAttribute( "getUserByUnoToManage", userService.getUserByUno(uno));
-            return "/UserManage";
-        } catch (Exception e) {
-            System.out.println("getUserByUno wrong!");
-            e.printStackTrace();
-        }
-        return "/error";
-    }
 }
