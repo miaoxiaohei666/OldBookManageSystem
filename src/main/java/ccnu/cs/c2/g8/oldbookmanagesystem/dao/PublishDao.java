@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface PublishDao extends JpaRepository<Publish, PublishKey> {
     List<Integer> getAllByUno(Integer uno);
+
+    boolean deleteByBnoAndUno(Integer bno,Integer uno);
 }

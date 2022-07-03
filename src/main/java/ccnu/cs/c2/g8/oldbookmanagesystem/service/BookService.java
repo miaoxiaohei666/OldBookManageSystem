@@ -106,4 +106,14 @@ public class BookService {
         }
         return null;
     }
+
+    public boolean deleteBookFormPublish(Integer bno,Integer uno){
+        try {
+            return publishDao.deleteByBnoAndUno(bno, uno);
+        } catch (Exception e) {
+            System.out.println("getAllBySno wrong!");
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

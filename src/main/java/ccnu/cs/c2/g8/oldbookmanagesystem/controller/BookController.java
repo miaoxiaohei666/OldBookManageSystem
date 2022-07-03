@@ -3,9 +3,7 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.BookService;
-import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +18,7 @@ public class BookController {
         try {
             System.out.println(uno.toString());
             book.getCreatetime();
-            if(bookService.addBook_Publish(book, uno)) return "/publishBook";
+            if (bookService.addBook_Publish(book, uno)) return "/publishBook";
         } catch (Exception e) {
             System.out.println("bookAddPublish wrong!");
             e.printStackTrace();
@@ -31,7 +29,7 @@ public class BookController {
     @RequestMapping(value = "/user/add_want")
     public String bookAddWant(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if(bookService.addBook_Want(bno, uno)) return "/index";
+            if (bookService.addBook_Want(bno, uno)) return "/index";
         } catch (Exception e) {
             System.out.println("bookAddWant wrong!");
             e.printStackTrace();
@@ -40,11 +38,11 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/mine/ban")
-    public String bookBan(@RequestParam(name = "bno") Integer bno) {
+    public String bookBan(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if(bookService.updateBstate(bno)) return "/index";
+            if (bookService.updateBstate(bno) && bookService.deleteBookFormPublish(bno, uno)) return "/index";
         } catch (Exception e) {
-            System.out.println("bookAddWant wrong!");
+            System.out.println("bookBan wrong!");
             e.printStackTrace();
         }
         return "/error";
@@ -52,10 +50,10 @@ public class BookController {
 
     @RequestMapping(value = "/user/mine/publish")
     public String getBookPublish(Model model, @CookieValue(value = "uno") Integer uno) {
-        try{
+        try {
             model.addAttribute("getBookPublish", bookService.getBookPublish(uno));
             return "/mypublishbook";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("getBookPublish wrong!");
             e.printStackTrace();
         }
@@ -64,10 +62,10 @@ public class BookController {
 
     @RequestMapping(value = "/user/mine/want")
     public String getBookWant(Model model, @CookieValue(value = "uno") Integer uno) {
-        try{
+        try {
             model.addAttribute("getBookWant", bookService.getBookWant(uno));
             return "/want";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("getBookWant wrong!");
             e.printStackTrace();
         }
@@ -76,10 +74,10 @@ public class BookController {
 
     @RequestMapping(value = "/user/book_sort")
     public String getBookBySort(Model model, @RequestParam(name = "sno") Integer sno) {
-        try{
+        try {
             model.addAttribute("getBookByGrade1", bookService.getAllBySno(sno));
             return "/index";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("getBookBySort wrong!");
             e.printStackTrace();
         }
@@ -87,14 +85,25 @@ public class BookController {
     }
 
 
-
     @RequestMapping(value = "/user/book_sort/grade1")
     public String getBookByGrade1(Model model) {
-        try{
+        try {
             model.addAttribute("getBookByGrade1", bookService.getAllBySno(1));
             return "/index";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("getBookByGrade1 wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
+    @RequestMapping(value = "/user/book/edit")
+    public String editBook(Book book, @CookieValue(name = "uno") Integer uno) {
+        try {
+            bookService.addBook_Publish(book,uno);
+            return "/index";
+        } catch (Exception e) {
+            System.out.println("editBook wrong!");
             e.printStackTrace();
         }
         return "/error";
