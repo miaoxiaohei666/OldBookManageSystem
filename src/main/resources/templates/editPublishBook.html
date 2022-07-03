@@ -55,7 +55,7 @@
 </div>
 <div class="content-desc">
     <div class="book_list">
-        <form class="publishBook"   th:action="@{/user/book/edit}" th:object="${book}" method="post">
+        <form class="publishBook"   th:action="@{/user/book/edit}" th:object="${books}" method="post">
             <input type="hidden" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书名" name="bno" th:value="*{bno}">
             <div class="form-group">
                 <div class="textfont">书籍分类</div>

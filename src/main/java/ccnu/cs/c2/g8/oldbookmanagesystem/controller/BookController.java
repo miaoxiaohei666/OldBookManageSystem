@@ -120,4 +120,16 @@ public class BookController {
         }
         return "/error";
     }
+
+    @RequestMapping("/toEditPublishBook")
+    public String toEditPublishBook(Model model, @RequestParam(name = "bno") Integer bno){
+        try{
+            model.addAttribute("books", bookService.getBookByBno(bno));
+            return "/editPublishBook";
+        } catch (Exception e) {
+            System.out.println("toEditPublishBook wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
 }

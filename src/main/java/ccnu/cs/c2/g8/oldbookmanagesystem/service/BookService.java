@@ -8,6 +8,8 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -92,7 +94,6 @@ public class BookService {
             List<Book> bookList = new ArrayList<Book>();
             Iterator<Want> itr=bnoList.listIterator();
             while (itr.hasNext()) {
-                System.out.println(uno.toString());
                 bookList.add(bookDao.getBookByBno(itr.next().getBno()));
             }
             return bookList;
@@ -131,5 +132,15 @@ public class BookService {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public Book getBookByBno(Integer bno){
+        try{
+            return bookDao.getBookByBno(bno);
+        } catch (Exception e) {
+            System.out.println("getBookByBno wrong!");
+            e.printStackTrace();
+        }
+        return null;
     }
 }
