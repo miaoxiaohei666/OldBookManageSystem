@@ -43,32 +43,29 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <div class="dropdownfont">
                 <div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
-                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
+<!--                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>-->
                 <div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
             </div>
         </ul>
     </div>
 </div>
-<hr/>
-<div>
-    <button class="btn">账户信息</button>
-    <button class="btn">书籍信息</button>
-    <button class="btn">书籍分类</button>
-</div>
+<br><br>
 </body>
-<br/>
-<table class="table">
-    <tr style="background-color: #a13e26;color: aliceblue;">
-        <th><input type="checkbox"></th>
-        <th>书籍分类</th>
-        <th>书名</th>
-        <th>状态</th>
-    </tr>
-    <tr>
-        <td></td>
-        <td>×××</td>
-        <td>×××</td>
-        <td>×××</td>
-    </tr>
-</table>
+
+<div id="main">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>书籍分类</th>
+            <th>删除分类</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="books : ${booksList}" style="background-color: #a13e26;color: aliceblue;">
+            <th th:text="${user.uno}">书籍分类</th>
+            <!--            <td><a th:href="@{/user/ban(bno=${user.bno})}">删除分类</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
 </html>

@@ -43,7 +43,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <div class="dropdownfont">
                 <div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
-                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
+<!--                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>-->
                 <div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
             </div>
         </ul>
@@ -65,31 +65,11 @@
         <tbody>
         <tr th:each="user : ${getUserByUnoToManage}" style="background-color: #a13e26;color: aliceblue;">
             <th th:text="${user.uno}">用户名</th>
-            <td th:text="${books.createtime}">点赞数</td>
-            <td th:text="${books.bprice}">点踩数</td>
-            <td th:text="${books.bdescribe}">封禁账户</td>
-            <td><a th:href="@{/toEditPublishBook(bno=${books.bno})}">编辑</a></td>
-            <td><a th:href="@{/user/mine/banpublish(bno=${books.bno})}">下架</a></td>
+            <td th:text="${user.like}">点赞数</td>
+            <td th:text="${user.ulike}">点踩数</td>
+<!--            <td><a th:href="@{/user/ban(bno=${user.bno})}">封禁账户</a></td>-->
         </tr>
         </tbody>
     </table>
 </div>
-
-<table class="table">
-            <tr style="background-color: #a13e26;color: aliceblue;">
-                <th><input type="checkbox"></th>
-                <th>用户</th>
-                <th>点赞数</th>
-                <th>点踩数</th>
-                <th>状态</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td>×××</td>
-                <td>×××</td>
-                <td>×××</td>
-                <td>×××</td>
-            </tr>
-        </table>
-        
 </html>
