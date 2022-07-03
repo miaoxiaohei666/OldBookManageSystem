@@ -107,9 +107,19 @@ public class BookService {
         return null;
     }
 
-    public boolean deleteBookFormPublish(Integer bno,Integer uno){
+    public boolean deleteBookFormPublish(Integer uno, Integer bno) {
         try {
-            return publishDao.deleteByBnoAndUno(bno, uno);
+            return publishDao.deleteByUnoAndBno(uno, bno);
+        } catch (Exception e) {
+            System.out.println("getAllBySno wrong!");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean deleteBookFormWant(Integer bno, Integer uno) {
+        try {
+            return wantDao.deleteByUnoAndBno(bno, uno);
         } catch (Exception e) {
             System.out.println("getAllBySno wrong!");
             e.printStackTrace();

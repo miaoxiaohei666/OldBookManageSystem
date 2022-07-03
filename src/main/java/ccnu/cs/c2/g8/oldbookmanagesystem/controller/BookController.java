@@ -37,12 +37,22 @@ public class BookController {
         return "/error";
     }
 
-    @RequestMapping(value = "/user/mine/ban")
-    public String bookBan(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
+    @RequestMapping(value = "/user/mine/banpublish")
+    public String bookBanPublish(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if (bookService.updateBstate(bno) && bookService.deleteBookFormPublish(bno, uno)) return "/index";
+            if (bookService.updateBstate(bno) && bookService.deleteBookFormPublish(uno,bno)) return "/index";
         } catch (Exception e) {
-            System.out.println("bookBan wrong!");
+            System.out.println("bookBanPublish wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+    @RequestMapping(value = "/user/mine/banwant")
+    public String bookBanwant(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
+        try {
+            if (bookService.deleteBookFormWant(bno, uno)) return "/index";
+        } catch (Exception e) {
+            System.out.println("bookBanwant wrong!");
             e.printStackTrace();
         }
         return "/error";
