@@ -2,13 +2,17 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Sort;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.SortService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class SortController {
-    SortService sortService;
+    @Autowired
+    private SortService sortService;
 
     @RequestMapping(value = "/admin/sort/add")
     public String sortAdd(Sort sort) {
@@ -35,7 +39,9 @@ public class SortController {
     @RequestMapping(value = "/admin/sort/all")
     public String getAllSorts(Model model) {
         try {
-            model.addAttribute("getAllBookSort", sortService.getAllSort());
+            List<Sort> s=sortService.getAllSort();
+            System.out.println(s.isEmpty());
+            model.addAttribute("getAllBookSort", s);
             return "/BookSort";
         } catch (Exception e) {
             System.out.println("getAllSorts wrong!");

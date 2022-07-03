@@ -117,22 +117,12 @@ public class UserController {
         return "/error";
     }
 
-    @RequestMapping(value = "/admin/account")
-    public String getAllByUnlike(Model model) {
-        try {
-            model.addAttribute("getBookPublish", userService.getUserUnlike());
-            return "/index";
-        } catch (Exception e) {
-            System.out.println("getAllByUnlike wrong!");
-            e.printStackTrace();
-        }
-        return "/error";
-    }
-
     @RequestMapping(value = "/user/mine/customHonesty")
     public String getUserByUno(Model model,@CookieValue(name = "uno") Integer uno){
         try{
-            model.addAttribute( "getUserHonestyByUno", userService.getUserByUno(uno));
+            User u=userService.getUserByUno(uno);
+            System.out.println(u.getUnlike().toString());
+            model.addAttribute( "getUserHonestyByUno", u);
             return "/customHonesty";
         } catch (Exception e) {
             System.out.println("getUserByUno wrong!");
@@ -148,6 +138,18 @@ public class UserController {
             return "/UserManage";
         } catch (Exception e) {
             System.out.println("getUserByUno wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
+    @RequestMapping(value = "/admin/account")
+    public String getAllByUnlike(Model model, @CookieValue(name = "uno") Integer uno) {
+        try {
+            model.addAttribute("getBookPublish", userService.getUserUnlike());
+            return "/index";
+        } catch (Exception e) {
+            System.out.println("getAllByUnlike wrong!");
             e.printStackTrace();
         }
         return "/error";

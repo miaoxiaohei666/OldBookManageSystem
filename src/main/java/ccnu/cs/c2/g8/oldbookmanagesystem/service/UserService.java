@@ -118,11 +118,11 @@ public class UserService {
     public List<User> getUserUnlike() {
         try {
             return userDao.findAllByOrderByUnlikeDesc();
-        } catch (
-                Exception e) {
+        } catch (Exception e) {
             System.out.println("getUserUnlike wrong!");
             e.printStackTrace();
         }
         return null;
     }
+
 }
