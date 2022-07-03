@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>计科书斋</title>
 	<link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
-	<link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}"/>
+    <link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}"/>
 	<link href="../static/css/list.css" type="text/css" rel="stylesheet" th:href="@{/css/list.css}"/>
     <link href="../static/css/table.css" type="text/css" rel="stylesheet" th:href="@{/css/table.css}"/>
 	<script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
@@ -59,6 +59,7 @@
             <th>用户名</th>
             <th>点赞数</th>
             <th>点踩数</th>
+            <th>用户状态</th>
             <th>封禁账户</th>
         </tr>
         </thead>
@@ -67,8 +68,8 @@
             <th th:text="${user.uname}">用户名</th>
             <td th:text="${user.like}">点赞数</td>
             <td th:text="${user.unlike}">点踩数</td>
-            <td th:text="${user.ustate}">状态</td>
-<!--            <td><a th:href="@{/user/ban(bno=${user.bno})}">封禁账户</a></td>-->
+            <td th:text="${user.ustate}">用户状态</td>
+            <td><a th:href="@{/admin/account/ban(uno=${user.uno})}">封禁账户</a></td>
         </tr>
         </tbody>
     </table>

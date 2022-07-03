@@ -106,12 +106,10 @@ public class UserController {
         return "/zhuce";
     }
 
-    //
-    //用户封禁
     @RequestMapping(value = "/admin/account/ban")
     public String userBan(@RequestParam(name = "uno") Integer uno) {
         try {
-            if (userService.updateUstate(uno)) return "/UserManage";
+            if (userService.updateUstate(uno)) return "redirect:/UserManage";
         } catch (Exception e) {
             System.out.println("userBan wrong!");
             e.printStackTrace();

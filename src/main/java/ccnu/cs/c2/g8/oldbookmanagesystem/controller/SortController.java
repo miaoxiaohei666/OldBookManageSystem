@@ -26,7 +26,7 @@ public class SortController {
     @RequestMapping(value = "/admin/sort/delete")
     public String sortDelete(@RequestParam(name = "sname") String sname) {
         try {
-            if (sortService.deleteSortbySname(sname)) return "/BookSort";
+            if (sortService.deleteSortbySname(sname)) return "redirect:/BookSort";
         } catch (Exception e) {
             System.out.println("sortDelete wrong!");
             e.printStackTrace();
