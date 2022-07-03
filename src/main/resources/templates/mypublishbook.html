@@ -75,6 +75,8 @@
                 <th>发布时间</th>
                 <th>书籍价格</th>
                 <th>书籍信息</th>
+                <th>编辑信息</th>
+                <th>下架书籍</th>
             </tr>
             </thead>
             <tbody>
@@ -83,9 +85,9 @@
                 <td th:text="${books.createtime}">发布时间</td>
                 <td th:text="${books.bprice}">书籍价格</td>
                 <td th:text="${books.bdescribe}">书籍信息</td>
-                <td th:text="${books.bstate}">上架状态</td>
-                    <span th:if="${books.bstate}">上架中</span>
-                    <span th:if="${books.bstate}">已下架</span>
+<!--                <td th:text="${books.bstate}">上架状态</td>-->
+<!--                    <span th:if="${books.bstate}">上架中</span>-->
+<!--                    <span th:if="${books.bstate}">已下架</span>-->
 <!--                <td><a href="editPublishBook.html?bno=${books.bno}" th:href="@{/toEditPublishBook?bno=${books.bno}}">编辑</a></td>-->
                 <td><a th:href="@{/toEditPublishBook(bno=${books.bno})}">编辑</a></td>
                 <td><a th:href="@{/user/mine/banpublish(bno=${books.bno})}">下架</a></td>

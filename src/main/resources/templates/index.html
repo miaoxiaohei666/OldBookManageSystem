@@ -62,6 +62,7 @@
 			<th>书籍名称</th>
 			<th>书籍价格</th>
 			<th>书籍信息</th>
+			<th>收藏书籍</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -69,6 +70,7 @@
 			<th th:text="${books.bname}">书籍名称</th>
 			<th th:text="${books.bprice}">书籍价格</th>
 			<th th:text="${books.bdescribe}">书籍信息</th>
+			<td><a th:href="@{/user/add_want(bno=${books.bno})}">收藏</a></td>
 		</tr>
 		</tbody>
 	</table>

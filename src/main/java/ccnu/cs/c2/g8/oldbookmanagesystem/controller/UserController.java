@@ -61,11 +61,6 @@ public class UserController {
         return "redirect:/user/mine/publish";
     }
 
-//    @RequestMapping("/tomyPublishBook")
-//    public String tomyPublishBook() {
-//        return "/mypublishbook";
-//    }
-
     @RequestMapping("/toMyWantBook")
     public String toMyWantBook() {
         return "redirect:/user/mine/want";

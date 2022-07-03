@@ -74,6 +74,7 @@
             <th>发布时间</th>
             <th>书籍价格</th>
             <th>书籍信息</th>
+            <th>取消收藏</th>
         </tr>
         </thead>
         <tbody>
@@ -82,7 +83,7 @@
             <td th:text="${books.createtime}">发布时间</td>
             <td th:text="${books.bprice}">书籍价格</td>
             <td th:text="${books.bdescribe}">书籍信息</td>
-            <td><a th:href="@{/delete(id=${user.id})}">取消想要</a></td>
+            <td><a th:href="@{/user/mine/banwant(bno=${books.bno})}">取消收藏</a></td>
         </tr>
         </tbody>
     </table>

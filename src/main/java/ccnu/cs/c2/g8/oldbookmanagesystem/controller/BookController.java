@@ -28,7 +28,7 @@ public class BookController {
     @RequestMapping(value = "/user/add_want")
     public String bookAddWant(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if (bookService.addBook_Want(bno, uno)) return "/index";
+            if (bookService.addBook_Want(bno, uno)) return "redirect:/index";
         } catch (Exception e) {
             System.out.println("bookAddWant wrong!");
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class BookController {
     @RequestMapping(value = "/user/mine/banwant")
     public String bookBanwant(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if (bookService.deleteBookFormWant(bno, uno)) return "/index";
+            if (bookService.deleteBookFormWant(bno, uno)) return "redirect:/user/mine/want";
         } catch (Exception e) {
             System.out.println("bookBanwant wrong!");
             e.printStackTrace();
