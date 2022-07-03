@@ -53,14 +53,14 @@
 <!--        <h3 title="信誉太低会封号">❓</h3>-->
 	</div>
   <div>
-    <ul class="textfont">
+    <ul class="textfont" th:each="user : ${getUserHonestyByUno}">
         <li>
             <p>点赞数</p>
-            <p class="yes">126</p>
+<!--            <p class="yes" th:value="${user.}">126</p>-->
         </li>
         <li>
             <p>点踩数</p>
-            <p class="no">16</p>
+<!--            <p class="no" th:value="${user.}">16</p>-->
         </li>
     </ul>
   </div>

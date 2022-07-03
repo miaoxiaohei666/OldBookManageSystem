@@ -60,9 +60,11 @@
         <hr/>
         <div class="bookMessage_content">
             <div>
-                <button class="btn"><a href="UserManage.html" th:href="@{/UserManage}"></a>账户信息</button>
-                <button value="0" class="btn"><a href="BookManage.html" th:href="@{/BookManage}"></a>商品信息</button>
-                <button value="1" class="btn"><a href="BookSort.html" th:href="@{/BookSort}"></a>书籍分类</button>
+                <div><a href="UserManage.html" th:href="@{/UserManage}" class="btn">账户信息</a></div>
+                <br>
+                <div><a href="BookManage.html" th:href="@{/BookManage}" class="btn">书籍信息</a></div>
+                <br>
+                <div><a href="BookSort.html" th:href="@{/BookSort}" class="btn">书籍分类</a></div>
             </div>
         </div>
     </form>

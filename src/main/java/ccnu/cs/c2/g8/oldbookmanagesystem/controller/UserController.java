@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping("/UserManage")
     public String administerToUserManage() {
-        return "/UserManage";
+        return "redirect:/administer/userManage";
     }
 
     @RequestMapping("/BookManage")
@@ -134,6 +134,18 @@ public class UserController {
         try{
             model.addAttribute( "getUserHonestyByUno", userService.getUserByUno(uno));
             return "/customHonesty";
+        } catch (Exception e) {
+            System.out.println("getUserByUno wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
+    @RequestMapping(value = "/administer/userManage")
+    public String getUserByUnoToUserManage(Model model,@CookieValue(name = "uno") Integer uno){
+        try{
+            model.addAttribute( "getUserByUnoToManage", userService.getUserByUno(uno));
+            return "/UserManage";
         } catch (Exception e) {
             System.out.println("getUserByUno wrong!");
             e.printStackTrace();

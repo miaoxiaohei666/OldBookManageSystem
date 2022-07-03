@@ -49,14 +49,32 @@
         </ul>
     </div>
 </div>
-    <hr>
-    <div>
-        <button class="btn">账户信息</button>
-        <button class="btn">书籍信息</button>
-        <button class="btn">书籍分类</button>
-    </div>
-    <br/>
+    <br><br>
 </body>
+
+<div id="main">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>用户名</th>
+            <th>点赞数</th>
+            <th>点踩数</th>
+            <th>封禁账户</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${getUserByUnoToManage}" style="background-color: #a13e26;color: aliceblue;">
+            <th th:text="${user.uno}">用户名</th>
+            <td th:text="${books.createtime}">点赞数</td>
+            <td th:text="${books.bprice}">点踩数</td>
+            <td th:text="${books.bdescribe}">封禁账户</td>
+            <td><a th:href="@{/toEditPublishBook(bno=${books.bno})}">编辑</a></td>
+            <td><a th:href="@{/user/mine/banpublish(bno=${books.bno})}">下架</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 <table class="table">
             <tr style="background-color: #a13e26;color: aliceblue;">
                 <th><input type="checkbox"></th>
