@@ -83,7 +83,7 @@ public class UserController {
 
     @RequestMapping("/toEditPublishBook")
     public String toEditPublishBook(){
-        return "/index";
+        return "/editPublishBook";
     }
 
     @RequestMapping(value = "/user/account/login")

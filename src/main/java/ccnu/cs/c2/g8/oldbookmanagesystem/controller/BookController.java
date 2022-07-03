@@ -18,7 +18,7 @@ public class BookController {
         try {
             System.out.println(uno.toString());
             book.getCreatetime();
-            if (bookService.addBook_Publish(book, uno)) return "/publishBook";
+            if (bookService.addBook_Publish(book, uno)) return "/mypublishbook";
         } catch (Exception e) {
             System.out.println("bookAddPublish wrong!");
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class BookController {
     public String editBook(Book book, @CookieValue(name = "uno") Integer uno) {
         try {
             bookService.addBook_Publish(book,uno);
-            return "/index";
+            return "redirect:/user/mine/publish";
         } catch (Exception e) {
             System.out.println("editBook wrong!");
             e.printStackTrace();
