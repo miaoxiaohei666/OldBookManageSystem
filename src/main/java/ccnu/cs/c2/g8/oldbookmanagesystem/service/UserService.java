@@ -77,6 +77,7 @@ public class UserService {
         try {
             User user = userDao.getUserByUno(uno);
             user.setUstate(!user.isUstate());
+            userDao.save(user);
             flag = true;
         } catch (Exception e) {
             System.out.println("updateUstate wrong!");
