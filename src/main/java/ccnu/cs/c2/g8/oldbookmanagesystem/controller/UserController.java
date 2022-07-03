@@ -127,4 +127,16 @@ public class UserController {
         }
         return "/error";
     }
+
+    @RequestMapping(value = "/user/mine/customHonesty")
+    public String getUserByUno(Model model,@CookieValue(name = "uno") Integer uno){
+        try{
+            model.addAttribute( "getUserHonestyByUno", userService.getUserByUno(uno));
+            return "/index";
+        } catch (Exception e) {
+            System.out.println("getUserByUno wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
 }

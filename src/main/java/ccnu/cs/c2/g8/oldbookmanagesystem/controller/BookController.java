@@ -86,13 +86,7 @@ public class BookController {
         return "/error";
     }
 
-    //getUserHonestyByUno根据Uno获取用户点赞数和点踩数
-//    @RequestMapping(Value = "/user/mine/customHonesty")
-//    public String getUserHonestyByUno(Model model){
-//        try{
-//            model.addAttribute(attributeName: "getUserHonestyByUno", UserService.)
-//        }
-//    }
+
 
     @RequestMapping(value = "/user/book_sort/grade1")
     public String getBookByGrade1(Model model) {
