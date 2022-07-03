@@ -53,9 +53,7 @@ public class SortService {
     public boolean deleteSortbySname(String sname) {
         boolean flag = false;
         try {
-            Sort sort = new Sort();
-            sort.setSname(sname);
-            sort.setSno(sortDao.getSortBySname(sname));
+            Sort sort = sortDao.getSortBySname(sname);
             sortDao.delete(sort);
             flag = true;
         } catch (Exception e) {

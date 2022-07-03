@@ -11,7 +11,7 @@ public interface SortDao extends JpaRepository<Sort,Integer> {
 
     List<Sort> findAll();
 
-    Integer getSortBySname(String sname);
+    Sort getSortBySname(String sname);
 
     List<Sort> getSortsBySgrade(String sgrade);
 }
