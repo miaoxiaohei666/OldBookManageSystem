@@ -40,7 +40,7 @@ public class BookController {
     @RequestMapping(value = "/user/mine/banpublish")
     public String bookBanPublish(@RequestParam(name = "bno") Integer bno, @CookieValue(value = "uno") Integer uno) {
         try {
-            if (bookService.updateBstate(bno) && bookService.deleteBookFormPublish(uno,bno)) return "/index";
+            if (bookService.updateBstate(bno) && bookService.deleteBookFormPublish(uno,bno)) return "redirect:/user/mine/publish";
         } catch (Exception e) {
             System.out.println("bookBanPublish wrong!");
             e.printStackTrace();

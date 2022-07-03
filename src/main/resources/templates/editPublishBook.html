@@ -55,39 +55,40 @@
 </div>
 <div class="content-desc">
     <div class="book_list">
-        <form class="publishBook"   th:action="@{/user/book/edit}"  method="post">
+        <form class="publishBook"   th:action="@{/user/book/edit}" th:object="${book}" method="post">
+            <input type="hidden" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书名" name="bno" th:value="*{bno}">
             <div class="form-group">
                 <div class="textfont">书籍分类</div>
                 <div class="textfont">
                     <select name="sno" class="btn">
-                        <option value="1">大一上</option>
-                        <option value="2">大一下</option>
-                        <option value="3">大二上</option>
-                        <option value="4">大二下</option>
-                        <option value="5">大三上</option>
-                        <option value="6">大三下</option>
-                        <option value="7">大四上</option>
-                        <option value="8">大四下</option>
-                        <option value="9">其他书籍</option>
+                        <option value="1" th:selected="if *{sno}==1">大一上</option>
+                        <option value="2" th:selected="if *{sno}==2">大一下</option>
+                        <option value="3" th:selected="if *{sno}==3">大二上</option>
+                        <option value="4" th:selected="if *{sno}==4">大二下</option>
+                        <option value="5" th:selected="if *{sno}==5">大三上</option>
+                        <option value="6" th:selected="if *{sno}==6">大三下</option>
+                        <option value="7" th:selected="if *{sno}==7">大四上</option>
+                        <option value="8" th:selected="if *{sno}==8">大四下</option>
+                        <option value="9" th:selected="if *{sno}==9">其他书籍</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">书籍名称</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书名" name="bname">
+                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书名" name="bname" th:value="*{bname}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">价格</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入价格" name="bprice">
+                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入价格" name="bprice" th:value="*{bprice}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">书籍描述</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书籍信息" name="bdescribe">
+                    <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="请输入书籍信息" name="bdescribe" th:value="*{bdescribe}">
                 </div>
             </div>
             <button type="submit" class="btn btn-success btn-block">修改</button>

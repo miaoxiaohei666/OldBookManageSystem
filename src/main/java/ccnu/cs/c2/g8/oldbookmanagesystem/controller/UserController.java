@@ -82,8 +82,16 @@ public class UserController {
     }
 
     @RequestMapping("/toEditPublishBook")
-    public String toEditPublishBook(){
-        return "/editPublishBook";
+    public String toEditPublishBook(@RequestParam Integer bno){
+        //根据bno获取book类,book类封装return给edit页面
+        try{
+            model.addAttribute(attributeName:"getBookPublish", userService.getUserUnlike());
+            return "/editPublishBook";
+        } catch (Exception e) {
+            System.out.println("getUserByUno wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
     }
 
     @RequestMapping(value = "/user/account/login")
