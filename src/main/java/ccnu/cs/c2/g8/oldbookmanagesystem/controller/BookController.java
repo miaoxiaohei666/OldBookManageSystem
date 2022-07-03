@@ -109,7 +109,6 @@ public class BookController {
     @RequestMapping(value = "/user/book/edit")
     public String editBook(Book book, @CookieValue(name = "uno") Integer uno) {
         try {
-            System.out.println(book.getBno().toString());
             book.getCreatetime();
             bookService.addBook_Publish(book,uno);
             return "redirect:/user/mine/publish";

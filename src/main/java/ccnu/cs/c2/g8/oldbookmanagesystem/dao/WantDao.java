@@ -9,5 +9,5 @@ import java.util.List;
 public interface WantDao extends JpaRepository<Want, WantKey>{
     List<Want> getAllByUno(Integer uno);
 
-    boolean deleteByUnoAndBno(Integer uno,Integer bno);
+    Integer deleteByUnoAndBno(Integer uno,Integer bno);
 }

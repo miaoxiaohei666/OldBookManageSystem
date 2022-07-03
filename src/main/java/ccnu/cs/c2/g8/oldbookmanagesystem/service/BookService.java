@@ -29,11 +29,13 @@ public class BookService {
         try {
             Publish publish = new Publish();
             book.getCreatetime();
+            System.out.println(book.getBno().toString()+"有问题吗？");
             bookDao.save(book);
             publish.setUno(uno);
             publish.setBno(book.getBno());
             publishDao.save(publish);
             flag = true;
+            System.out.println(publish.getBno().toString()+"没问题!");
         } catch (Exception e) {
             System.out.println("addBook to publish wrong!");
             e.printStackTrace();
@@ -125,7 +127,8 @@ public class BookService {
 
     public boolean deleteBookFormWant(Integer bno, Integer uno) {
         try {
-            return wantDao.deleteByUnoAndBno(bno, uno);
+            wantDao.deleteByUnoAndBno(uno, bno);
+            return true;
         } catch (Exception e) {
             System.out.println("getAllBySno wrong!");
             e.printStackTrace();
