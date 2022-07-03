@@ -1,64 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>计科书斋</title>
-	<link rel="stylesheet" href="plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-	<link href="css/topBar.css"type="text/css"rel="stylesheet"/>
-	<link href="css/list.css"type="text/css"rel="stylesheet"/>
-	<script type="text/javascript" src="plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <title>计科书斋</title>
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css" th:href="@{/plugins/bootstrap-3.4.1-dist/css/bootstrap.min.css}">
+    <link href="../static/css/topBar.css" type="text/css" rel="stylesheet" th:href="@{/css/topBar.css}"/>
+    <link href="../static/css/list.css" type="text/css" rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link href="../static/css/table.css" type="text/css" rel="stylesheet" th:href="@{/css/table.css}"/>
+    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/jquery-3.6.0.min.js}"></script>
+    <script type="text/javascript" src="../static/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js" th:src="@{/plugins/bootstrap-3.4.1-dist/js/bootstrap.min.js}"></script>
 </head>
 <body>
-	<!-- 顶部栏 -->
-	<div class="topBar"><a href="#"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
-     <div class="jiaocai">
-        <a href="#" data-toggle="dropdown">教材 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">大一上</a></li>
-            <li><a href="#">大一下</a></li>
-            <li><a href="#">大二上</a></li>
-            <li><a href="#">大二下</a></li>
-            <li><a href="#">大三上</a></li>
-            <li><a href="#">大三下</a></li>
-            <li><a href="#">大四上</a></li>
-            <li><a href="#">大四下</a></li>
-          </ul>
-		<span>|</span>
-		<a href="#">其他书籍</a>
-	</div>		
-	<div class="login">
-		<div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              我的账户
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">账户信息</a></li>
-              <li><a href="#">商品信息</a></li>
-              <li><a href="#">书籍分类</a></li>
-            </ul>
-          </div>
-	</div>
-    <div>
-        <button>账户信息</button>
-        <button>书籍信息</button>
-        <button>书籍分类</button>
+<!-- 顶部栏 -->
+<div class="topBar"><a href="index.html" th:href="@{/index}"><i class="iconfont" >&#xe61b;</i>OBMS</a></div>
+<div class="jiaocai">
+    <div class="dropdown">
+        <button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            教材分类
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <div class="dropdownfont">
+                <div><a href="index.html?sno=1" th:href="@{/user/book_sort?sno=1}">大一上</a></div>
+                <div><a href="index.html?sno=2" th:href="@{/user/book_sort?sno=2}">大一下</a></div>
+                <div><a href="index.html?sno=3" th:href="@{/user/book_sort?sno=3}">大二上</a></div>
+                <div><a href="index.html?sno=4" th:href="@{/user/book_sort?sno=4}">大二下</a></div>
+                <div><a href="index.html?sno=5" th:href="@{/user/book_sort?sno=5}">大三上</a></div>
+                <div><a href="index.html?sno=6" th:href="@{/user/book_sort?sno=6}">大三下</a></div>
+                <div><a href="index.html?sno=7" th:href="@{/user/book_sort?sno=7}">大四上</a></div>
+                <div><a href="index.html?sno=8" th:href="@{/user/book_sort?sno=8}">大四下</a></div>
+                <div><a href="index.html?sno=9" th:href="@{/user/book_sort?sno=9}">其他书籍</a></div>
+            </div>
+        </ul>
     </div>
+</div>
+<div class="login">
+    <div class="dropdown">
+        <button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            功能管理
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <div class="dropdownfont">
+                <div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
+                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
+                <div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
+            </div>
+        </ul>
+    </div>
+</div>
+<hr/>
+<div>
+    <button class="btn">账户信息</button>
+    <button class="btn">书籍信息</button>
+    <button class="btn">书籍分类</button>
+</div>
 </body>
-<table class="table table-striped table-bordered text-center show_table">
-            <tr style="background-color: #CAE8EA;">
-                <th><input type="checkbox"></th>
-                <th>分类</th>
-                <th>书名</th>
-                <th>状态</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td>×××</td>
-                <td>×××</td>
-                <td>×××</td>
-            </tr>
-        </table>
-        
+<br/>
+<table class="table">
+    <tr style="background-color: #a13e26;color: aliceblue;">
+        <th><input type="checkbox"></th>
+        <th>书籍分类</th>
+        <th>书名</th>
+        <th>状态</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>×××</td>
+        <td>×××</td>
+        <td>×××</td>
+    </tr>
+</table>
 </html>

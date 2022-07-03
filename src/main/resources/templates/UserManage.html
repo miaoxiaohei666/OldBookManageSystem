@@ -34,21 +34,22 @@
         </ul>
     </div>
 </div>
-<div class="account">
+<div class="login">
     <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            我的账户
+        <button class="btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            功能管理
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">发布商品</a></li>
-            <li><a href="#">我发布的商品</a></li>
-            <li><a href="#">我想要的商品</a></li>
-            <li><a href="#">用户信誉</a></li>
+            <div class="dropdownfont">
+                <div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
+                <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
+                <div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
+            </div>
         </ul>
     </div>
 </div>
-  <hr/>
+    <hr>
     <div>
         <button class="btn">账户信息</button>
         <button class="btn">书籍信息</button>
