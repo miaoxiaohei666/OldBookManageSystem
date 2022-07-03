@@ -29,13 +29,23 @@ public class BookService {
         try {
             Publish publish = new Publish();
             book.getCreatetime();
-            System.out.println(book.getBno().toString()+"有问题吗？");
             bookDao.save(book);
             publish.setUno(uno);
             publish.setBno(book.getBno());
             publishDao.save(publish);
             flag = true;
-            System.out.println(publish.getBno().toString()+"没问题!");
+        } catch (Exception e) {
+            System.out.println("addBook to publish wrong!");
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public boolean editBook(Book book) {
+        boolean flag = false;
+        try {
+            bookDao.updateBook(book.getBdescribe(), book.getBname(), book.getBpicture(), book.getBprice(), book.isBstate(), book.getCreatetime(), book.getSno(), book.getBno());
+            flag = true;
         } catch (Exception e) {
             System.out.println("addBook to publish wrong!");
             e.printStackTrace();

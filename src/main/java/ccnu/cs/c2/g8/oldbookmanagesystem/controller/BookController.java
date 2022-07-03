@@ -107,11 +107,11 @@ public class BookController {
     }
 
     @RequestMapping(value = "/user/book/edit")
-    public String editBook(Book book, @CookieValue(name = "uno") Integer uno) {
+    public String editBook(Book book) {
         try {
+            System.out.println(book.getBno());
             book.getCreatetime();
-            bookService.addBook_Publish(book,uno);
-            return "redirect:/user/mine/publish";
+            if(bookService.editBook(book))return "redirect:/user/mine/publish";
         } catch (Exception e) {
             System.out.println("editBook wrong!");
             e.printStackTrace();
