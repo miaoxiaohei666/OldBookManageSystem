@@ -61,9 +61,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="books : ${booksList}" style="background-color: #a13e26;color: aliceblue;">
-            <th th:text="${user.uno}">书籍分类</th>
-            <!--            <td><a th:href="@{/user/ban(bno=${user.bno})}">删除分类</a></td>-->
+        <tr th:each="sorts : ${getAllBookSort}" style="background-color: #a13e26;color: aliceblue;">
+            <th th:text="${sorts.sname}">书籍分类</th>
+            <td><a th:href="@{/admin/sort/delete(sname=${sorts.sname})}">删除分类</a></td>
         </tr>
         </tbody>
     </table>

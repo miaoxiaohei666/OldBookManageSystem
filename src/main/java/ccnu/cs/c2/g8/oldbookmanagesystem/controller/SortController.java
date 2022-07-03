@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class SortController {
     SortService sortService;
 
-    @RequestMapping(value = "admin/sort/add")
+    @RequestMapping(value = "/admin/sort/add")
     public String sortAdd(Sort sort) {
         try {
             if (sortService.addSort(sort)) return "/index";
@@ -21,10 +21,10 @@ public class SortController {
         return "/error";
     }
 
-    @RequestMapping(value = "admin/sort/delete")
+    @RequestMapping(value = "/admin/sort/delete")
     public String sortDelete(@RequestParam(name = "sname") String sname) {
         try {
-            if (sortService.deleteSortbySname(sname)) return "/index";
+            if (sortService.deleteSortbySname(sname)) return "/BookSort";
         } catch (Exception e) {
             System.out.println("sortDelete wrong!");
             e.printStackTrace();
@@ -32,11 +32,11 @@ public class SortController {
         return "/error";
     }
 
-    @RequestMapping(value = "admin/sort/all")
+    @RequestMapping(value = "/admin/sort/all")
     public String getAllSorts(Model model) {
         try {
-            model.addAttribute("getBookPublish", sortService.getAllSort());
-            return "/index";
+            model.addAttribute("getAllBookSort", sortService.getAllSort());
+            return "/BookSort";
         } catch (Exception e) {
             System.out.println("getAllSorts wrong!");
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class SortController {
         return "/error";
     }
 
-    @RequestMapping(value = "user/sort/allsortsbygrade")
+    @RequestMapping(value = "/user/sort/allsortsbygrade")
     public String geAllSortBySgrade(Model model, @RequestParam(name = "sgrade") String sgrade) {
         try {
             model.addAttribute("getBookPublish", sortService.getAllSortBySgrade(sgrade));
