@@ -6,10 +6,13 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.dao.UserDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.dao.WantDao;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -83,12 +86,12 @@ public class UserService {
     }
 
     public List<Book> getPublish(User user) {
-        List<Integer> bnoList = null;
-        List<Book> bookList = null;
+        List<Publish> bnoList = null;
+        List<Book> bookList = new ArrayList<Book>();
         try {
             bnoList = publishDao.getAllByUno(user.getUno());
-            while (bnoList.iterator().hasNext()) {
-                bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
+            while (!bnoList.iterator().hasNext()) {
+                bookList.add(bookDao.getBookByBno(bnoList.iterator().next().getBno()));
             }
         } catch (Exception e) {
             System.out.println("getPublish wrong!");
@@ -98,12 +101,12 @@ public class UserService {
     }
 
     public List<Book> getWant(User user) {
-        List<Integer> bnoList = null;
+        List<Want> bnoList = null;
         List<Book> bookList = null;
         try {
             bnoList = wantDao.getAllByUno(user.getUno());
             while (bnoList.iterator().hasNext()) {
-                bookList.add(bookDao.getBookByBno((bnoList.iterator().next())));
+                bookList.add(bookDao.getBookByBno((bnoList.iterator().next().getBno())));
             }
         } catch (Exception e) {
             System.out.println("getWant wrong!");

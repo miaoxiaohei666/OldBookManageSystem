@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PublishDao extends JpaRepository<Publish, PublishKey> {
-    List<Integer> getAllByUno(Integer uno);
+    List<Publish> getAllByUno(Integer uno);
 
     boolean deleteByUnoAndBno(Integer uno,Integer bno);
 }

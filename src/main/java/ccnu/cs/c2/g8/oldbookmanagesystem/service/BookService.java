@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -69,14 +71,16 @@ public class BookService {
 
     public List<Book> getBookPublish(Integer uno) {
         try {
-            List<Integer> bnoList = publishDao.getAllByUno(uno);
-            List<Book> bookList = null;
-            while (bnoList.iterator().hasNext()) {
-                bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
+            List<Publish> bnoList = publishDao.getAllByUno(uno);
+            List<Book> bookList = new ArrayList<Book>();
+            Iterator<Publish> itr=bnoList.listIterator();
+            while (itr.hasNext()) {
+                System.out.println(uno.toString());
+                bookList.add(bookDao.getBookByBno(itr.next().getBno()));
             }
             return bookList;
         } catch (Exception e) {
-            System.out.println("getBookPublish wrong!");
+            System.out.println("getBookPublish wrong1!");
             e.printStackTrace();
         }
         return null;
@@ -84,10 +88,12 @@ public class BookService {
 
     public List<Book> getBookWant(Integer uno) {
         try {
-            List<Integer> bnoList = wantDao.getAllByUno(uno);
-            List<Book> bookList = null;
-            while (bnoList.iterator().hasNext()) {
-                bookList.add(bookDao.getBookByBno(bnoList.iterator().next()));
+            List<Want> bnoList = wantDao.getAllByUno(uno);
+            List<Book> bookList = new ArrayList<Book>();
+            Iterator<Want> itr=bnoList.listIterator();
+            while (itr.hasNext()) {
+                System.out.println(uno.toString());
+                bookList.add(bookDao.getBookByBno(itr.next().getBno()));
             }
             return bookList;
         } catch (Exception e) {

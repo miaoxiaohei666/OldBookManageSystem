@@ -64,7 +64,7 @@ public class BookController {
             model.addAttribute("getBookPublish", bookService.getBookPublish(uno));
             return "/mypublishbook";
         } catch (Exception e) {
-            System.out.println("getBookPublish wrong!");
+            System.out.println("getBookPublish wrong2!");
             e.printStackTrace();
         }
         return "/error";
