@@ -48,7 +48,7 @@ public class UserController {
 
     @RequestMapping("/BookSort")
     public String administerToBookSort() {
-        return "/BookSort";
+        return "redirect:/admin/sort/all";
     }
 
     @RequestMapping("/toPublishBook")
