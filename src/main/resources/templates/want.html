@@ -43,7 +43,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li><a href="publishBook.html" th:href="@{/toPublishBook}">发布书籍</a></li>
             <li><a href="mypublishbook.html" th:href="@{/toMyPublishBook}">我发布的书籍</a></li>
-            <li><a href="want.html" th:href="@{/toMyWantBook}">我想要的书籍</a></li>
+            <li><a href="want.html" th:href="@{/toMyWantBook}">我收藏的书籍</a></li>
             <li><a href="customHonesty.html" th:href="@{/toCustomHonesty}">用户信誉</a></li>
         </ul>
     </div>
@@ -52,20 +52,20 @@
 <!-- 标题 -->
 <div class="box-hd">
     <br>
-    <h2>🔘我想要的商品：</h2>
+    <h2>🔘我收藏的书籍：</h2>
 </div>
-<div class="book_list">
-    <form action="">
-        <hr/>
-        <div class="bookMessage_content">
-            <div>
-                <button class="btn">全部</button>
-                <button value="0" class="btn">已上架</button>
-                <button value="1" class="btn">已下架</button>
-            </div>
-        </div>
-    </form>
-</div>
+<!--<div class="book_list">-->
+<!--    <form action="">-->
+<!--        <hr/>-->
+<!--        <div class="bookMessage_content">-->
+<!--            <div>-->
+<!--                <button class="btn">全部</button>-->
+<!--                <button value="0" class="btn">已上架</button>-->
+<!--                <button value="1" class="btn">已下架</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
 <br/>
 <div id="main">
     <table class="table">
@@ -75,6 +75,7 @@
             <th>发布时间</th>
             <th>书籍价格</th>
             <th>书籍信息</th>
+            <th>联系电话</th>
             <th>取消收藏</th>
         </tr>
         </thead>
@@ -84,6 +85,7 @@
             <td th:text="${books.createtime}">发布时间</td>
             <td th:text="${books.bprice}">书籍价格</td>
             <td th:text="${books.bdescribe}">书籍信息</td>
+            <th th:text="${books.bname}">联系电话</th>
             <td><a th:href="@{/user/mine/banwant(bno=${books.bno})}">取消收藏</a></td>
         </tr>
         </tbody>
