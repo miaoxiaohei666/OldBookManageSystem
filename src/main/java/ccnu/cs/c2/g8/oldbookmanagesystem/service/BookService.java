@@ -8,10 +8,12 @@ import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Publish;
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.middle.Want;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
+@Transactional
 @Service
 public class BookService {
     @Autowired
@@ -26,6 +28,7 @@ public class BookService {
         boolean flag = false;
         try {
             Publish publish = new Publish();
+            book.getCreatetime();
             bookDao.save(book);
             publish.setUno(uno);
             publish.setBno(book.getBno());
@@ -73,7 +76,6 @@ public class BookService {
             List<Book> bookList = new ArrayList<Book>();
             Iterator<Publish> itr=bnoList.listIterator();
             while (itr.hasNext()) {
-                System.out.println(uno.toString());
                 bookList.add(bookDao.getBookByBno(itr.next().getBno()));
             }
             return bookList;
@@ -112,7 +114,8 @@ public class BookService {
 
     public boolean deleteBookFormPublish(Integer uno, Integer bno) {
         try {
-            return publishDao.deleteByUnoAndBno(uno, bno);
+            publishDao.deleteByUnoAndBno(uno,bno);
+            return true;
         } catch (Exception e) {
             System.out.println("getAllBySno wrong!");
             e.printStackTrace();

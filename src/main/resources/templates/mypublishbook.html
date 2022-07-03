@@ -88,7 +88,7 @@
                     <span th:if="${books.bstate}">已下架</span>
 <!--                <td><a href="editPublishBook.html?bno=${books.bno}" th:href="@{/toEditPublishBook?bno=${books.bno}}">编辑</a></td>-->
                 <td><a th:href="@{/toEditPublishBook(bno=${books.bno})}">编辑</a></td>
-<!--                <td><a th:href="@{/user/mine/banpublish(bno=${books.bno})}">下架</a></td>-->
+                <td><a th:href="@{/user/mine/banpublish(bno=${books.bno})}">下架</a></td>
             </tr>
             </tbody>
         </table>

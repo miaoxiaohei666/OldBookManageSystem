@@ -9,5 +9,5 @@ import java.util.List;
 public interface PublishDao extends JpaRepository<Publish, PublishKey> {
     List<Publish> getAllByUno(Integer uno);
 
-    boolean deleteByUnoAndBno(Integer uno,Integer bno);
+    Integer deleteByUnoAndBno(Integer uno,Integer bno);
 }
