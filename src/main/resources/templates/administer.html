@@ -49,15 +49,25 @@
         </ul>
     </div>
 </div>
-<hr/>
-<div>
-    <p>请选择查询功能</p>
-    <div><a href="UserManage.html" th:href="@{/UserManage}">账户信息</a></div>
-    <div><a href="BookManage.html" th:href="@{/BookManage}">商品信息</a></div>
-    <div><a href="BookSort.html" th:href="@{/BookSort}">书籍分类</a></div>
-<!--    <button class="btn">账户信息</button>-->
-<!--    <button class="btn">商品信息</button>-->
-<!--    <button class="btn" >书籍分类</button>-->
+
+<!-- 内容详情 -->
+<!-- 标题 -->
+<div class="box-hd">
+    <h2>🔘请选择查询功能：</h2>
 </div>
+<div class="book_list">
+    <form action="">
+        <hr/>
+        <div class="bookMessage_content">
+            <div>
+                <button class="btn"><a href="UserManage.html" th:href="@{/UserManage}"></a>账户信息</button>
+                <button value="0" class="btn"><a href="BookManage.html" th:href="@{/BookManage}"></a>商品信息</button>
+                <button value="1" class="btn"><a href="BookSort.html" th:href="@{/BookSort}"></a>书籍分类</button>
+            </div>
+        </div>
+    </form>
+</div>
+<br/>
+
 </body>
 </html>

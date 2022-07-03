@@ -133,7 +133,7 @@ public class UserController {
     public String getUserByUno(Model model,@CookieValue(name = "uno") Integer uno){
         try{
             model.addAttribute( "getUserHonestyByUno", userService.getUserByUno(uno));
-            return "/index";
+            return "/customHonesty";
         } catch (Exception e) {
             System.out.println("getUserByUno wrong!");
             e.printStackTrace();
