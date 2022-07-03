@@ -54,14 +54,14 @@
 	</div>
   <div>
     <ul class="textfont">
-    <ul class="textfont" th:each="user : ${getUserHonestyByUno}">
+    <ul class="textfont" th:each="user: ${getUserHonestyByUno}">
         <li>
             <p>点赞数</p>
-            <p class="yes" th:value="${user.like}">126</p>
+            <p class="yes" th:text="${getUserHonestyByUno.getLike()}"></p>
         </li>
         <li>
             <p>点踩数</p>
-            <p class="no" th:value="${user.ulike}">16</p>
+            <p class="no" th:text="${getUserHonestyByUno.getUnlike()}"></p>
         </li>
     </ul>
   </div>
