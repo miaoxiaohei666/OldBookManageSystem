@@ -3,7 +3,9 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.BookService;
+import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ public class BookController {
     @RequestMapping(value = "/user/add_publish")
     public String bookAddPublish(Book book, @CookieValue(value = "uno") Integer uno) {
         try {
+            System.out.println(uno.toString());
             book.getCreatetime();
             if(bookService.addBook_Publish(book, uno)) return "/publishBook";
         } catch (Exception e) {
@@ -51,7 +54,7 @@ public class BookController {
     public String getBookPublish(Model model, @CookieValue(value = "uno") Integer uno) {
         try{
             model.addAttribute("getBookPublish", bookService.getBookPublish(uno));
-            return "/index";
+            return "/mypublishbook";
         }catch (Exception e){
             System.out.println("getBookPublish wrong!");
             e.printStackTrace();
@@ -63,7 +66,7 @@ public class BookController {
     public String getBookWant(Model model, @CookieValue(value = "uno") Integer uno) {
         try{
             model.addAttribute("getBookWant", bookService.getBookWant(uno));
-            return "/index";
+            return "/want";
         }catch (Exception e){
             System.out.println("getBookWant wrong!");
             e.printStackTrace();
@@ -82,6 +85,14 @@ public class BookController {
         }
         return "/error";
     }
+
+    //getUserHonestyByUno根据Uno获取用户点赞数和点踩数
+//    @RequestMapping(Value = "/user/mine/customHonesty")
+//    public String getUserHonestyByUno(Model model){
+//        try{
+//            model.addAttribute(attributeName: "getUserHonestyByUno", UserService.)
+//        }
+//    }
 
     @RequestMapping(value = "/user/book_sort/grade1")
     public String getBookByGrade1(Model model) {

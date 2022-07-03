@@ -34,23 +34,23 @@
         </ul>
     </div>
 </div>
-	<div class="account">
-		<div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              我的账户
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">发布商品</a></li>
-              <li><a href="#">我发布的商品</a></li>
-              <li><a href="#">我想要的商品</a></li>
-                  <li><a href="#">用户信誉</a></li>
-            </ul>
-          </div>
-	</div>
+<div class="account">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            我的账户
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="publishBook.html" th:href="@{/toPublishBook}">发布商品</a></li>
+            <li><a href="mypublishbook.html" th:href="@{/toMyPublishBook}">我发布的商品</a></li>
+            <li><a href="want.html" th:href="@{/toMyWantBook}">我想要的商品</a></li>
+            <li><a href="customHonesty.html" th:href="@{/toCustomHonesty}">用户信誉</a></li>
+        </ul>
+    </div>
+</div>
     <div class="box-hd">
 		<h2>🔘用户信誉</h2>
-        <h3 title="信誉太低会封号">❓</h3>
+<!--        <h3 title="信誉太低会封号">❓</h3>-->
 	</div>
   <div>
     <ul class="textfont">

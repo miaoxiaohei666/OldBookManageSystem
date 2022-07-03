@@ -41,10 +41,10 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">发布商品</a></li>
-            <li><a href="#">我发布的商品</a></li>
-            <li><a href="#">我想要的商品</a></li>
-            <li><a href="#">用户信誉</a></li>
+            <li><a href="publishBook.html" th:href="@{/toPublishBook}">发布商品</a></li>
+            <li><a href="mypublishbook.html" th:href="@{/toMyPublishBook}">我发布的商品</a></li>
+            <li><a href="want.html" th:href="@{/toMyWantBook}">我想要的商品</a></li>
+            <li><a href="customHonesty.html" th:href="@{/toCustomHonesty}">用户信誉</a></li>
         </ul>
     </div>
 </div>
@@ -56,15 +56,12 @@
 	</div>
 		<div class="book_list">
 			<form action="">
-				<div class="bookMessage_title" style=" font-size: 24px;
-                color: aliceblue;
-                font-family: 宋体">我的商品：</div>
                 <hr/>
 					<div class="bookMessage_content">
                         <div>
                             <button class="btn">全部</button>
-                            <button class="btn">已上架</button>
-                            <button class="btn">已下架</button>
+                            <button value="0" class="btn">已上架</button>
+                            <button value="1" class="btn">已下架</button>
                         </div>
 					</div>
 	        </form>
@@ -83,8 +80,11 @@
             <tbody>
             <tr th:each="books : ${getBookPublish}" style="background-color: #a13e26;color: aliceblue;">
                 <th th:text="${books.bname}">书籍名称</th>
-                <th th:text="${books.bprice}">书籍价格</th>
-                <th th:text="${books.bdescribe}">书籍信息</th>
+                <td th:text="${books.createtime}">发布时间</td>
+                <td th:text="${books.bprice}">书籍价格</td>
+                <td th:text="${books.bdescribe}">书籍信息</td>
+                <td><a th:href="@{/toEditMyPublish(id=${user.id},username=${user.username})}">编辑</a></td>
+                <td><a th:href="@{/delete(id=${user.id})}">下架</a></td>
             </tr>
             </tbody>
         </table>

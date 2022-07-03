@@ -68,7 +68,7 @@ public class UserController {
 
     @RequestMapping("/toCustomHonesty")
     public String toCustomHonesty() {
-        return "redirect:/customHonesty";
+        return "redirect:/user/mine/customHonesty";
     }
 
     @RequestMapping("toRegister")
