@@ -61,15 +61,15 @@
                 <div class="textfont">书籍分类</div>
                 <div class="textfont">
                     <select name="sno" class="btn">
-                        <option value="1" th:selected="if *{sno}==1">大一上</option>
-                        <option value="2" th:selected="if *{sno}==2">大一下</option>
-                        <option value="3" th:selected="if *{sno}==3">大二上</option>
-                        <option value="4" th:selected="if *{sno}==4">大二下</option>
-                        <option value="5" th:selected="if *{sno}==5">大三上</option>
-                        <option value="6" th:selected="if *{sno}==6">大三下</option>
-                        <option value="7" th:selected="if *{sno}==7">大四上</option>
-                        <option value="8" th:selected="if *{sno}==8">大四下</option>
-                        <option value="9" th:selected="if *{sno}==9">其他书籍</option>
+                        <option value="1" th:selected="*{sno} eq 1">大一上</option>
+                        <option value="2" th:selected="*{sno} eq 2">大一下</option>
+                        <option value="3" th:selected="*{sno} eq 3">大二上</option>
+                        <option value="4" th:selected="*{sno} eq 4">大二下</option>
+                        <option value="5" th:selected="*{sno} eq 5">大三上</option>
+                        <option value="6" th:selected="*{sno} eq 6">大三下</option>
+                        <option value="7" th:selected="*{sno} eq 7">大四上</option>
+                        <option value="8" th:selected="*{sno} eq 8">大四下</option>
+                        <option value="9" th:selected="*{sno} eq 9">其他书籍</option>
                     </select>
                 </div>
             </div>
