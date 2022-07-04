@@ -43,8 +43,9 @@
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 			<li><a href="publishBook.html" th:href="@{/toPublishBook}">发布书籍</a></li>
 			<li><a href="mypublishbook.html" th:href="@{/toMyPublishBook}">我发布的书籍</a></li>
-			<li><a href="want.html" th:href="@{/toMyWantBook}">我想要的书籍</a></li>
+			<li><a href="want.html" th:href="@{/toMyWantBook}">我收藏的书籍</a></li>
 			<li><a href="customHonesty.html" th:href="@{/toCustomHonesty}">用户信誉</a></li>
+			<li><a href="denglu.html" th:href="@{/}">登出</a></li>
 		</ul>
 	</div>
 </div>
@@ -60,16 +61,20 @@
 		<thead>
 		<tr>
 			<th>书籍名称</th>
+			<th>发布时间</th>
 			<th>书籍价格</th>
 			<th>书籍信息</th>
+			<th>联系电话</th>
 			<th>收藏书籍</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr th:each="books : ${getBookByGrade1}" style="background-color: #a13e26;color: aliceblue;">
 			<th th:text="${books.bname}">书籍名称</th>
+			<th th:text="${books.createtime}">发布时间</th>
 			<th th:text="${books.bprice}">书籍价格</th>
 			<th th:text="${books.bdescribe}">书籍信息</th>
+			<th th:text="${books.bname}">联系电话</th>
 			<td><a th:href="@{/user/add_want(bno=${books.bno})}">收藏</a></td>
 		</tr>
 		</tbody>

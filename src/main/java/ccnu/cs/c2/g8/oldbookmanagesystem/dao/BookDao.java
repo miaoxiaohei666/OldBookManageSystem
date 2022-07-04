@@ -15,6 +15,9 @@ public interface BookDao extends JpaRepository<Book, Integer> {
 
     List<Book> getBookBySnoAndBstateIsFalse(Integer sno);
 
+    List<Book> getBookBySno(Integer sno);
+
+    void deleteBookByBno(Integer bno);
     @Modifying
     @Query(value = "update book set bdescribe=?, bname=?, bpicture=?, bprice=?, bstate=?, create_time=?, sno=? where bno=?",
             nativeQuery = true)
