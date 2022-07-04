@@ -141,7 +141,7 @@ public class UserController {
         return "/error";
     }
 
-    @RequestMapping(value = "/user/mine/customHonesty")
+    @RequestMapping(value = "/user/mine/getUserByBno")
     public String getUserByBno(Model model,@RequestParam(name = "bno") Integer bno){
         try{
             model.addAttribute( "getUserByBno", userService.getUserByBno(bno));
@@ -152,4 +152,6 @@ public class UserController {
         }
         return "/error";
     }
+
+
 }

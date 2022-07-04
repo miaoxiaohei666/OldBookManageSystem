@@ -41,7 +41,7 @@ public class UserService {
     public boolean userLogin(Integer uno, String password) {
         try {
             User user =userDao.getByUnoAndUpassword(uno,password);
-            if(user!=null && user.isUstate()){
+            if(user!=null && !user.isUstate()){
                 return true;
             }
         } catch (Exception e) {
@@ -136,4 +136,5 @@ public class UserService {
         }
         return null;
     }
+
 }
