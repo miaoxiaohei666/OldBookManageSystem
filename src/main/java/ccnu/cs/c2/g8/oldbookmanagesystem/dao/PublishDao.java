@@ -10,4 +10,6 @@ public interface PublishDao extends JpaRepository<Publish, PublishKey> {
     List<Publish> getAllByUno(Integer uno);
 
     Integer deleteByUnoAndBno(Integer uno,Integer bno);
+
+    Integer getByBno(Integer bno);
 }

@@ -126,4 +126,13 @@ public class UserService {
         return null;
     }
 
+    public User getUserByBno(Integer bno){
+        try {
+            return userDao.getUserByUno(publishDao.getByBno(bno));
+        } catch (Exception e) {
+            System.out.println("getUserUnlike wrong!");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
