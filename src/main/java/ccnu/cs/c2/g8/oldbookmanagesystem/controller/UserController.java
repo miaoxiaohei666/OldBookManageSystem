@@ -141,4 +141,17 @@ public class UserController {
         return "/error";
     }
 
+    @RequestMapping(value = "/user/mine/getUserByBno")
+    public String getUserByBno(Model model,@RequestParam(name = "bno") Integer bno){
+        try{
+            model.addAttribute( "getUserByBno", userService.getUserByBno(bno));
+            return "/customHonesty";
+        } catch (Exception e) {
+            System.out.println("getUserByBno wrong!");
+            e.printStackTrace();
+        }
+        return "/error";
+    }
+
+
 }

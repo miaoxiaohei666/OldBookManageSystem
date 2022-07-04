@@ -41,7 +41,7 @@ public class UserService {
     public boolean userLogin(Integer uno, String password) {
         try {
             User user =userDao.getByUnoAndUpassword(uno,password);
-            if(user!=null && user.isUstate()){
+            if(user!=null && !user.isUstate()){
                 return true;
             }
         } catch (Exception e) {
@@ -120,6 +120,16 @@ public class UserService {
     public List<User> getUserUnlike() {
         try {
             return userDao.findAllByOrderByUnlikeDesc();
+        } catch (Exception e) {
+            System.out.println("getUserUnlike wrong!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public User getUserByBno(Integer bno){
+        try {
+            return userDao.getUserByUno(publishDao.getByBno(bno));
         } catch (Exception e) {
             System.out.println("getUserUnlike wrong!");
             e.printStackTrace();
