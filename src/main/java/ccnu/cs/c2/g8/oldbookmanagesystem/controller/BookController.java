@@ -2,16 +2,24 @@ package ccnu.cs.c2.g8.oldbookmanagesystem.controller;
 
 
 import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.Book;
+import ccnu.cs.c2.g8.oldbookmanagesystem.data.entity.User;
 import ccnu.cs.c2.g8.oldbookmanagesystem.service.BookService;
+import ccnu.cs.c2.g8.oldbookmanagesystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.ListIterator;
+
 @Controller
 public class BookController {
     @Autowired
     BookService bookService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/user/add_publish")
     public String bookAddPublish(Book book, @CookieValue(value = "uno") Integer uno) {
@@ -73,6 +81,14 @@ public class BookController {
     public String getBookWant(Model model, @CookieValue(value = "uno") Integer uno) {
         try {
             model.addAttribute("getBookWant", bookService.getBookWant(uno));
+            List<Book> bookList = bookService.getBookWant(uno);
+            List<User> userList = null;
+            ListIterator<Book> iterator = bookList.listIterator();
+            while (iterator.hasNext()) {
+                userList.add(userService.getUserByBno(iterator.next().getBno()));
+            }
+            model.addAttribute( "getbookList", bookList);
+            model.addAttribute( "getuserList", userList);
             return "/want";
         } catch (Exception e) {
             System.out.println("getBookWant wrong!");
