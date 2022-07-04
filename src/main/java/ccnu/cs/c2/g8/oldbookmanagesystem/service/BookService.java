@@ -82,6 +82,18 @@ public class BookService {
         return flag;
     }
 
+    public  boolean deleteBook(Integer bno){
+        boolean flag=false;
+        try{
+            bookDao.deleteBookByBno(bno);
+            flag=true;
+        }catch (Exception e){
+            System.out.println("delete wrong!");
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
     public List<Book> getBookPublish(Integer uno) {
         try {
             List<Publish> bnoList = publishDao.getAllByUno(uno);

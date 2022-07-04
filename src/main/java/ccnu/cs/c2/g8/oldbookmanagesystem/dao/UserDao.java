@@ -14,6 +14,7 @@ public interface UserDao extends JpaRepository<User, Integer> {
     User getUserByUno(Integer uno);
     boolean findByUno(Integer uno);
 
+
     User getByUnoAndUpassword(Integer uno, String upassword);
     List<User> findAllByOrderByUnlikeDesc();
 }

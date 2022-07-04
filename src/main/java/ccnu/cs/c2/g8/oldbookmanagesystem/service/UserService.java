@@ -40,7 +40,8 @@ public class UserService {
 
     public boolean userLogin(Integer uno, String password) {
         try {
-            if(userDao.getByUnoAndUpassword(uno, password)!=null){
+            User user =userDao.getByUnoAndUpassword(uno,password);
+            if(user!=null && user.isUstate()){
                 return true;
             }
         } catch (Exception e) {
